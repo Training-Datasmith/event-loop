@@ -29,7 +29,7 @@ class StreamSelectDriverTest extends DriverTest
             self::markTestSkipped('Skip on Windows');
         }
 
-        if (!\extension_loaded("pcntl")
+        if (!\extension_loaded('pcntl')
             || !\function_exists('pcntl_signal_dispatch')
             || !\function_exists('pcntl_signal')) {
             self::markTestSkipped('Skip, PCNTL functions not available');
@@ -78,7 +78,7 @@ class StreamSelectDriverTest extends DriverTest
         }
 
         $this->expectException(\Exception::class);
-        $this->expectExceptionMessage("You have reached the limits of stream_select(). It has a FD_SETSIZE of 1024, but you have file descriptors numbered at least as high as 2");
+        $this->expectExceptionMessage('You have reached the limits of stream_select(). It has a FD_SETSIZE of 1024, but you have file descriptors numbered at least as high as 2');
 
         try {
             $this->start(function (Driver $loop) use ($sockets) {
@@ -113,7 +113,7 @@ class StreamSelectDriverTest extends DriverTest
             self::markTestSkipped('Skip on Windows');
         }
 
-        if (!\extension_loaded("pcntl")
+        if (!\extension_loaded('pcntl')
             || !\function_exists('pcntl_signal_dispatch')
             || !\function_exists('pcntl_signal')) {
             self::markTestSkipped('Skip, PCNTL functions not available');

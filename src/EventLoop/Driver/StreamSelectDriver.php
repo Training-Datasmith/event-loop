@@ -49,20 +49,20 @@ final class StreamSelectDriver extends AbstractDriver
 
         $this->signalQueue = new \SplQueue();
         $this->timerQueue = new TimerQueue();
-        $this->signalHandling = \extension_loaded("pcntl")
+        $this->signalHandling = \extension_loaded('pcntl')
             && \function_exists('pcntl_signal_dispatch')
             && \function_exists('pcntl_signal');
 
         $this->streamSelectErrorHandler = function (int $errno, string $message): void {
             // Casing changed in PHP 8 from 'unable' to 'Unable'
-            if (\stripos($message, "stream_select(): unable to select [4]: ") === 0) { // EINTR
+            if (\stripos($message, 'stream_select(): unable to select [4]: ') === 0) { // EINTR
                 $this->streamSelectIgnoreResult = true;
 
                 return;
             }
 
             if (\str_contains($message, 'FD_SETSIZE')) {
-                $message = \str_replace(["\r\n", "\n", "\r"], " ", $message);
+                $message = \str_replace(["\r\n", "\n", "\r"], ' ', $message);
                 $pattern = '(stream_select\(\): You MUST recompile PHP with a larger value of FD_SETSIZE. It is set to (\d+), but you have descriptors numbered at least as high as (\d+)\.)';
 
                 if (\preg_match($pattern, $message, $match)) {
@@ -71,7 +71,7 @@ final class StreamSelectDriver extends AbstractDriver
                     $message = 'You have reached the limits of stream_select(). It has a FD_SETSIZE of ' . $match[1]
                         . ', but you have file descriptors numbered at least as high as ' . $match[2] . '. '
                         . "You can install one of the extensions listed on {$helpLink} to support a higher number of "
-                        . "concurrent file descriptors. If a large number of open file descriptors is unexpected, you "
+                        . 'concurrent file descriptors. If a large number of open file descriptors is unexpected, you '
                         . "might be leaking file descriptors that aren't closed correctly.";
                 }
             }
@@ -95,7 +95,7 @@ final class StreamSelectDriver extends AbstractDriver
     public function onSignal(int $signal, \Closure $closure): string
     {
         if (!$this->signalHandling) {
-            throw new UnsupportedFeatureException("Signal handling requires the pcntl extension");
+            throw new UnsupportedFeatureException('Signal handling requires the pcntl extension');
         }
 
         return parent::onSignal($signal, $closure);
@@ -164,7 +164,7 @@ final class StreamSelectDriver extends AbstractDriver
                 if (!isset($this->signalCallbacks[$callback->signal])) {
                     \set_error_handler(static function (int $errno, string $errstr): bool {
                         throw new UnsupportedFeatureException(
-                            \sprintf("Failed to register signal handler; Errno: %d; %s", $errno, $errstr)
+                            \sprintf('Failed to register signal handler; Errno: %d; %s', $errno, $errstr)
                         );
                     });
 
@@ -181,7 +181,7 @@ final class StreamSelectDriver extends AbstractDriver
                 $this->signalCallbacks[$callback->signal][$callback->id] = $callback;
             } else {
                 // @codeCoverageIgnoreStart
-                throw new \Error("Unknown callback type");
+                throw new \Error('Unknown callback type');
                 // @codeCoverageIgnoreEnd
             }
         }
@@ -219,7 +219,7 @@ final class StreamSelectDriver extends AbstractDriver
             }
         } else {
             // @codeCoverageIgnoreStart
-            throw new \Error("Unknown callback type");
+            throw new \Error('Unknown callback type');
             // @codeCoverageIgnoreEnd
         }
     }

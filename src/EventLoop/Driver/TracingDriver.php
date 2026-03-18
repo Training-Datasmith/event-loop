@@ -119,8 +119,8 @@ final class TracingDriver implements Driver
             $this->driver->enable($callbackId);
             $this->enabledCallbacks[$callbackId] = true;
         } catch (InvalidCallbackError $e) {
-            $e->addInfo("Creation trace", $this->getCreationTrace($callbackId));
-            $e->addInfo("Cancellation trace", $this->getCancelTrace($callbackId));
+            $e->addInfo('Creation trace', $this->getCreationTrace($callbackId));
+            $e->addInfo('Cancellation trace', $this->getCancelTrace($callbackId));
 
             throw $e;
         }
@@ -153,8 +153,8 @@ final class TracingDriver implements Driver
             $this->driver->reference($callbackId);
             unset($this->unreferencedCallbacks[$callbackId]);
         } catch (InvalidCallbackError $e) {
-            $e->addInfo("Creation trace", $this->getCreationTrace($callbackId));
-            $e->addInfo("Cancellation trace", $this->getCancelTrace($callbackId));
+            $e->addInfo('Creation trace', $this->getCreationTrace($callbackId));
+            $e->addInfo('Cancellation trace', $this->getCancelTrace($callbackId));
 
             throw $e;
         }
@@ -188,14 +188,14 @@ final class TracingDriver implements Driver
 
     public function dump(): string
     {
-        $dump = "Enabled, referenced callbacks keeping the loop running: ";
+        $dump = 'Enabled, referenced callbacks keeping the loop running: ';
 
         foreach ($this->enabledCallbacks as $callbackId => $_) {
             if (isset($this->unreferencedCallbacks[$callbackId])) {
                 continue;
             }
 
-            $dump .= "Callback identifier: " . $callbackId . "\r\n";
+            $dump .= 'Callback identifier: ' . $callbackId . "\r\n";
             $dump .= $this->getCreationTrace($callbackId);
             $dump .= "\r\n\r\n";
         }
@@ -263,15 +263,15 @@ final class TracingDriver implements Driver
         return \implode("\n", \array_map(static function (array|int $e, int $i): string {
             $line = "#{$i} ";
 
-            if (isset($e["file"], $e['line'])) {
+            if (isset($e['file'], $e['line'])) {
                 $line .= "{$e['file']}:{$e['line']} ";
             }
 
-            if (isset($e["class"], $e["type"])) {
-                $line .= $e["class"] . $e["type"];
+            if (isset($e['class'], $e['type'])) {
+                $line .= $e['class'] . $e['type'];
             }
 
-            return $line . $e["function"] . "()";
+            return $line . $e['function'] . '()';
         }, $trace, \array_keys($trace)));
     }
 }

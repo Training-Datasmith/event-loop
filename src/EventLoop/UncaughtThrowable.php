@@ -19,7 +19,7 @@ final class UncaughtThrowable extends \Error
 
     public static function throwingErrorHandler(\Closure $closure, \Throwable $previous): self
     {
-        return new self("Uncaught %s thrown in event loop error handler %s%s", $closure, $previous);
+        return new self('Uncaught %s thrown in event loop error handler %s%s', $closure, $previous);
     }
 
     private function __construct(string $message, \Closure $closure, \Throwable $previous)

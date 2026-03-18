@@ -10,15 +10,15 @@ use Revolt\EventLoop\InvalidCallbackError;
 use Revolt\EventLoop\UncaughtThrowable;
 use Revolt\EventLoop\UnsupportedFeatureException;
 
-if (!\defined("SIGUSR1")) {
-    \define("SIGUSR1", 30);
+if (!\defined('SIGUSR1')) {
+    \define('SIGUSR1', 30);
 }
-if (!\defined("SIGUSR2")) {
-    \define("SIGUSR2", 31);
+if (!\defined('SIGUSR2')) {
+    \define('SIGUSR2', 31);
 }
 
-if (!\defined("PHP_INT_MIN")) {
-    \define("PHP_INT_MIN", ~PHP_INT_MAX);
+if (!\defined('PHP_INT_MIN')) {
+    \define('PHP_INT_MIN', ~PHP_INT_MAX);
 }
 
 abstract class DriverTest extends TestCase
@@ -108,7 +108,7 @@ abstract class DriverTest extends TestCase
     public function checkForSignalCapability(): void
     {
         if (!\extension_loaded('posix')) {
-            self::markTestSkipped("ext-posix is required for sending test signals. Skipping.");
+            self::markTestSkipped('ext-posix is required for sending test signals. Skipping.');
         }
 
         try {
@@ -116,7 +116,7 @@ abstract class DriverTest extends TestCase
             });
             $this->loop->cancel($callbackId);
         } catch (UnsupportedFeatureException) {
-            self::markTestSkipped("The event loop is not capable of handling signals properly. Skipping.");
+            self::markTestSkipped('The event loop is not capable of handling signals properly. Skipping.');
         }
     }
 
@@ -247,7 +247,7 @@ abstract class DriverTest extends TestCase
 
     public function testDisabledDeferReenableInSubsequentTick(): void
     {
-        $this->expectOutputString("123");
+        $this->expectOutputString('123');
         $this->start(function (Driver $loop) {
             $callbackId = $loop->defer(function (): void {
                 echo 3;
@@ -263,25 +263,16 @@ abstract class DriverTest extends TestCase
 
     public function provideRegistrationArgs(): iterable
     {
-        yield "defer" => [
-            "defer",
+        yield 'defer' => [
+            'defer',
             [
                 static function () {
                 },
             ],
         ];
 
-        yield "delay" => [
-            "delay",
-            [
-                0.005,
-                static function () {
-                },
-            ],
-        ];
-
-        yield "repeat" => [
-            "repeat",
+        yield 'delay' => [
+            'delay',
             [
                 0.005,
                 static function () {
@@ -289,8 +280,17 @@ abstract class DriverTest extends TestCase
             ],
         ];
 
-        yield "onWritable" => [
-            "onWritable",
+        yield 'repeat' => [
+            'repeat',
+            [
+                0.005,
+                static function () {
+                },
+            ],
+        ];
+
+        yield 'onWritable' => [
+            'onWritable',
             [
                 \STDOUT,
                 static function () {
@@ -298,8 +298,8 @@ abstract class DriverTest extends TestCase
             ],
         ];
 
-        yield "onReadable" => [
-            "onReadable",
+        yield 'onReadable' => [
+            'onReadable',
             [
                 \STDIN,
                 static function () {
@@ -307,8 +307,8 @@ abstract class DriverTest extends TestCase
             ],
         ];
 
-        yield "onSignal" => [
-            "onSignal",
+        yield 'onSignal' => [
+            'onSignal',
             [
                 \SIGUSR1,
                 static function () {
@@ -320,7 +320,7 @@ abstract class DriverTest extends TestCase
     /** @dataProvider provideRegistrationArgs */
     public function testDisableWithConsecutiveCancel(string $type, array $args): void
     {
-        if ($type === "onSignal") {
+        if ($type === 'onSignal') {
             $this->checkForSignalCapability();
         }
 
@@ -341,15 +341,15 @@ abstract class DriverTest extends TestCase
     /** @dataProvider provideRegistrationArgs */
     public function testCallbackReferenceInfo(string $type, array $args): void
     {
-        if ($type === "onSignal") {
+        if ($type === 'onSignal') {
             $this->checkForSignalCapability();
         }
 
         $loop = $this->loop;
 
         $func = $loop->{$type}(...);
-        if (\str_starts_with($type, "on")) {
-            $type = "on_" . \lcfirst(\substr($type, 2));
+        if (\str_starts_with($type, 'on')) {
+            $type = 'on_' . \lcfirst(\substr($type, 2));
         }
 
         // being referenced is the default
@@ -424,15 +424,15 @@ abstract class DriverTest extends TestCase
     /** @dataProvider provideRegistrationArgs */
     public function testCallbackRegistrationAndCancellationInfo(string $type, array $args): void
     {
-        if ($type === "onSignal") {
+        if ($type === 'onSignal') {
             $this->checkForSignalCapability();
         }
 
         $loop = $this->loop;
 
         $func = $loop->{$type}(...);
-        if (\str_starts_with($type, "on")) {
-            $type = "on_" . \lcfirst(\substr($type, 2));
+        if (\str_starts_with($type, 'on')) {
+            $type = 'on_' . \lcfirst(\substr($type, 2));
         }
 
         $callbackId = $func(...$args);
@@ -465,14 +465,14 @@ abstract class DriverTest extends TestCase
     public function testNoMemoryLeak(string $type, array $args): void
     {
         if ($this->getTestResultObject()->getCollectCodeCoverageInformation()) {
-            self::markTestSkipped("Cannot run this test with code coverage active [code coverage consumes memory which makes it impossible to rely on memory_get_usage()]");
+            self::markTestSkipped('Cannot run this test with code coverage active [code coverage consumes memory which makes it impossible to rely on memory_get_usage()]');
         }
 
         if (\DIRECTORY_SEPARATOR === '\\') {
             self::markTestSkipped('Skip on Windows for now, investigate');
         }
 
-        if ($type === "onSignal") {
+        if ($type === 'onSignal') {
             $this->checkForSignalCapability();
         }
 
@@ -503,13 +503,13 @@ abstract class DriverTest extends TestCase
                     $callbacks[] = $func(...$args);
                 }
 
-                if ($type === "repeat") {
+                if ($type === 'repeat') {
                     $loop->delay(0.007, function () use ($loop, $callbacks): void {
                         foreach ($callbacks as $callback) {
                             $loop->cancel($callback);
                         }
                     });
-                } elseif ($type !== "defer" && $type !== "delay") {
+                } elseif ($type !== 'defer' && $type !== 'delay') {
                     $loop->defer(function () use ($loop, $callbacks) {
                         foreach ($callbacks as $callback) {
                             $loop->cancel($callback);
@@ -520,7 +520,7 @@ abstract class DriverTest extends TestCase
                 $loop->run();
 
                 match ($type) {
-                    "defer" => $loop->defer($fn = static function () use (&$fn, $loop, $runs): void {
+                    'defer' => $loop->defer($fn = static function () use (&$fn, $loop, $runs): void {
                         static $i = null;
 
                         $i = $i ?? $runs;
@@ -529,7 +529,7 @@ abstract class DriverTest extends TestCase
                             $loop->defer($fn);
                         }
                     }),
-                    "delay" => $loop->delay(0, $fn = static function () use (&$fn, $loop, $runs): void {
+                    'delay' => $loop->delay(0, $fn = static function () use (&$fn, $loop, $runs): void {
                         static $i = null;
 
                         $i = $i ?? $runs;
@@ -538,7 +538,7 @@ abstract class DriverTest extends TestCase
                             $loop->delay(0, $fn);
                         }
                     }),
-                    "repeat" => $loop->repeat(0, $fn = static function ($callbackId) use (&$fn, $loop, $runs): void {
+                    'repeat' => $loop->repeat(0, $fn = static function ($callbackId) use (&$fn, $loop, $runs): void {
                         static $i = null;
 
                         $i = $i ?? $runs;
@@ -548,7 +548,7 @@ abstract class DriverTest extends TestCase
                             $loop->repeat(0, $fn);
                         }
                     }),
-                    "onReadable", "onWritable" => $loop->defer(static function ($callbackId) use ($loop, $runs): void {
+                    'onReadable', 'onWritable' => $loop->defer(static function ($callbackId) use ($loop, $runs): void {
                         $fn = static function ($callbackId, $socket) use (&$fn, $loop, $runs): void {
                             static $i = null;
 
@@ -556,13 +556,13 @@ abstract class DriverTest extends TestCase
 
                             $loop->cancel($callbackId);
                             if ($socket) {
-                                \fwrite($socket, ".");
+                                \fwrite($socket, '.');
                             }
 
                             if ($i--) {
                                 // explicitly use *different* streams with *different* resource ids
                                 $ends = \stream_socket_pair(
-                                    \DIRECTORY_SEPARATOR === "\\" ? STREAM_PF_INET : STREAM_PF_UNIX,
+                                    \DIRECTORY_SEPARATOR === '\\' ? STREAM_PF_INET : STREAM_PF_UNIX,
                                     STREAM_SOCK_STREAM,
                                     STREAM_IPPROTO_IP
                                 );
@@ -576,7 +576,7 @@ abstract class DriverTest extends TestCase
 
                         $fn($callbackId, null);
                     }),
-                    "onSignal" => $loop->defer(function () use ($loop, $runs): void {
+                    'onSignal' => $loop->defer(function () use ($loop, $runs): void {
                         $sendSignal = static function (): void {
                             \posix_kill(\getmypid(), \SIGUSR1);
                         };
@@ -624,10 +624,10 @@ abstract class DriverTest extends TestCase
      */
     public function testExecutionOrderGuarantees(): void
     {
-        $this->expectOutputString("01 02 03 04 " . \str_repeat("05 ", 8) . "10 11 12 " . \str_repeat(
-            "13 ",
+        $this->expectOutputString('01 02 03 04 ' . \str_repeat('05 ', 8) . '10 11 12 ' . \str_repeat(
+            '13 ',
             4
-        ) . "20 " . \str_repeat("21 ", 4) . "30 40 41 ");
+        ) . '20 ' . \str_repeat('21 ', 4) . '30 40 41 ');
         $this->start(function (Driver $loop): void {
             // Wrap in extra defer, so driver creation time doesn't count for timers, as timers are driver creation
             // relative instead of last tick relative before first tick.
@@ -635,10 +635,10 @@ abstract class DriverTest extends TestCase
                 $f = function (...$args) use ($loop): callable {
                     return function ($callbackId) use ($loop, &$args): void {
                         if (!$args) {
-                            $this->fail("Callback called too often");
+                            $this->fail('Callback called too often');
                         }
                         $loop->cancel($callbackId);
-                        echo \array_shift($args) . \array_shift($args), " ";
+                        echo \array_shift($args) . \array_shift($args), ' ';
                     };
                 };
 
@@ -701,7 +701,7 @@ abstract class DriverTest extends TestCase
                 $loop->enable($def1);
                 $loop->defer(function () use ($loop, $def2, $del5, $f): void {
                     $tick = $f(0, 4);
-                    $tick("invalid");
+                    $tick('invalid');
                     $loop->defer($f(1, 0));
                     $loop->enable($def2);
                     $loop->defer($f(1, 2));
@@ -724,7 +724,7 @@ abstract class DriverTest extends TestCase
     {
         $this->checkForSignalCapability();
 
-        $this->expectOutputString("122222");
+        $this->expectOutputString('122222');
         $this->start(function (Driver $loop): void {
             $f = static function ($i) use ($loop) {
                 return static function ($callbackId) use ($loop, $i): void {
@@ -737,7 +737,7 @@ abstract class DriverTest extends TestCase
             $sig0 = $loop->onSignal(SIGUSR1, $f(2));
             $sig1 = $loop->onSignal(SIGUSR1, $f(2));
             $sig2 = $loop->onSignal(SIGUSR1, $f(2));
-            $sig3 = $loop->onSignal(SIGUSR1, $f(" FAIL - MUST NOT BE CALLED "));
+            $sig3 = $loop->onSignal(SIGUSR1, $f(' FAIL - MUST NOT BE CALLED '));
             $loop->disable($sig1);
             $sig4 = $loop->onSignal(SIGUSR1, $f(2));
             $loop->disable($sig2);
@@ -767,16 +767,16 @@ abstract class DriverTest extends TestCase
         $this->expectException(InvalidCallbackError::class);
 
         try {
-            $this->loop->enable("nonexistent");
+            $this->loop->enable('nonexistent');
         } catch (InvalidCallbackError $e) {
-            self::assertSame("nonexistent", $e->getCallbackId());
+            self::assertSame('nonexistent', $e->getCallbackId());
             throw $e;
         }
     }
 
     public function testSuccessOnDisableNonexistentCallback(): void
     {
-        $this->loop->disable("nonexistent");
+        $this->loop->disable('nonexistent');
 
         // Otherwise risky, throwing fails the test
         self::assertTrue(true);
@@ -784,7 +784,7 @@ abstract class DriverTest extends TestCase
 
     public function testSuccessOnCancelNonexistentCallback(): void
     {
-        $this->loop->cancel("nonexistent");
+        $this->loop->cancel('nonexistent');
 
         // Otherwise risky, throwing fails the test
         self::assertTrue(true);
@@ -795,16 +795,16 @@ abstract class DriverTest extends TestCase
         $this->expectException(InvalidCallbackError::class);
 
         try {
-            $this->loop->reference("nonexistent");
+            $this->loop->reference('nonexistent');
         } catch (InvalidCallbackError $e) {
-            self::assertSame("nonexistent", $e->getCallbackId());
+            self::assertSame('nonexistent', $e->getCallbackId());
             throw $e;
         }
     }
 
     public function testSuccessOnUnreferenceNonexistentCallback(): void
     {
-        $this->loop->unreference("nonexistent");
+        $this->loop->unreference('nonexistent');
 
         // Otherwise risky, throwing fails the test
         self::assertTrue(true);
@@ -1020,12 +1020,12 @@ abstract class DriverTest extends TestCase
     public function testLoopAllowsExceptionToBubbleUpDuringStart(): void
     {
         $this->expectException(\Exception::class);
-        $this->expectExceptionMessage("loop error");
+        $this->expectExceptionMessage('loop error');
 
         try {
             $this->start(function (Driver $loop): void {
                 $loop->defer(function (): void {
-                    throw new \Exception("loop error");
+                    throw new \Exception('loop error');
                 });
             });
         } catch (UncaughtThrowable $e) {
@@ -1036,12 +1036,12 @@ abstract class DriverTest extends TestCase
     public function testLoopAllowsExceptionToBubbleUpFromRepeatingAlarmDuringStart(): void
     {
         $this->expectException(\RuntimeException::class);
-        $this->expectExceptionMessage("test");
+        $this->expectExceptionMessage('test');
 
         try {
             $this->start(function (Driver $loop): void {
                 $loop->repeat(0.001, function (): void {
-                    throw new \RuntimeException("test");
+                    throw new \RuntimeException('test');
                 });
             });
         } catch (UncaughtThrowable $e) {
@@ -1051,7 +1051,7 @@ abstract class DriverTest extends TestCase
 
     public function testErrorHandlerCapturesUncaughtException(): void
     {
-        $msg = "";
+        $msg = '';
         $this->loop->setErrorHandler($f = static function (): void {
         });
         $oldErrorHandler = $this->loop->getErrorHandler();
@@ -1061,25 +1061,25 @@ abstract class DriverTest extends TestCase
         self::assertSame($f, $oldErrorHandler);
         $this->start(function (Driver $loop) {
             $loop->defer(function () {
-                throw new \Exception("loop error");
+                throw new \Exception('loop error');
             });
         });
-        self::assertSame("loop error", $msg);
+        self::assertSame('loop error', $msg);
     }
 
     public function testOnErrorFailure(): void
     {
         $this->expectException(\Exception::class);
-        $this->expectExceptionMessage("errorception");
+        $this->expectExceptionMessage('errorception');
 
         $this->loop->setErrorHandler(function (): void {
-            throw new \Exception("errorception");
+            throw new \Exception('errorception');
         });
 
         try {
             $this->start(function (Driver $loop): void {
                 $loop->delay(0.005, function () {
-                    throw new \Exception("error");
+                    throw new \Exception('error');
                 });
             });
         } catch (UncaughtThrowable $e) {
@@ -1090,14 +1090,14 @@ abstract class DriverTest extends TestCase
     public function testLoopException(): void
     {
         $this->expectException(\RuntimeException::class);
-        $this->expectExceptionMessage("test");
+        $this->expectExceptionMessage('test');
 
         try {
             $this->start(function (Driver $loop): void {
                 $loop->defer(function () use ($loop): void {
                     // force next tick, outside of primary startup tick
                     $loop->defer(function () {
-                        throw new \RuntimeException("test");
+                        throw new \RuntimeException('test');
                     });
                 });
             });
@@ -1113,7 +1113,7 @@ abstract class DriverTest extends TestCase
 
     public function testUncaughtThrowableInstanceIsRethrownAsIs(): void
     {
-        $error = UncaughtThrowable::throwingCallback(static fn () => null, new \Error("Test error"));
+        $error = UncaughtThrowable::throwingCallback(static fn () => null, new \Error('Test error'));
         $this->loop->queue(static fn () => throw $error);
         try {
             $this->loop->getSuspension()->suspend();
@@ -1124,7 +1124,7 @@ abstract class DriverTest extends TestCase
 
     public function testUncaughtThrowableInstanceIsRethrownAsIsFromErrorHandler(): void
     {
-        $error = UncaughtThrowable::throwingErrorHandler(static fn () => null, new \Error("Test error"));
+        $error = UncaughtThrowable::throwingErrorHandler(static fn () => null, new \Error('Test error'));
         $this->loop->setErrorHandler(static fn () => throw $error);
         $this->loop->queue(static fn () => throw new \Error());
         try {
@@ -1138,7 +1138,7 @@ abstract class DriverTest extends TestCase
     {
         $this->checkForSignalCapability();
 
-        $this->expectOutputString("caught SIGUSR1");
+        $this->expectOutputString('caught SIGUSR1');
         $this->start(function (Driver $loop): void {
             $loop->delay(0.001, function (): void {
                 \posix_kill(\getmypid(), \SIGUSR1);
@@ -1146,7 +1146,7 @@ abstract class DriverTest extends TestCase
 
             $loop->onSignal(SIGUSR1, function ($callbackId) use ($loop): void {
                 $loop->cancel($callbackId);
-                echo "caught SIGUSR1";
+                echo 'caught SIGUSR1';
             });
         });
     }
@@ -1155,14 +1155,14 @@ abstract class DriverTest extends TestCase
     {
         $this->checkForSignalCapability();
 
-        $this->expectOutputString("caught SIGUSR1");
+        $this->expectOutputString('caught SIGUSR1');
         $this->start(function (Driver $loop): void {
             $stop = $loop->delay(0.1, function () use ($loop): void {
-                echo "ERROR: manual stop";
+                echo 'ERROR: manual stop';
                 $loop->stop();
             });
             $callbackId = $loop->onSignal(SIGUSR1, function ($callbackId) use ($loop, $stop): void {
-                echo "caught SIGUSR1";
+                echo 'caught SIGUSR1';
                 $loop->disable($stop);
                 $loop->disable($callbackId);
             });
@@ -1225,7 +1225,7 @@ abstract class DriverTest extends TestCase
 
     public function testInitiallyDisabledWriteIsTriggeredOnceEnabled(): void
     {
-        $this->expectOutputString("12");
+        $this->expectOutputString('12');
         $this->start(function (Driver $loop): void {
             $callbackId = $loop->onWritable(STDOUT, function () use ($loop): void {
                 echo 2;
@@ -1330,7 +1330,7 @@ abstract class DriverTest extends TestCase
         $this->start(function (Driver $loop): void {
             $loop->defer(function () use ($loop): void {
                 $loop->delay(1, function (): void {
-                    $this->fail("Timer was executed despite stopped loop");
+                    $this->fail('Timer was executed despite stopped loop');
                 });
             });
             $loop->defer($loop->stop(...));
@@ -1445,8 +1445,8 @@ abstract class DriverTest extends TestCase
 
     public function testRethrowsFromCallbacks(): void
     {
-        foreach (["onReadable", "onWritable", "defer", "delay", "repeat", "onSignal"] as $method) {
-            if ($method === "onSignal") {
+        foreach (['onReadable', 'onWritable', 'defer', 'delay', 'repeat', 'onSignal'] as $method) {
+            if ($method === 'onSignal') {
                 $this->checkForSignalCapability();
             }
 
@@ -1454,38 +1454,38 @@ abstract class DriverTest extends TestCase
                 $args = [];
 
                 switch ($method) {
-                    case "onSignal":
+                    case 'onSignal':
                         $args[] = SIGUSR1;
                         break;
 
-                    case "onWritable":
+                    case 'onWritable':
                         $args[] = STDOUT;
                         break;
 
-                    case "onReadable":
+                    case 'onReadable':
                         $ends = \stream_socket_pair(
-                            \DIRECTORY_SEPARATOR === "\\" ? STREAM_PF_INET : STREAM_PF_UNIX,
+                            \DIRECTORY_SEPARATOR === '\\' ? STREAM_PF_INET : STREAM_PF_UNIX,
                             STREAM_SOCK_STREAM,
                             STREAM_IPPROTO_IP
                         );
-                        \fwrite($ends[0], "trigger readability callback");
+                        \fwrite($ends[0], 'trigger readability callback');
                         $args[] = $ends[1];
                         break;
 
-                    case "delay":
-                    case "repeat":
+                    case 'delay':
+                    case 'repeat':
                         $args[] = 0.005;
                         break;
                 }
 
                 $args[] = function ($callbackId) {
                     $this->loop->cancel($callbackId);
-                    throw new \Exception("rethrow test");
+                    throw new \Exception('rethrow test');
                 };
 
                 [$this->loop, $method](...$args);
 
-                if ($method === "onSignal") {
+                if ($method === 'onSignal') {
                     $this->loop->delay(0.1, function () {
                         \posix_kill(\getmypid(), \SIGUSR1);
                     });
@@ -1495,7 +1495,7 @@ abstract class DriverTest extends TestCase
 
                 self::fail("Didn't throw expected exception.");
             } catch (UncaughtThrowable $e) {
-                self::assertSame("rethrow test", $e->getPrevious()->getMessage());
+                self::assertSame('rethrow test', $e->getPrevious()->getMessage());
             }
         }
     }
@@ -1503,11 +1503,11 @@ abstract class DriverTest extends TestCase
     public function testMultipleCallbacksOnSameDescriptor(): void
     {
         $sockets = \stream_socket_pair(
-            \DIRECTORY_SEPARATOR === "\\" ? STREAM_PF_INET : STREAM_PF_UNIX,
+            \DIRECTORY_SEPARATOR === '\\' ? STREAM_PF_INET : STREAM_PF_UNIX,
             STREAM_SOCK_STREAM,
             STREAM_IPPROTO_IP
         );
-        \fwrite($sockets[1], "testing");
+        \fwrite($sockets[1], 'testing');
 
         $invoked = 0;
         $callbackId1 = $this->loop->onReadable($sockets[0], function ($callbackId) use (&$invoked): void {
@@ -1605,7 +1605,7 @@ abstract class DriverTest extends TestCase
             static $i = 0;
 
             if (++$i === 5) {
-                $this->fail("Loop continues with repeat callback");
+                $this->fail('Loop continues with repeat callback');
             }
 
             \usleep(2000);

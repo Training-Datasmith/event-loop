@@ -51,7 +51,6 @@ class EventLoopTest extends TestCase
         $this->assertTrue($ended);
     }
 
-
     public function testSuspensionResumptionWithQueueInGarbageCollectionNested(): void
     {
         $suspension = EventLoop::getSuspension();
@@ -85,7 +84,6 @@ class EventLoopTest extends TestCase
         };
         $cycle = [$class, &$cycle];
         unset($class, $resumer, $cycle);
-
 
         $ended = $suspension->suspend();
 
@@ -126,12 +124,10 @@ class EventLoopTest extends TestCase
         $cycle = [$class, &$cycle];
         unset($class, $resumer, $cycle);
 
-
         $ended = $suspension->suspend();
 
         $this->assertTrue($ended);
     }
-
 
     public function testDelayWithNegativeDelay(): void
     {
@@ -150,11 +146,11 @@ class EventLoopTest extends TestCase
     public function testOnReadable(): void
     {
         $ends = \stream_socket_pair(
-            \DIRECTORY_SEPARATOR === "\\" ? STREAM_PF_INET : STREAM_PF_UNIX,
+            \DIRECTORY_SEPARATOR === '\\' ? STREAM_PF_INET : STREAM_PF_UNIX,
             STREAM_SOCK_STREAM,
             STREAM_IPPROTO_IP
         );
-        \fwrite($ends[0], "trigger readability callback");
+        \fwrite($ends[0], 'trigger readability callback');
 
         $count = 0;
         $suspension = EventLoop::getSuspension();
@@ -261,7 +257,7 @@ class EventLoopTest extends TestCase
         EventLoop::queue(fn () => EventLoop::run());
 
         $this->expectException(\Error::class);
-        $this->expectExceptionMessage("The event loop is already running");
+        $this->expectExceptionMessage('The event loop is already running');
 
         EventLoop::run();
     }
@@ -414,11 +410,11 @@ class EventLoopTest extends TestCase
     public function testSuspensionThrowingErrorViaInterrupt(): void
     {
         $suspension = EventLoop::getSuspension();
-        $error = new \Error("Test error");
+        $error = new \Error('Test error');
         EventLoop::queue(static fn () => throw $error);
         try {
             $suspension->suspend();
-            self::fail("Error was not thrown");
+            self::fail('Error was not thrown');
         } catch (UncaughtThrowable $t) {
             self::assertSame($error, $t->getPrevious());
         }
@@ -428,7 +424,7 @@ class EventLoopTest extends TestCase
 
         try {
             $suspension->suspend(); // Calling suspend on the same suspension should throw an Error.
-            self::fail("Error was not thrown");
+            self::fail('Error was not thrown');
         } catch (\Error $e) {
             self::assertStringContainsString('suspended after an uncaught exception', $e->getMessage());
         }
@@ -442,12 +438,12 @@ class EventLoopTest extends TestCase
     public function testSuspensionThrowingErrorViaInterrupt2(): void
     {
         $suspension = EventLoop::getSuspension();
-        $error = new \Error("Test error");
+        $error = new \Error('Test error');
         EventLoop::queue(static fn () => throw $error);
         EventLoop::queue($suspension->resume(...), 123);
         try {
             $suspension->suspend();
-            self::fail("Error was not thrown");
+            self::fail('Error was not thrown');
         } catch (UncaughtThrowable $t) {
             self::assertSame($error, $t->getPrevious());
         }
@@ -457,7 +453,7 @@ class EventLoopTest extends TestCase
 
         try {
             $suspension->suspend(); // Calling suspend on the same suspension should throw an Error.
-            self::fail("Error was not thrown");
+            self::fail('Error was not thrown');
         } catch (\Error $e) {
             self::assertStringContainsString('suspended after an uncaught exception', $e->getMessage());
         }

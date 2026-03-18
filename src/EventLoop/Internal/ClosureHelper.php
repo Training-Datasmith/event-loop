@@ -19,7 +19,7 @@ final class ClosureHelper
             }
 
             if ($reflection->getFileName() !== false && $reflection->getStartLine()) {
-                $description .= " defined in " . $reflection->getFileName() . ':' . $reflection->getStartLine();
+                $description .= ' defined in ' . $reflection->getFileName() . ':' . $reflection->getStartLine();
             }
 
             return $description;

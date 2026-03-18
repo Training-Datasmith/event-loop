@@ -14,7 +14,7 @@ if (!$server) {
 }
 \stream_set_blocking($server, false);
 
-echo "Visit http://localhost:8080/ in your browser." . PHP_EOL;
+echo 'Visit http://localhost:8080/ in your browser.' . PHP_EOL;
 
 // wait for incoming connections on server socket
 EventLoop::onReadable($server, function ($watcher, $server) {

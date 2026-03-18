@@ -21,7 +21,7 @@ final class EventDriver extends AbstractDriver
 
     public static function isSupported(): bool
     {
-        return \extension_loaded("event");
+        return \extension_loaded('event');
     }
 
     private \EventBase $handle;
@@ -208,7 +208,7 @@ final class EventDriver extends AbstractDriver
                     );
                 } else {
                     // @codeCoverageIgnoreStart
-                    throw new \Error("Unknown callback type");
+                    throw new \Error('Unknown callback type');
                     // @codeCoverageIgnoreEnd
                 }
             }

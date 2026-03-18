@@ -50,7 +50,7 @@ EventLoop::onWritable($stream, function ($watcher, $stream) use ($timer) {
             return;
         }
 
-        echo "Read " . \strlen($chunk) . " bytes..." . PHP_EOL;
+        echo 'Read ' . \strlen($chunk) . ' bytes...' . PHP_EOL;
     });
 });
 

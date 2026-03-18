@@ -1,3 +1,7 @@
 <?php
 
-class UVLoop {}
+declare(strict_types=1);
+
+class UVLoop
+{
+}

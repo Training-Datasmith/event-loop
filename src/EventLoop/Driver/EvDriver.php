@@ -21,7 +21,7 @@ final class EvDriver extends AbstractDriver
 
     public static function isSupported(): bool
     {
-        return \extension_loaded("ev");
+        return \extension_loaded('ev');
     }
 
     private readonly \EvLoop $handle;
@@ -192,7 +192,7 @@ final class EvDriver extends AbstractDriver
                     $this->events[$id] = $this->handle->signal($callback->signal, $this->signalCallback, $callback);
                 } else {
                     // @codeCoverageIgnoreStart
-                    throw new \Error("Unknown callback type: " . $callback::class);
+                    throw new \Error('Unknown callback type: ' . $callback::class);
                     // @codeCoverageIgnoreEnd
                 }
             } else {

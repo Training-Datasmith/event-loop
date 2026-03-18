@@ -16,7 +16,7 @@ final class UvDriver extends AbstractDriver
 {
     public static function isSupported(): bool
     {
-        return \extension_loaded("uv");
+        return \extension_loaded('uv');
     }
 
     /** @var resource|\UVLoop A uv_loop resource created with uv_loop_new() */
@@ -199,7 +199,7 @@ final class UvDriver extends AbstractDriver
                 \uv_signal_start($event, $this->signalCallback, $callback->signal);
             } else {
                 // @codeCoverageIgnoreStart
-                throw new \Error("Unknown callback type");
+                throw new \Error('Unknown callback type');
                 // @codeCoverageIgnoreEnd
             }
         }
@@ -241,7 +241,7 @@ final class UvDriver extends AbstractDriver
             \uv_signal_stop($event);
         } else {
             // @codeCoverageIgnoreStart
-            throw new \Error("Unknown callback type");
+            throw new \Error('Unknown callback type');
             // @codeCoverageIgnoreEnd
         }
     }

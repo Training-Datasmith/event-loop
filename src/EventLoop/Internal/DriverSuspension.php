@@ -176,15 +176,15 @@ final class DriverSuspension implements Suspension
         return \implode("\n", \array_map(static function (array $e, int|string $i): string {
             $line = "#{$i} ";
 
-            if (isset($e["file"])) {
+            if (isset($e['file'])) {
                 $line .= "{$e['file']}:{$e['line']} ";
             }
 
-            if (isset($e["class"], $e["type"])) {
-                $line .= $e["class"] . $e["type"];
+            if (isset($e['class'], $e['type'])) {
+                $line .= $e['class'] . $e['type'];
             }
 
-            return $line . $e["function"] . "()";
+            return $line . $e['function'] . '()';
         }, $trace, \array_keys($trace)));
     }
 }

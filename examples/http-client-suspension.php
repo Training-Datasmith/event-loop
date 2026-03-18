@@ -37,7 +37,7 @@ function fetch(string $url): string
     EventLoop::cancel($watcher);
 
     // send HTTP request
-    \fwrite($stream, "GET " . $parsedUrl['path'] . " HTTP/1.1\r\nHost: " . $parsedUrl['host'] . "\r\nConnection: close\r\n\r\n");
+    \fwrite($stream, 'GET ' . $parsedUrl['path'] . " HTTP/1.1\r\nHost: " . $parsedUrl['host'] . "\r\nConnection: close\r\n\r\n");
 
     $buffer = '';
 

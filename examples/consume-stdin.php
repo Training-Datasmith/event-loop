@@ -11,7 +11,6 @@ if (!\defined('STDIN') || \stream_set_blocking(STDIN, false) !== true) {
     exit(1);
 }
 
-
 // read everything from STDIN and report number of bytes
 // for illustration purposes only, should use a package of
 // choice abstracting streams instead, that handles edge cases well

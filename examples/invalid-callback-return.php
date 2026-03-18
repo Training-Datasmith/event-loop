@@ -6,14 +6,14 @@ require __DIR__ . '/../vendor/autoload.php';
 
 use Revolt\EventLoop;
 
-print "Press Ctrl+C to exit..." . PHP_EOL;
+print 'Press Ctrl+C to exit...' . PHP_EOL;
 
 $suspension = EventLoop::getSuspension();
 
 EventLoop::onSignal(\SIGINT, function (string $watcherId) use ($suspension) {
     EventLoop::cancel($watcherId);
 
-    print "Caught SIGINT, exiting..." . PHP_EOL;
+    print 'Caught SIGINT, exiting...' . PHP_EOL;
 
     $suspension->resume();
 

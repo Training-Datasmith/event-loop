@@ -42,7 +42,7 @@ final class DriverFactory
         })();
 
         /** @psalm-suppress RiskyTruthyFalsyComparison */
-        if (\getenv("REVOLT_DRIVER_DEBUG_TRACE")) {
+        if (\getenv('REVOLT_DRIVER_DEBUG_TRACE')) {
             return new TracingDriver($driver);
         }
 
@@ -51,7 +51,7 @@ final class DriverFactory
 
     private function createDriverFromEnv(): ?Driver
     {
-        $driver = \getenv("REVOLT_DRIVER");
+        $driver = \getenv('REVOLT_DRIVER');
 
         /** @psalm-suppress RiskyTruthyFalsyComparison */
         if (!$driver) {

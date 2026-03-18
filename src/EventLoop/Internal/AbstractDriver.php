@@ -22,7 +22,7 @@ use Revolt\EventLoop\UncaughtThrowable;
 abstract class AbstractDriver implements Driver
 {
     /** @var string Next callback identifier. */
-    private string $nextId = "a";
+    private string $nextId = 'a';
 
     private \Fiber $fiber;
 
@@ -106,7 +106,7 @@ abstract class AbstractDriver implements Driver
     public function run(): void
     {
         if ($this->fiber->isRunning()) {
-            throw new \Error("The event loop is already running");
+            throw new \Error('The event loop is already running');
         }
 
         if (\Fiber::getCurrent()) {
@@ -155,7 +155,7 @@ abstract class AbstractDriver implements Driver
     public function delay(float $delay, \Closure $closure): string
     {
         if ($delay < 0) {
-            throw new \Error("Delay must be greater than or equal to zero");
+            throw new \Error('Delay must be greater than or equal to zero');
         }
 
         $timerCallback = new TimerCallback($this->callbackId(), $delay, $closure, $this->now() + $delay);
@@ -169,7 +169,7 @@ abstract class AbstractDriver implements Driver
     public function repeat(float $interval, \Closure $closure): string
     {
         if ($interval < 0) {
-            throw new \Error("Interval must be greater than or equal to zero");
+            throw new \Error('Interval must be greater than or equal to zero');
         }
 
         $timerCallback = new TimerCallback($this->callbackId(), $interval, $closure, $this->now() + $interval, true);
