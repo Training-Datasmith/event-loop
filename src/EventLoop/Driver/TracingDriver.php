@@ -11,8 +11,6 @@ use Revolt\EventLoop\Suspension;
 
 final class TracingDriver implements Driver
 {
-    private readonly Driver $driver;
-
     /** @var array<string, true> */
     private array $enabledCallbacks = [];
 
@@ -25,9 +23,8 @@ final class TracingDriver implements Driver
     /** @var array<string, string> */
     private array $cancelTraces = [];
 
-    public function __construct(Driver $driver)
+    public function __construct(private readonly Driver $driver)
     {
-        $this->driver = $driver;
     }
 
     public function run(): void
@@ -263,7 +260,7 @@ final class TracingDriver implements Driver
      */
     private function formatStacktrace(array $trace): string
     {
-        return \implode("\n", \array_map(static function ($e, $i) {
+        return \implode("\n", \array_map(static function (array|int $e, int $i): string {
             $line = "#{$i} ";
 
             if (isset($e["file"], $e['line'])) {

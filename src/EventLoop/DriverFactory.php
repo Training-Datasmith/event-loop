@@ -16,13 +16,12 @@ final class DriverFactory
     /**
      * Creates a new loop instance and chooses the best available driver.
      *
-     * @return Driver
      *
      * @throws \Error If an invalid class has been specified via REVOLT_LOOP_DRIVER
      */
     public function create(): Driver
     {
-        $driver = (function () {
+        $driver = (function (): \Revolt\EventLoop\Driver|\Revolt\EventLoop\Driver\UvDriver|\Revolt\EventLoop\Driver\EvDriver|\Revolt\EventLoop\Driver\EventDriver|\Revolt\EventLoop\Driver\StreamSelectDriver {
             if ($driver = $this->createDriverFromEnv()) {
                 return $driver;
             }
@@ -50,9 +49,6 @@ final class DriverFactory
         return $driver;
     }
 
-    /**
-     * @return Driver|null
-     */
     private function createDriverFromEnv(): ?Driver
     {
         $driver = \getenv("REVOLT_DRIVER");

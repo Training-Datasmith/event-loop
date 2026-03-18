@@ -367,8 +367,6 @@ final class EventLoop
 
     /**
      * Retrieve the event loop driver that is in scope.
-     *
-     * @return Driver
      */
     public static function getDriver(): Driver
     {
@@ -384,8 +382,6 @@ final class EventLoop
      * Returns an object used to suspend and resume execution of the current fiber or {main}.
      *
      * Calls from the same fiber will return the same suspension object.
-     *
-     * @return Suspension
      */
     public static function getSuspension(): Suspension
     {

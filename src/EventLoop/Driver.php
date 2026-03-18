@@ -39,8 +39,6 @@ interface Driver
      * Returns an object used to suspend and resume execution of the current fiber or {main}.
      *
      * Calls from the same fiber will return the same suspension object.
-     *
-     * @return Suspension
      */
     public function getSuspension(): Suspension;
 
@@ -311,8 +309,6 @@ interface Driver
      * Returns some useful information about the event loop.
      *
      * If this method isn't implemented, dumping the event loop in a busy application, even indirectly, is a pain.
-     *
-     * @return array
      */
     public function __debugInfo(): array;
 }

@@ -24,7 +24,7 @@ final class EvDriver extends AbstractDriver
         return \extension_loaded("ev");
     }
 
-    private \EvLoop $handle;
+    private readonly \EvLoop $handle;
 
     /** @var array<string, \EvWatcher> */
     private array $events = [];
@@ -192,7 +192,7 @@ final class EvDriver extends AbstractDriver
                     $this->events[$id] = $this->handle->signal($callback->signal, $this->signalCallback, $callback);
                 } else {
                     // @codeCoverageIgnoreStart
-                    throw new \Error("Unknown callback type: " . \get_class($callback));
+                    throw new \Error("Unknown callback type: " . $callback::class);
                     // @codeCoverageIgnoreEnd
                 }
             } else {

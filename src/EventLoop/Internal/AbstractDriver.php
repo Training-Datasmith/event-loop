@@ -131,7 +131,10 @@ abstract class AbstractDriver implements Driver
 
     public function isRunning(): bool
     {
-        return $this->fiber->isRunning() || $this->fiber->isSuspended();
+        if ($this->fiber->isRunning()) {
+            return true;
+        }
+        return $this->fiber->isSuspended();
     }
 
     public function queue(\Closure $closure, mixed ...$args): void
@@ -330,7 +333,7 @@ abstract class AbstractDriver implements Driver
     public function __debugInfo(): array
     {
         // @codeCoverageIgnoreStart
-        return \array_map(fn (DriverCallback $callback) => [
+        return \array_map(fn (DriverCallback $callback): array => [
             'type' => $this->getType($callback->id),
             'enabled' => $callback->enabled,
             'referenced' => $callback->referenced,
@@ -656,11 +659,11 @@ abstract class AbstractDriver implements Driver
 
     final public function __serialize(): never
     {
-        throw new \Error(__CLASS__ . ' does not support serialization');
+        throw new \Error(self::class . ' does not support serialization');
     }
 
     final public function __unserialize(array $data): never
     {
-        throw new \Error(__CLASS__ . ' does not support deserialization');
+        throw new \Error(self::class . ' does not support deserialization');
     }
 }

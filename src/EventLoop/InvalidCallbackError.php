@@ -33,11 +33,7 @@ final class InvalidCallbackError extends \Error
         return new self($callbackId, self::E_INVALID_IDENTIFIER, 'Invalid callback identifier ' . $callbackId);
     }
 
-    /** @var string */
     private readonly string $rawMessage;
-
-    /** @var string */
-    private readonly string $callbackId;
 
     /** @var array<string, string> */
     private array $info = [];
@@ -46,11 +42,9 @@ final class InvalidCallbackError extends \Error
      * @param string $callbackId The callback identifier.
      * @param string $message The exception message.
      */
-    private function __construct(string $callbackId, int $code, string $message)
+    private function __construct(private readonly string $callbackId, int $code, string $message)
     {
         parent::__construct($message, $code);
-
-        $this->callbackId = $callbackId;
         $this->rawMessage = $message;
     }
 

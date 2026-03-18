@@ -16,8 +16,6 @@ use Revolt\EventLoop\Suspension;
  */
 final class DriverSuspension implements Suspension
 {
-    private ?\Fiber $suspendedFiber = null;
-
     /** @var \WeakReference<\Fiber>|null */
     private readonly ?\WeakReference $fiberRef;
 
@@ -66,7 +64,7 @@ final class DriverSuspension implements Suspension
             });
         } else {
             // Suspend event loop fiber to {main}.
-            ($this->interrupt)(static fn () => $value);
+            ($this->interrupt)(static fn (): mixed => $value);
         }
     }
 
@@ -94,14 +92,10 @@ final class DriverSuspension implements Suspension
 
         // Awaiting from within a fiber.
         if ($fiber) {
-            $this->suspendedFiber = $fiber;
-
             try {
                 $value = \Fiber::suspend();
-                $this->suspendedFiber = null;
             } catch (\FiberError $error) {
                 $this->pending = false;
-                $this->suspendedFiber = null;
                 $this->error = $error;
 
                 throw $error;
@@ -179,7 +173,7 @@ final class DriverSuspension implements Suspension
 
     private function formatStacktrace(array $trace): string
     {
-        return \implode("\n", \array_map(static function ($e, $i) {
+        return \implode("\n", \array_map(static function (array $e, int|string $i): string {
             $line = "#{$i} ";
 
             if (isset($e["file"])) {

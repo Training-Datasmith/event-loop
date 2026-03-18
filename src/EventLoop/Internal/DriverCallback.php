@@ -21,18 +21,11 @@ abstract class DriverCallback
     ) {
     }
 
-    /**
-     * @param string $property
-     */
     public function __get(string $property): never
     {
         throw new \Error("Unknown property '{$property}'");
     }
 
-    /**
-     * @param string $property
-     * @param mixed  $value
-     */
     public function __set(string $property, mixed $value): never
     {
         throw new \Error("Unknown property '{$property}'");

@@ -26,7 +26,7 @@ final class UncaughtThrowable extends \Error
     {
         parent::__construct(\sprintf(
             $message,
-            \str_replace("\0", '@', \get_class($previous)), // replace NUL-byte in anonymous class name
+            \str_replace("\0", '@', $previous::class), // replace NUL-byte in anonymous class name
             ClosureHelper::getDescription($closure),
             $previous->getMessage() !== '' ? ': ' . $previous->getMessage() : ''
         ), 0, $previous);

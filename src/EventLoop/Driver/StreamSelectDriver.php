@@ -37,7 +37,7 @@ final class StreamSelectDriver extends AbstractDriver
     /** @var \SplQueue<int> */
     private readonly \SplQueue $signalQueue;
 
-    private bool $signalHandling;
+    private readonly bool $signalHandling;
 
     private readonly \Closure $streamSelectErrorHandler;
 
@@ -209,7 +209,7 @@ final class StreamSelectDriver extends AbstractDriver
 
                 if (empty($this->signalCallbacks[$callback->signal])) {
                     unset($this->signalCallbacks[$callback->signal]);
-                    \set_error_handler(static fn () => true);
+                    \set_error_handler(static fn (): bool => true);
                     try {
                         \pcntl_signal($callback->signal, \SIG_DFL);
                     } finally {
