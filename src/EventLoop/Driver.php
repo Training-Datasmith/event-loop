@@ -1,8 +1,7 @@
 <?php
 
-declare(strict_types=1);
-
-namespace Revolt\EventLoop;
+declare (strict_types=1);
+namespace Revolt\Event_Loop;
 
 /**
  * The driver MUST run in its own fiber and execute callbacks in a separate fiber. If fibers are reused, the driver
@@ -26,7 +25,6 @@ interface Driver
      * @throws \Error Thrown if the event loop is already running.
      */
     public function run(): void;
-
     /**
      * Stop the event loop.
      *
@@ -34,19 +32,16 @@ interface Driver
      * to stop MUST be ignored and MUST NOT raise an exception.
      */
     public function stop(): void;
-
     /**
      * Returns an object used to suspend and resume execution of the current fiber or {main}.
      *
      * Calls from the same fiber will return the same suspension object.
      */
-    public function getSuspension(): Suspension;
-
+    public function get_suspension(): Suspension;
     /**
      * @return bool True if the event loop is running, false if it is stopped.
      */
-    public function isRunning(): bool;
-
+    public function is_running(): bool;
     /**
      * Queue a microtask.
      *
@@ -60,7 +55,6 @@ interface Driver
      * @param mixed ...$args The callback arguments.
      */
     public function queue(\Closure $closure, mixed ...$args): void;
-
     /**
      * Defer the execution of a callback.
      *
@@ -76,7 +70,6 @@ interface Driver
      * @return string A unique identifier that can be used to cancel, enable or disable the callback.
      */
     public function defer(\Closure $closure): string;
-
     /**
      * Delay the execution of a callback.
      *
@@ -93,7 +86,6 @@ interface Driver
      * @return string A unique identifier that can be used to cancel, enable or disable the callback.
      */
     public function delay(float $delay, \Closure $closure): string;
-
     /**
      * Repeatedly execute a callback.
      *
@@ -110,7 +102,6 @@ interface Driver
      * @return string A unique identifier that can be used to cancel, enable or disable the callback.
      */
     public function repeat(float $interval, \Closure $closure): string;
-
     /**
      * Execute a callback when a stream resource becomes readable or is closed for reading.
      *
@@ -129,8 +120,7 @@ interface Driver
      *
      * @return string A unique identifier that can be used to cancel, enable or disable the callback.
      */
-    public function onReadable(mixed $stream, \Closure $closure): string;
-
+    public function on_readable(mixed $stream, \Closure $closure): string;
     /**
      * Execute a callback when a stream resource becomes writable or is closed for writing.
      *
@@ -149,8 +139,7 @@ interface Driver
      *
      * @return string A unique identifier that can be used to cancel, enable or disable the callback.
      */
-    public function onWritable(mixed $stream, \Closure $closure): string;
-
+    public function on_writable(mixed $stream, \Closure $closure): string;
     /**
      * Execute a callback when a signal is received.
      *
@@ -170,8 +159,7 @@ interface Driver
      *
      * @throws UnsupportedFeatureException If signal handling is not supported.
      */
-    public function onSignal(int $signal, \Closure $closure): string;
-
+    public function on_signal(int $signal, \Closure $closure): string;
     /**
      * Enable a callback to be active starting in the next tick.
      *
@@ -184,8 +172,7 @@ interface Driver
      *
      * @throws InvalidCallbackError If the callback identifier is invalid.
      */
-    public function enable(string $callbackId): string;
-
+    public function enable(string $callback_id): string;
     /**
      * Cancel a callback.
      *
@@ -194,8 +181,7 @@ interface Driver
      *
      * @param string $callbackId The callback identifier.
      */
-    public function cancel(string $callbackId): void;
-
+    public function cancel(string $callback_id): void;
     /**
      * Disable a callback immediately.
      *
@@ -209,8 +195,7 @@ interface Driver
      *
      * @return string The callback identifier.
      */
-    public function disable(string $callbackId): string;
-
+    public function disable(string $callback_id): string;
     /**
      * Reference a callback.
      *
@@ -223,8 +208,7 @@ interface Driver
      *
      * @throws InvalidCallbackError If the callback identifier is invalid.
      */
-    public function reference(string $callbackId): string;
-
+    public function reference(string $callback_id): string;
     /**
      * Unreference a callback.
      *
@@ -235,8 +219,7 @@ interface Driver
      *
      * @return string The callback identifier.
      */
-    public function unreference(string $callbackId): string;
-
+    public function unreference(string $callback_id): string;
     /**
      * Set a callback to be executed when an error occurs.
      *
@@ -249,15 +232,13 @@ interface Driver
      * @param null|\Closure(\Throwable):void $errorHandler The callback to execute. `null` will clear the current
      *     handler.
      */
-    public function setErrorHandler(?\Closure $errorHandler): void;
-
+    public function set_error_handler(?\Closure $error_handler): void;
     /**
      * Gets the error handler closure or {@code null} if none is set.
      *
      * @return null|\Closure(\Throwable):void The previous handler, `null` if there was none.
      */
-    public function getErrorHandler(): ?\Closure;
-
+    public function get_error_handler(): ?\Closure;
     /**
      * Get the underlying loop handle.
      *
@@ -269,15 +250,13 @@ interface Driver
      *
      * @return null|object|resource The loop handle the event loop operates on. `null` if there is none.
      */
-    public function getHandle(): mixed;
-
+    public function get_handle(): mixed;
     /**
      * Returns all registered non-cancelled callback identifiers.
      *
      * @return string[] Callback identifiers.
      */
-    public function getIdentifiers(): array;
-
+    public function get_identifiers(): array;
     /**
      * Returns the type of the callback identified by the given callback identifier.
      *
@@ -285,8 +264,7 @@ interface Driver
      *
      * @return CallbackType The callback type.
      */
-    public function getType(string $callbackId): CallbackType;
-
+    public function get_type(string $callback_id): Callback_Type;
     /**
      * Returns whether the callback identified by the given callback identifier is currently enabled.
      *
@@ -294,8 +272,7 @@ interface Driver
      *
      * @return bool `true` if the callback is currently enabled, otherwise `false`.
      */
-    public function isEnabled(string $callbackId): bool;
-
+    public function is_enabled(string $callback_id): bool;
     /**
      * Returns whether the callback identified by the given callback identifier is currently referenced.
      *
@@ -303,8 +280,7 @@ interface Driver
      *
      * @return bool `true` if the callback is currently referenced, otherwise `false`.
      */
-    public function isReferenced(string $callbackId): bool;
-
+    public function is_referenced(string $callback_id): bool;
     /**
      * Returns some useful information about the event loop.
      *

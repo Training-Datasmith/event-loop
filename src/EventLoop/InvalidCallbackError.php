@@ -1,71 +1,55 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace Revolt\Event_Loop;
 
-namespace Revolt\EventLoop;
-
-use Revolt\EventLoop\Internal\ClosureHelper;
-
-final class InvalidCallbackError extends \Error
+use Revolt\Event_Loop\Internal\Closure_Helper;
+final class Invalid_Callback_Error extends \Error
 {
     public const E_NONNULL_RETURN = 1;
     public const E_INVALID_IDENTIFIER = 2;
-
     /**
      * MUST be thrown if any callback returns a non-null value.
      */
-    public static function nonNullReturn(string $callbackId, \Closure $closure): self
+    public static function non_null_return(string $callback_id, \Closure $closure): self
     {
-        return new self(
-            $callbackId,
-            self::E_NONNULL_RETURN,
-            'Non-null return value received from callback ' . ClosureHelper::getDescription($closure)
-        );
+        return new self($callback_id, self::E_NONNULL_RETURN, 'Non-null return value received from callback ' . Closure_Helper::get_description($closure));
     }
-
     /**
      * MUST be thrown if any operation (except disable() and cancel()) is attempted with an invalid callback identifier.
      *
      * An invalid callback identifier is any identifier that is not yet emitted by the driver or cancelled by the user.
      */
-    public static function invalidIdentifier(string $callbackId): self
+    public static function invalid_identifier(string $callback_id): self
     {
-        return new self($callbackId, self::E_INVALID_IDENTIFIER, 'Invalid callback identifier ' . $callbackId);
+        return new self($callback_id, self::E_INVALID_IDENTIFIER, 'Invalid callback identifier ' . $callback_id);
     }
-
-    private readonly string $rawMessage;
-
+    private readonly string $raw_message;
     /** @var array<string, string> */
     private array $info = [];
-
     /**
      * @param string $callbackId The callback identifier.
      * @param string $message The exception message.
      */
-    private function __construct(private readonly string $callbackId, int $code, string $message)
+    private function __construct(private readonly string $callback_id, int $code, string $message)
     {
         parent::__construct($message, $code);
-        $this->rawMessage = $message;
+        $this->raw_message = $message;
     }
-
     /**
      * @return string The callback identifier.
      */
-    public function getCallbackId(): string
+    public function get_callback_id(): string
     {
-        return $this->callbackId;
+        return $this->callback_id;
     }
-
-    public function addInfo(string $key, string $message): void
+    public function add_info(string $key, string $message): void
     {
         $this->info[$key] = $message;
-
         $info = '';
-
-        foreach ($this->info as $infoKey => $infoMessage) {
-            $info .= "\r\n\r\n" . $infoKey . ': ' . $infoMessage;
+        foreach ($this->info as $info_key => $info_message) {
+            $info .= "\r\n\r\n" . $info_key . ': ' . $info_message;
         }
-
-        $this->message = $this->rawMessage . $info;
+        $this->message = $this->raw_message . $info;
     }
 }

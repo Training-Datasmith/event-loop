@@ -1,10 +1,9 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace Revolt\Event_Loop;
 
-namespace Revolt\EventLoop;
-
-enum CallbackType
+enum Callback_Type
 {
     case Defer;
     case Delay;

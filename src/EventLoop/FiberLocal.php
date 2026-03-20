@@ -1,8 +1,7 @@
 <?php
 
-declare(strict_types=1);
-
-namespace Revolt\EventLoop;
+declare (strict_types=1);
+namespace Revolt\Event_Loop;
 
 /**
  * Fiber local storage.
@@ -11,72 +10,59 @@ namespace Revolt\EventLoop;
  *
  * @template T
  */
-final class FiberLocal
+final class Fiber_Local
 {
     /** @var \Fiber|null Dummy fiber for {main} */
-    private static ?\Fiber $mainFiber = null;
-    private static ?\WeakMap $localStorage = null;
-
+    private static ?\Fiber $main_fiber = null;
+    private static ?\WeakMap $local_storage = null;
     public static function clear(): void
     {
-        if (self::$localStorage === null) {
+        if (self::$local_storage === null) {
             return;
         }
-
-        $fiber = \Fiber::getCurrent() ?? self::$mainFiber;
-
+        $fiber = \Fiber::get_current() ?? self::$main_fiber;
         if ($fiber === null) {
             return;
         }
-
-        unset(self::$localStorage[$fiber]);
+        unset(self::$local_storage[$fiber]);
     }
-
-    private static function getFiberStorage(): \WeakMap
+    private static function get_fiber_storage(): \WeakMap
     {
-        $fiber = \Fiber::getCurrent();
-
+        $fiber = \Fiber::get_current();
         if ($fiber === null) {
-            $fiber = self::$mainFiber ??= new \Fiber(static function (): void {
+            $fiber = self::$main_fiber ??= new \Fiber(static function (): void {
                 // dummy fiber for main, as we need some object for the WeakMap
             });
         }
-
-        $localStorage = self::$localStorage ??= new \WeakMap();
-        return $localStorage[$fiber] ??= new \WeakMap();
+        $local_storage = self::$local_storage ??= new \WeakMap();
+        return $local_storage[$fiber] ??= new \WeakMap();
     }
-
     /**
      * @param \Closure():T $initializer
      */
     public function __construct(private readonly \Closure $initializer)
     {
     }
-
     /**
      * @param T $value
      */
     public function set(mixed $value): void
     {
-        self::getFiberStorage()[$this] = [$value];
+        self::get_fiber_storage()[$this] = [$value];
     }
-
     public function unset(): void
     {
-        unset(self::getFiberStorage()[$this]);
+        unset(self::get_fiber_storage()[$this]);
     }
-
     /**
      * @return T
      */
     public function get(): mixed
     {
-        $fiberStorage = self::getFiberStorage();
-
-        if (!isset($fiberStorage[$this])) {
-            $fiberStorage[$this] = [($this->initializer)()];
+        $fiber_storage = self::get_fiber_storage();
+        if (!isset($fiber_storage[$this])) {
+            $fiber_storage[$this] = [($this->initializer)()];
         }
-
-        return $fiberStorage[$this][0];
+        return $fiber_storage[$this][0];
     }
 }

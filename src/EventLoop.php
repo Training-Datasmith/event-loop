@@ -1,72 +1,63 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace Revolt;
 
-use Revolt\EventLoop\CallbackType;
-use Revolt\EventLoop\Driver;
-use Revolt\EventLoop\DriverFactory;
-use Revolt\EventLoop\Internal\AbstractDriver;
-use Revolt\EventLoop\Internal\DriverCallback;
-use Revolt\EventLoop\InvalidCallbackError;
-use Revolt\EventLoop\Suspension;
-use Revolt\EventLoop\UnsupportedFeatureException;
-
+use Revolt\Event_Loop\Callback_Type;
+use Revolt\Event_Loop\Driver;
+use Revolt\Event_Loop\Driver_Factory;
+use Revolt\Event_Loop\Internal\Abstract_Driver;
+use Revolt\Event_Loop\Internal\Driver_Callback;
+use Revolt\Event_Loop\Invalid_Callback_Error;
+use Revolt\Event_Loop\Suspension;
+use Revolt\Event_Loop\Unsupported_Feature_Exception;
 /**
  * Accessor to allow global access to the event loop.
  *
  * @see Driver
  */
-final class EventLoop
+final class Event_Loop
 {
     private static Driver $driver;
-
     /**
      * Sets the driver to be used as the event loop.
      */
-    public static function setDriver(Driver $driver): void
+    public static function set_driver(Driver $driver): void
     {
         /** @psalm-suppress RedundantPropertyInitializationCheck, RedundantCondition */
-        if (isset(self::$driver) && self::$driver->isRunning()) {
+        if (isset(self::$driver) && self::$driver->is_running()) {
             throw new \Error("Can't swap the event loop driver while the driver is running");
         }
-
         try {
             /** @psalm-suppress InternalClass */
-            self::$driver = new class () extends AbstractDriver {
+            self::$driver = new class extends Abstract_Driver
+            {
                 protected function activate(array $callbacks): void
                 {
                     throw new \Error("Can't activate callback during garbage collection.");
                 }
-
                 protected function dispatch(bool $blocking): void
                 {
                     throw new \Error("Can't dispatch during garbage collection.");
                 }
-
-                protected function deactivate(DriverCallback $callback): void
+                protected function deactivate(Driver_Callback $callback): void
                 {
                     // do nothing
                 }
-
-                public function getHandle(): mixed
+                public function get_handle(): mixed
                 {
                     return null;
                 }
-
                 protected function now(): float
                 {
-                    return (float) \hrtime(true) / 1_000_000_000;
+                    return (float) \hrtime(true) / 1000000000;
                 }
             };
-
             \gc_collect_cycles();
         } finally {
             self::$driver = $driver;
         }
     }
-
     /**
      * Queue a microtask.
      *
@@ -81,9 +72,8 @@ final class EventLoop
      */
     public static function queue(\Closure $closure, mixed ...$args): void
     {
-        self::getDriver()->queue($closure, ...$args);
+        self::get_driver()->queue($closure, ...$args);
     }
-
     /**
      * Defer the execution of a callback.
      *
@@ -100,9 +90,8 @@ final class EventLoop
      */
     public static function defer(\Closure $closure): string
     {
-        return self::getDriver()->defer($closure);
+        return self::get_driver()->defer($closure);
     }
-
     /**
      * Delay the execution of a callback.
      *
@@ -120,9 +109,8 @@ final class EventLoop
      */
     public static function delay(float $delay, \Closure $closure): string
     {
-        return self::getDriver()->delay($delay, $closure);
+        return self::get_driver()->delay($delay, $closure);
     }
-
     /**
      * Repeatedly execute a callback.
      *
@@ -140,9 +128,8 @@ final class EventLoop
      */
     public static function repeat(float $interval, \Closure $closure): string
     {
-        return self::getDriver()->repeat($interval, $closure);
+        return self::get_driver()->repeat($interval, $closure);
     }
-
     /**
      * Execute a callback when a stream resource becomes readable or is closed for reading.
      *
@@ -161,11 +148,10 @@ final class EventLoop
      *
      * @return string A unique identifier that can be used to cancel, enable or disable the callback.
      */
-    public static function onReadable(mixed $stream, \Closure $closure): string
+    public static function on_readable(mixed $stream, \Closure $closure): string
     {
-        return self::getDriver()->onReadable($stream, $closure);
+        return self::get_driver()->on_readable($stream, $closure);
     }
-
     /**
      * Execute a callback when a stream resource becomes writable or is closed for writing.
      *
@@ -184,11 +170,10 @@ final class EventLoop
      *
      * @return string A unique identifier that can be used to cancel, enable or disable the callback.
      */
-    public static function onWritable(mixed $stream, \Closure $closure): string
+    public static function on_writable(mixed $stream, \Closure $closure): string
     {
-        return self::getDriver()->onWritable($stream, $closure);
+        return self::get_driver()->on_writable($stream, $closure);
     }
-
     /**
      * Execute a callback when a signal is received.
      *
@@ -208,11 +193,10 @@ final class EventLoop
      *
      * @throws UnsupportedFeatureException If signal handling is not supported.
      */
-    public static function onSignal(int $signal, \Closure $closure): string
+    public static function on_signal(int $signal, \Closure $closure): string
     {
-        return self::getDriver()->onSignal($signal, $closure);
+        return self::get_driver()->on_signal($signal, $closure);
     }
-
     /**
      * Enable a callback to be active starting in the next tick.
      *
@@ -225,11 +209,10 @@ final class EventLoop
      *
      * @throws InvalidCallbackError If the callback identifier is invalid.
      */
-    public static function enable(string $callbackId): string
+    public static function enable(string $callback_id): string
     {
-        return self::getDriver()->enable($callbackId);
+        return self::get_driver()->enable($callback_id);
     }
-
     /**
      * Disable a callback immediately.
      *
@@ -243,11 +226,10 @@ final class EventLoop
      *
      * @return string The callback identifier.
      */
-    public static function disable(string $callbackId): string
+    public static function disable(string $callback_id): string
     {
-        return self::getDriver()->disable($callbackId);
+        return self::get_driver()->disable($callback_id);
     }
-
     /**
      * Cancel a callback.
      *
@@ -256,11 +238,10 @@ final class EventLoop
      *
      * @param string $callbackId The callback identifier.
      */
-    public static function cancel(string $callbackId): void
+    public static function cancel(string $callback_id): void
     {
-        self::getDriver()->cancel($callbackId);
+        self::get_driver()->cancel($callback_id);
     }
-
     /**
      * Reference a callback.
      *
@@ -273,11 +254,10 @@ final class EventLoop
      *
      * @throws InvalidCallbackError If the callback identifier is invalid.
      */
-    public static function reference(string $callbackId): string
+    public static function reference(string $callback_id): string
     {
-        return self::getDriver()->reference($callbackId);
+        return self::get_driver()->reference($callback_id);
     }
-
     /**
      * Unreference a callback.
      *
@@ -288,11 +268,10 @@ final class EventLoop
      *
      * @return string The callback identifier.
      */
-    public static function unreference(string $callbackId): string
+    public static function unreference(string $callback_id): string
     {
-        return self::getDriver()->unreference($callbackId);
+        return self::get_driver()->unreference($callback_id);
     }
-
     /**
      * Set a callback to be executed when an error occurs.
      *
@@ -304,31 +283,28 @@ final class EventLoop
      *
      * @param null|\Closure(\Throwable):void $errorHandler The callback to execute. `null` will clear the current handler.
      */
-    public static function setErrorHandler(?\Closure $errorHandler): void
+    public static function set_error_handler(?\Closure $error_handler): void
     {
-        self::getDriver()->setErrorHandler($errorHandler);
+        self::get_driver()->set_error_handler($error_handler);
     }
-
     /**
      * Gets the error handler closure or {@code null} if none is set.
      *
      * @return null|\Closure(\Throwable):void The previous handler, `null` if there was none.
      */
-    public static function getErrorHandler(): ?\Closure
+    public static function get_error_handler(): ?\Closure
     {
-        return self::getDriver()->getErrorHandler();
+        return self::get_driver()->get_error_handler();
     }
-
     /**
      * Returns all registered non-cancelled callback identifiers.
      *
      * @return string[] Callback identifiers.
      */
-    public static function getIdentifiers(): array
+    public static function get_identifiers(): array
     {
-        return self::getDriver()->getIdentifiers();
+        return self::get_driver()->get_identifiers();
     }
-
     /**
      * Returns the type of the callback identified by the given callback identifier.
      *
@@ -336,11 +312,10 @@ final class EventLoop
      *
      * @return CallbackType The callback type.
      */
-    public static function getType(string $callbackId): CallbackType
+    public static function get_type(string $callback_id): Callback_Type
     {
-        return self::getDriver()->getType($callbackId);
+        return self::get_driver()->get_type($callback_id);
     }
-
     /**
      * Returns whether the callback identified by the given callback identifier is currently enabled.
      *
@@ -348,11 +323,10 @@ final class EventLoop
      *
      * @return bool `true` if the callback is currently enabled, otherwise `false`.
      */
-    public static function isEnabled(string $callbackId): bool
+    public static function is_enabled(string $callback_id): bool
     {
-        return self::getDriver()->isEnabled($callbackId);
+        return self::get_driver()->is_enabled($callback_id);
     }
-
     /**
      * Returns whether the callback identified by the given callback identifier is currently referenced.
      *
@@ -360,34 +334,30 @@ final class EventLoop
      *
      * @return bool `true` if the callback is currently referenced, otherwise `false`.
      */
-    public static function isReferenced(string $callbackId): bool
+    public static function is_referenced(string $callback_id): bool
     {
-        return self::getDriver()->isReferenced($callbackId);
+        return self::get_driver()->is_referenced($callback_id);
     }
-
     /**
      * Retrieve the event loop driver that is in scope.
      */
-    public static function getDriver(): Driver
+    public static function get_driver(): Driver
     {
         /** @psalm-suppress RedundantPropertyInitializationCheck, RedundantCondition */
         if (!isset(self::$driver)) {
-            self::setDriver((new DriverFactory())->create());
+            self::set_driver((new Driver_Factory())->create());
         }
-
         return self::$driver;
     }
-
     /**
      * Returns an object used to suspend and resume execution of the current fiber or {main}.
      *
      * Calls from the same fiber will return the same suspension object.
      */
-    public static function getSuspension(): Suspension
+    public static function get_suspension(): Suspension
     {
-        return self::getDriver()->getSuspension();
+        return self::get_driver()->get_suspension();
     }
-
     /**
      * Run the event loop.
      *
@@ -399,9 +369,8 @@ final class EventLoop
      */
     public static function run(): void
     {
-        self::getDriver()->run();
+        self::get_driver()->run();
     }
-
     /**
      * Disable construction as this is a static class.
      */

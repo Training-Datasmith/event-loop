@@ -1,10 +1,9 @@
 <?php
 
-declare(strict_types=1);
-
-namespace Revolt\EventLoop\Internal;
+declare (strict_types=1);
+namespace Revolt\Event_Loop\Internal;
 
 /** @internal */
-final class DeferCallback extends DriverCallback
+final class Defer_Callback extends Driver_Callback
 {
 }

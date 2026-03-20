@@ -1,132 +1,102 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 /** @noinspection PhpComposerExtensionStubsInspection */
+namespace Revolt\Event_Loop\Driver;
 
-namespace Revolt\EventLoop\Driver;
-
-use Revolt\EventLoop\Internal\AbstractDriver;
-use Revolt\EventLoop\Internal\DriverCallback;
-use Revolt\EventLoop\Internal\SignalCallback;
-use Revolt\EventLoop\Internal\StreamCallback;
-use Revolt\EventLoop\Internal\StreamReadableCallback;
-use Revolt\EventLoop\Internal\StreamWritableCallback;
-use Revolt\EventLoop\Internal\TimerCallback;
-
-final class EvDriver extends AbstractDriver
+use Revolt\Event_Loop\Internal\Abstract_Driver;
+use Revolt\Event_Loop\Internal\Driver_Callback;
+use Revolt\Event_Loop\Internal\Signal_Callback;
+use Revolt\Event_Loop\Internal\Stream_Callback;
+use Revolt\Event_Loop\Internal\Stream_Readable_Callback;
+use Revolt\Event_Loop\Internal\Stream_Writable_Callback;
+use Revolt\Event_Loop\Internal\Timer_Callback;
+final class Ev_Driver extends Abstract_Driver
 {
     /** @var array<string, \EvSignal>|null */
-    private static ?array $activeSignals = null;
-
-    public static function isSupported(): bool
+    private static ?array $active_signals = null;
+    public static function is_supported(): bool
     {
         return \extension_loaded('ev');
     }
-
-    private readonly \EvLoop $handle;
-
+    private readonly \Ev_Loop $handle;
     /** @var array<string, \EvWatcher> */
     private array $events = [];
-
-    private readonly \Closure $ioCallback;
-
-    private readonly \Closure $timerCallback;
-
-    private readonly \Closure $signalCallback;
-
+    private readonly \Closure $io_callback;
+    private readonly \Closure $timer_callback;
+    private readonly \Closure $signal_callback;
     /** @var array<string, \EvSignal> */
     private array $signals = [];
-
     public function __construct()
     {
         parent::__construct();
-
-        $this->handle = new \EvLoop();
-
-        if (self::$activeSignals === null) {
-            self::$activeSignals = &$this->signals;
+        $this->handle = new \Ev_Loop();
+        if (self::$active_signals === null) {
+            self::$active_signals =& $this->signals;
         }
-
-        $this->ioCallback = function (\EvIo $event): void {
+        $this->io_callback = function (\Ev_Io $event): void {
             /** @var StreamCallback $callback */
             $callback = $event->data;
-
-            $this->enqueueCallback($callback);
+            $this->enqueue_callback($callback);
         };
-
-        $this->timerCallback = function (\EvTimer $event): void {
+        $this->timer_callback = function (\Ev_Timer $event): void {
             /** @var TimerCallback $callback */
             $callback = $event->data;
-
-            $this->enqueueCallback($callback);
+            $this->enqueue_callback($callback);
         };
-
-        $this->signalCallback = function (\EvSignal $event): void {
+        $this->signal_callback = function (\Ev_Signal $event): void {
             /** @var SignalCallback $callback */
             $callback = $event->data;
-
-            $this->enqueueCallback($callback);
+            $this->enqueue_callback($callback);
         };
     }
-
     /**
      * {@inheritdoc}
      */
-    public function cancel(string $callbackId): void
+    public function cancel(string $callback_id): void
     {
-        parent::cancel($callbackId);
-        unset($this->events[$callbackId]);
+        parent::cancel($callback_id);
+        unset($this->events[$callback_id]);
     }
-
     public function __destruct()
     {
         foreach ($this->events as $event) {
             /** @psalm-suppress all */
-            if ($event !== null) { // Events may have been nulled in extension depending on destruct order.
+            if ($event !== null) {
+                // Events may have been nulled in extension depending on destruct order.
                 $event->stop();
             }
         }
-
         // We need to clear all references to events manually, see
         // https://bitbucket.org/osmanov/pecl-ev/issues/31/segfault-in-ev_timer_stop
         $this->events = [];
     }
-
     /**
      * {@inheritdoc}
      */
     public function run(): void
     {
-        $active = self::$activeSignals;
-
+        $active = self::$active_signals;
         \assert($active !== null);
-
         foreach ($active as $event) {
             $event->stop();
         }
-
-        self::$activeSignals = &$this->signals;
-
+        self::$active_signals =& $this->signals;
         foreach ($this->signals as $event) {
             $event->start();
         }
-
         try {
             parent::run();
         } finally {
             foreach ($this->signals as $event) {
                 $event->stop();
             }
-
-            self::$activeSignals = &$active;
-
+            self::$active_signals =& $active;
             foreach ($active as $event) {
                 $event->start();
             }
         }
     }
-
     /**
      * {@inheritdoc}
      */
@@ -135,20 +105,17 @@ final class EvDriver extends AbstractDriver
         $this->handle->stop();
         parent::stop();
     }
-
     /**
      * {@inheritdoc}
      */
-    public function getHandle(): \EvLoop
+    public function get_handle(): \Ev_Loop
     {
         return $this->handle;
     }
-
     protected function now(): float
     {
-        return (float) \hrtime(true) / 1_000_000_000;
+        return (float) \hrtime(true) / 1000000000;
     }
-
     /**
      * {@inheritdoc}
      */
@@ -156,40 +123,26 @@ final class EvDriver extends AbstractDriver
     {
         $this->handle->run($blocking ? \Ev::RUN_ONCE : \Ev::RUN_ONCE | \Ev::RUN_NOWAIT);
     }
-
     /**
      * {@inheritdoc}
      */
     protected function activate(array $callbacks): void
     {
-        $this->handle->nowUpdate();
+        $this->handle->now_update();
         $now = $this->now();
-
         foreach ($callbacks as $callback) {
             if (!isset($this->events[$id = $callback->id])) {
-                if ($callback instanceof StreamReadableCallback) {
+                if ($callback instanceof Stream_Readable_Callback) {
                     \assert(\is_resource($callback->stream));
-
-                    $this->events[$id] = $this->handle->io($callback->stream, \Ev::READ, $this->ioCallback, $callback);
-                } elseif ($callback instanceof StreamWritableCallback) {
+                    $this->events[$id] = $this->handle->io($callback->stream, \Ev::READ, $this->io_callback, $callback);
+                } elseif ($callback instanceof Stream_Writable_Callback) {
                     \assert(\is_resource($callback->stream));
-
-                    $this->events[$id] = $this->handle->io(
-                        $callback->stream,
-                        \Ev::WRITE,
-                        $this->ioCallback,
-                        $callback
-                    );
-                } elseif ($callback instanceof TimerCallback) {
+                    $this->events[$id] = $this->handle->io($callback->stream, \Ev::WRITE, $this->io_callback, $callback);
+                } elseif ($callback instanceof Timer_Callback) {
                     $interval = $callback->interval;
-                    $this->events[$id] = $this->handle->timer(
-                        \max(0, ($callback->expiration - $now)),
-                        $callback->repeat ? $interval : 0,
-                        $this->timerCallback,
-                        $callback
-                    );
-                } elseif ($callback instanceof SignalCallback) {
-                    $this->events[$id] = $this->handle->signal($callback->signal, $this->signalCallback, $callback);
+                    $this->events[$id] = $this->handle->timer(\max(0, $callback->expiration - $now), $callback->repeat ? $interval : 0, $this->timer_callback, $callback);
+                } elseif ($callback instanceof Signal_Callback) {
+                    $this->events[$id] = $this->handle->signal($callback->signal, $this->signal_callback, $callback);
                 } else {
                     // @codeCoverageIgnoreStart
                     throw new \Error('Unknown callback type: ' . $callback::class);
@@ -198,20 +151,17 @@ final class EvDriver extends AbstractDriver
             } else {
                 $this->events[$id]->start();
             }
-
-            if ($callback instanceof SignalCallback) {
+            if ($callback instanceof Signal_Callback) {
                 /** @psalm-suppress PropertyTypeCoercion */
                 $this->signals[$id] = $this->events[$id];
             }
         }
     }
-
-    protected function deactivate(DriverCallback $callback): void
+    protected function deactivate(Driver_Callback $callback): void
     {
         if (isset($this->events[$id = $callback->id])) {
             $this->events[$id]->stop();
-
-            if ($callback instanceof SignalCallback) {
+            if ($callback instanceof Signal_Callback) {
                 unset($this->signals[$id]);
             }
         }

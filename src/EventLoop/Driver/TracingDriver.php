@@ -1,248 +1,191 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace Revolt\Event_Loop\Driver;
 
-namespace Revolt\EventLoop\Driver;
-
-use Revolt\EventLoop\CallbackType;
-use Revolt\EventLoop\Driver;
-use Revolt\EventLoop\InvalidCallbackError;
-use Revolt\EventLoop\Suspension;
-
-final class TracingDriver implements Driver
+use Revolt\Event_Loop\Callback_Type;
+use Revolt\Event_Loop\Driver;
+use Revolt\Event_Loop\Invalid_Callback_Error;
+use Revolt\Event_Loop\Suspension;
+final class Tracing_Driver implements Driver
 {
     /** @var array<string, true> */
-    private array $enabledCallbacks = [];
-
+    private array $enabled_callbacks = [];
     /** @var array<string, true> */
-    private array $unreferencedCallbacks = [];
-
+    private array $unreferenced_callbacks = [];
     /** @var array<string, string> */
-    private array $creationTraces = [];
-
+    private array $creation_traces = [];
     /** @var array<string, string> */
-    private array $cancelTraces = [];
-
+    private array $cancel_traces = [];
     public function __construct(private readonly Driver $driver)
     {
     }
-
     public function run(): void
     {
         $this->driver->run();
     }
-
     public function stop(): void
     {
         $this->driver->stop();
     }
-
-    public function getSuspension(): Suspension
+    public function get_suspension(): Suspension
     {
-        return $this->driver->getSuspension();
+        return $this->driver->get_suspension();
     }
-
-    public function isRunning(): bool
+    public function is_running(): bool
     {
-        return $this->driver->isRunning();
+        return $this->driver->is_running();
     }
-
     public function defer(\Closure $closure): string
     {
         $id = $this->driver->defer(function (...$args) use ($closure) {
             $this->cancel($args[0]);
             return $closure(...$args);
         });
-
-        $this->creationTraces[$id] = $this->formatStacktrace(\debug_backtrace(\DEBUG_BACKTRACE_IGNORE_ARGS));
-        $this->enabledCallbacks[$id] = true;
-
+        $this->creation_traces[$id] = $this->format_stacktrace(\debug_backtrace(\DEBUG_BACKTRACE_IGNORE_ARGS));
+        $this->enabled_callbacks[$id] = true;
         return $id;
     }
-
     public function delay(float $delay, \Closure $closure): string
     {
         $id = $this->driver->delay($delay, function (...$args) use ($closure) {
             $this->cancel($args[0]);
             return $closure(...$args);
         });
-
-        $this->creationTraces[$id] = $this->formatStacktrace(\debug_backtrace(\DEBUG_BACKTRACE_IGNORE_ARGS));
-        $this->enabledCallbacks[$id] = true;
-
+        $this->creation_traces[$id] = $this->format_stacktrace(\debug_backtrace(\DEBUG_BACKTRACE_IGNORE_ARGS));
+        $this->enabled_callbacks[$id] = true;
         return $id;
     }
-
     public function repeat(float $interval, \Closure $closure): string
     {
         $id = $this->driver->repeat($interval, $closure);
-
-        $this->creationTraces[$id] = $this->formatStacktrace(\debug_backtrace(\DEBUG_BACKTRACE_IGNORE_ARGS));
-        $this->enabledCallbacks[$id] = true;
-
+        $this->creation_traces[$id] = $this->format_stacktrace(\debug_backtrace(\DEBUG_BACKTRACE_IGNORE_ARGS));
+        $this->enabled_callbacks[$id] = true;
         return $id;
     }
-
-    public function onReadable(mixed $stream, \Closure $closure): string
+    public function on_readable(mixed $stream, \Closure $closure): string
     {
-        $id = $this->driver->onReadable($stream, $closure);
-
-        $this->creationTraces[$id] = $this->formatStacktrace(\debug_backtrace(\DEBUG_BACKTRACE_IGNORE_ARGS));
-        $this->enabledCallbacks[$id] = true;
-
+        $id = $this->driver->on_readable($stream, $closure);
+        $this->creation_traces[$id] = $this->format_stacktrace(\debug_backtrace(\DEBUG_BACKTRACE_IGNORE_ARGS));
+        $this->enabled_callbacks[$id] = true;
         return $id;
     }
-
-    public function onWritable(mixed $stream, \Closure $closure): string
+    public function on_writable(mixed $stream, \Closure $closure): string
     {
-        $id = $this->driver->onWritable($stream, $closure);
-
-        $this->creationTraces[$id] = $this->formatStacktrace(\debug_backtrace(\DEBUG_BACKTRACE_IGNORE_ARGS));
-        $this->enabledCallbacks[$id] = true;
-
+        $id = $this->driver->on_writable($stream, $closure);
+        $this->creation_traces[$id] = $this->format_stacktrace(\debug_backtrace(\DEBUG_BACKTRACE_IGNORE_ARGS));
+        $this->enabled_callbacks[$id] = true;
         return $id;
     }
-
-    public function onSignal(int $signal, \Closure $closure): string
+    public function on_signal(int $signal, \Closure $closure): string
     {
-        $id = $this->driver->onSignal($signal, $closure);
-
-        $this->creationTraces[$id] = $this->formatStacktrace(\debug_backtrace(\DEBUG_BACKTRACE_IGNORE_ARGS));
-        $this->enabledCallbacks[$id] = true;
-
+        $id = $this->driver->on_signal($signal, $closure);
+        $this->creation_traces[$id] = $this->format_stacktrace(\debug_backtrace(\DEBUG_BACKTRACE_IGNORE_ARGS));
+        $this->enabled_callbacks[$id] = true;
         return $id;
     }
-
-    public function enable(string $callbackId): string
+    public function enable(string $callback_id): string
     {
         try {
-            $this->driver->enable($callbackId);
-            $this->enabledCallbacks[$callbackId] = true;
-        } catch (InvalidCallbackError $e) {
-            $e->addInfo('Creation trace', $this->getCreationTrace($callbackId));
-            $e->addInfo('Cancellation trace', $this->getCancelTrace($callbackId));
-
+            $this->driver->enable($callback_id);
+            $this->enabled_callbacks[$callback_id] = true;
+        } catch (Invalid_Callback_Error $e) {
+            $e->add_info('Creation trace', $this->get_creation_trace($callback_id));
+            $e->add_info('Cancellation trace', $this->get_cancel_trace($callback_id));
             throw $e;
         }
-
-        return $callbackId;
+        return $callback_id;
     }
-
-    public function cancel(string $callbackId): void
+    public function cancel(string $callback_id): void
     {
-        $this->driver->cancel($callbackId);
-
-        if (!isset($this->cancelTraces[$callbackId])) {
-            $this->cancelTraces[$callbackId] = $this->formatStacktrace(\debug_backtrace(\DEBUG_BACKTRACE_IGNORE_ARGS));
+        $this->driver->cancel($callback_id);
+        if (!isset($this->cancel_traces[$callback_id])) {
+            $this->cancel_traces[$callback_id] = $this->format_stacktrace(\debug_backtrace(\DEBUG_BACKTRACE_IGNORE_ARGS));
         }
-
-        unset($this->enabledCallbacks[$callbackId], $this->unreferencedCallbacks[$callbackId]);
+        unset($this->enabled_callbacks[$callback_id], $this->unreferenced_callbacks[$callback_id]);
     }
-
-    public function disable(string $callbackId): string
+    public function disable(string $callback_id): string
     {
-        $this->driver->disable($callbackId);
-        unset($this->enabledCallbacks[$callbackId]);
-
-        return $callbackId;
+        $this->driver->disable($callback_id);
+        unset($this->enabled_callbacks[$callback_id]);
+        return $callback_id;
     }
-
-    public function reference(string $callbackId): string
+    public function reference(string $callback_id): string
     {
         try {
-            $this->driver->reference($callbackId);
-            unset($this->unreferencedCallbacks[$callbackId]);
-        } catch (InvalidCallbackError $e) {
-            $e->addInfo('Creation trace', $this->getCreationTrace($callbackId));
-            $e->addInfo('Cancellation trace', $this->getCancelTrace($callbackId));
-
+            $this->driver->reference($callback_id);
+            unset($this->unreferenced_callbacks[$callback_id]);
+        } catch (Invalid_Callback_Error $e) {
+            $e->add_info('Creation trace', $this->get_creation_trace($callback_id));
+            $e->add_info('Cancellation trace', $this->get_cancel_trace($callback_id));
             throw $e;
         }
-
-        return $callbackId;
+        return $callback_id;
     }
-
-    public function unreference(string $callbackId): string
+    public function unreference(string $callback_id): string
     {
-        $this->driver->unreference($callbackId);
-        $this->unreferencedCallbacks[$callbackId] = true;
-
-        return $callbackId;
+        $this->driver->unreference($callback_id);
+        $this->unreferenced_callbacks[$callback_id] = true;
+        return $callback_id;
     }
-
-    public function setErrorHandler(?\Closure $errorHandler): void
+    public function set_error_handler(?\Closure $error_handler): void
     {
-        $this->driver->setErrorHandler($errorHandler);
+        $this->driver->set_error_handler($error_handler);
     }
-
-    public function getErrorHandler(): ?\Closure
+    public function get_error_handler(): ?\Closure
     {
-        return $this->driver->getErrorHandler();
+        return $this->driver->get_error_handler();
     }
-
     /** @inheritdoc */
-    public function getHandle(): mixed
+    public function get_handle(): mixed
     {
-        return $this->driver->getHandle();
+        return $this->driver->get_handle();
     }
-
     public function dump(): string
     {
         $dump = 'Enabled, referenced callbacks keeping the loop running: ';
-
-        foreach ($this->enabledCallbacks as $callbackId => $_) {
-            if (isset($this->unreferencedCallbacks[$callbackId])) {
+        foreach ($this->enabled_callbacks as $callback_id => $_) {
+            if (isset($this->unreferenced_callbacks[$callback_id])) {
                 continue;
             }
-
-            $dump .= 'Callback identifier: ' . $callbackId . "\r\n";
-            $dump .= $this->getCreationTrace($callbackId);
+            $dump .= 'Callback identifier: ' . $callback_id . "\r\n";
+            $dump .= $this->get_creation_trace($callback_id);
             $dump .= "\r\n\r\n";
         }
-
         return \rtrim($dump);
     }
-
-    public function getIdentifiers(): array
+    public function get_identifiers(): array
     {
-        return $this->driver->getIdentifiers();
+        return $this->driver->get_identifiers();
     }
-
-    public function getType(string $callbackId): CallbackType
+    public function get_type(string $callback_id): Callback_Type
     {
-        return $this->driver->getType($callbackId);
+        return $this->driver->get_type($callback_id);
     }
-
-    public function isEnabled(string $callbackId): bool
+    public function is_enabled(string $callback_id): bool
     {
-        return $this->driver->isEnabled($callbackId);
+        return $this->driver->is_enabled($callback_id);
     }
-
-    public function isReferenced(string $callbackId): bool
+    public function is_referenced(string $callback_id): bool
     {
-        return $this->driver->isReferenced($callbackId);
+        return $this->driver->is_referenced($callback_id);
     }
-
     public function __debugInfo(): array
     {
         return $this->driver->__debugInfo();
     }
-
     public function queue(\Closure $closure, mixed ...$args): void
     {
         $this->driver->queue($closure, ...$args);
     }
-
-    private function getCreationTrace(string $callbackId): string
+    private function get_creation_trace(string $callback_id): string
     {
-        return $this->creationTraces[$callbackId] ?? 'No creation trace, yet.';
+        return $this->creation_traces[$callback_id] ?? 'No creation trace, yet.';
     }
-
-    private function getCancelTrace(string $callbackId): string
+    private function get_cancel_trace(string $callback_id): string
     {
-        return $this->cancelTraces[$callbackId] ?? 'No cancellation trace, yet.';
+        return $this->cancel_traces[$callback_id] ?? 'No cancellation trace, yet.';
     }
-
     /**
      * Formats a stacktrace obtained via `debug_backtrace()`.
      *
@@ -258,19 +201,16 @@ final class TracingDriver implements Driver
      *
      * @return string Formatted stacktrace.
      */
-    private function formatStacktrace(array $trace): string
+    private function format_stacktrace(array $trace): string
     {
         return \implode("\n", \array_map(static function (array|int $e, int $i): string {
             $line = "#{$i} ";
-
             if (isset($e['file'], $e['line'])) {
                 $line .= "{$e['file']}:{$e['line']} ";
             }
-
             if (isset($e['class'], $e['type'])) {
                 $line .= $e['class'] . $e['type'];
             }
-
             return $line . $e['function'] . '()';
         }, $trace, \array_keys($trace)));
     }

@@ -1,29 +1,24 @@
 <?php
 
-declare(strict_types=1);
-
-namespace Revolt\EventLoop\Internal;
+declare (strict_types=1);
+namespace Revolt\Event_Loop\Internal;
 
 /** @internal */
-final class ClosureHelper
+final class Closure_Helper
 {
-    public static function getDescription(\Closure $closure): string
+    public static function get_description(\Closure $closure): string
     {
         try {
             $reflection = new \ReflectionFunction($closure);
-
             $description = $reflection->name;
-
-            if ($scopeClass = $reflection->getClosureScopeClass()) {
-                $description = $scopeClass->name . '::' . $description;
+            if ($scope_class = $reflection->get_closure_scope_class()) {
+                $description = $scope_class->name . '::' . $description;
             }
-
-            if ($reflection->getFileName() !== false && $reflection->getStartLine()) {
-                $description .= ' defined in ' . $reflection->getFileName() . ':' . $reflection->getStartLine();
+            if ($reflection->get_file_name() !== false && $reflection->get_start_line()) {
+                $description .= ' defined in ' . $reflection->get_file_name() . ':' . $reflection->get_start_line();
             }
-
             return $description;
-        } catch (\ReflectionException) {
+        } catch (\Reflection_Exception) {
             return '???';
         }
     }
