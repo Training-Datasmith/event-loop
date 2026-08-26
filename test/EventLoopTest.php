@@ -466,6 +466,10 @@ class EventLoopTest extends TestCase
 
     public function testFiberDestroyedWhileSuspended(): void
     {
+        if (\PHP_VERSION_ID >= 80400) {
+            self::markTestSkipped('PHP 8.4 allows fiber switches from destructors; resume semantics differ.');
+        }
+
         $outer = new class (new class ($this) {
             private ?Suspension $suspension = null;
 
