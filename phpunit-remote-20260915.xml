@@ -1,0 +1,850 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="" tests="407" assertions="630" errors="0" warnings="0" failures="0" skipped="202" time="11.673309">
+    <testsuite name="Main" tests="407" assertions="630" errors="0" warnings="0" failures="0" skipped="202" time="11.673309">
+      <testsuite name="Revolt\EventLoop\Driver\EvDriverTest" file="/workspace/test/Driver/EvDriverTest.php" tests="67" assertions="0" errors="0" warnings="0" failures="0" skipped="67" time="0.000000">
+        <testcase name="testHandle" class="Revolt\EventLoop\Driver\EvDriverTest" classname="Revolt.EventLoop.Driver.EvDriverTest" file="/workspace/test/Driver/EvDriverTest.php" line="19" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testSupported" class="Revolt\EventLoop\Driver\EvDriverTest" classname="Revolt.EventLoop.Driver.EvDriverTest" file="/workspace/test/Driver/EvDriverTest.php" line="24" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testCorrectTimeoutIfBlockingBeforeActivate" class="Revolt\EventLoop\Driver\EvDriverTest" classname="Revolt.EventLoop.Driver.EvDriverTest" file="/workspace/test/Driver/EvDriverTest.php" line="46" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testCorrectTimeoutIfBlockingBeforeDelay" class="Revolt\EventLoop\Driver\EvDriverTest" classname="Revolt.EventLoop.Driver.EvDriverTest" file="/workspace/test/Driver/EvDriverTest.php" line="70" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testLoopTerminatesWithOnlyUnreferencedCallbacks" class="Revolt\EventLoop\Driver\EvDriverTest" classname="Revolt.EventLoop.Driver.EvDriverTest" file="/workspace/test/Driver/EvDriverTest.php" line="92" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testCallbackUnrefRerefRunResult" class="Revolt\EventLoop\Driver\EvDriverTest" classname="Revolt.EventLoop.Driver.EvDriverTest" file="/workspace/test/Driver/EvDriverTest.php" line="123" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testDeferCallbackUnrefRunResult" class="Revolt\EventLoop\Driver\EvDriverTest" classname="Revolt.EventLoop.Driver.EvDriverTest" file="/workspace/test/Driver/EvDriverTest.php" line="137" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testDelayCallbackUnrefRunResult" class="Revolt\EventLoop\Driver\EvDriverTest" classname="Revolt.EventLoop.Driver.EvDriverTest" file="/workspace/test/Driver/EvDriverTest.php" line="149" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testRepeatCallbackUnrefRunResult" class="Revolt\EventLoop\Driver\EvDriverTest" classname="Revolt.EventLoop.Driver.EvDriverTest" file="/workspace/test/Driver/EvDriverTest.php" line="162" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testOnReadableCallbackUnrefRunResult" class="Revolt\EventLoop\Driver\EvDriverTest" classname="Revolt.EventLoop.Driver.EvDriverTest" file="/workspace/test/Driver/EvDriverTest.php" line="174" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testOnWritableCallbackKeepAliveRunResult" class="Revolt\EventLoop\Driver\EvDriverTest" classname="Revolt.EventLoop.Driver.EvDriverTest" file="/workspace/test/Driver/EvDriverTest.php" line="186" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testOnSignalCallbackKeepAliveRunResult" class="Revolt\EventLoop\Driver\EvDriverTest" classname="Revolt.EventLoop.Driver.EvDriverTest" file="/workspace/test/Driver/EvDriverTest.php" line="198" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testUnreferencedDeferredCallbackStillExecutes" class="Revolt\EventLoop\Driver\EvDriverTest" classname="Revolt.EventLoop.Driver.EvDriverTest" file="/workspace/test/Driver/EvDriverTest.php" line="220" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testLoopDoesNotBlockOnNegativeTimerExpiration" class="Revolt\EventLoop\Driver\EvDriverTest" classname="Revolt.EventLoop.Driver.EvDriverTest" file="/workspace/test/Driver/EvDriverTest.php" line="235" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testDisabledDeferReenableInSubsequentTick" class="Revolt\EventLoop\Driver\EvDriverTest" classname="Revolt.EventLoop.Driver.EvDriverTest" file="/workspace/test/Driver/EvDriverTest.php" line="248" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="Revolt\EventLoop\Driver\EvDriverTest::testDisableWithConsecutiveCancel" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="Revolt\EventLoop\Driver\EvDriverTest::testCallbackReferenceInfo" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="Revolt\EventLoop\Driver\EvDriverTest::testCallbackRegistrationAndCancellationInfo" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="Revolt\EventLoop\Driver\EvDriverTest::testNoMemoryLeak" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testExecutionOrderGuarantees" class="Revolt\EventLoop\Driver\EvDriverTest" classname="Revolt.EventLoop.Driver.EvDriverTest" file="/workspace/test/Driver/EvDriverTest.php" line="625" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testSignalExecutionOrder" class="Revolt\EventLoop\Driver\EvDriverTest" classname="Revolt.EventLoop.Driver.EvDriverTest" file="/workspace/test/Driver/EvDriverTest.php" line="723" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testExceptionOnEnableNonexistentCallback" class="Revolt\EventLoop\Driver\EvDriverTest" classname="Revolt.EventLoop.Driver.EvDriverTest" file="/workspace/test/Driver/EvDriverTest.php" line="765" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testSuccessOnDisableNonexistentCallback" class="Revolt\EventLoop\Driver\EvDriverTest" classname="Revolt.EventLoop.Driver.EvDriverTest" file="/workspace/test/Driver/EvDriverTest.php" line="777" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testSuccessOnCancelNonexistentCallback" class="Revolt\EventLoop\Driver\EvDriverTest" classname="Revolt.EventLoop.Driver.EvDriverTest" file="/workspace/test/Driver/EvDriverTest.php" line="785" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testExceptionOnReferenceNonexistentCallback" class="Revolt\EventLoop\Driver\EvDriverTest" classname="Revolt.EventLoop.Driver.EvDriverTest" file="/workspace/test/Driver/EvDriverTest.php" line="793" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testSuccessOnUnreferenceNonexistentCallback" class="Revolt\EventLoop\Driver\EvDriverTest" classname="Revolt.EventLoop.Driver.EvDriverTest" file="/workspace/test/Driver/EvDriverTest.php" line="805" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testInvalidityOnDefer" class="Revolt\EventLoop\Driver\EvDriverTest" classname="Revolt.EventLoop.Driver.EvDriverTest" file="/workspace/test/Driver/EvDriverTest.php" line="813" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testInvalidityOnDelay" class="Revolt\EventLoop\Driver\EvDriverTest" classname="Revolt.EventLoop.Driver.EvDriverTest" file="/workspace/test/Driver/EvDriverTest.php" line="828" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testEventsNotExecutedInSameTickAsEnabled" class="Revolt\EventLoop\Driver\EvDriverTest" classname="Revolt.EventLoop.Driver.EvDriverTest" file="/workspace/test/Driver/EvDriverTest.php" line="843" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testEnablingAllowsSubsequentInvocation" class="Revolt\EventLoop\Driver\EvDriverTest" classname="Revolt.EventLoop.Driver.EvDriverTest" file="/workspace/test/Driver/EvDriverTest.php" line="888" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testUnresolvedEventsAreReenabledOnRunFollowingPreviousStop" class="Revolt\EventLoop\Driver\EvDriverTest" classname="Revolt.EventLoop.Driver.EvDriverTest" file="/workspace/test/Driver/EvDriverTest.php" line="904" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testTimerParameterOrder" class="Revolt\EventLoop\Driver\EvDriverTest" classname="Revolt.EventLoop.Driver.EvDriverTest" file="/workspace/test/Driver/EvDriverTest.php" line="924" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testStreamParameterOrder" class="Revolt\EventLoop\Driver\EvDriverTest" classname="Revolt.EventLoop.Driver.EvDriverTest" file="/workspace/test/Driver/EvDriverTest.php" line="950" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testDisablingPreventsSubsequentInvocation" class="Revolt\EventLoop\Driver\EvDriverTest" classname="Revolt.EventLoop.Driver.EvDriverTest" file="/workspace/test/Driver/EvDriverTest.php" line="964" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testImmediateExecution" class="Revolt\EventLoop\Driver\EvDriverTest" classname="Revolt.EventLoop.Driver.EvDriverTest" file="/workspace/test/Driver/EvDriverTest.php" line="979" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testImmediatelyCallbacksDoNotRecurseInSameTick" class="Revolt\EventLoop\Driver\EvDriverTest" classname="Revolt.EventLoop.Driver.EvDriverTest" file="/workspace/test/Driver/EvDriverTest.php" line="991" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testRunExecutesEventsUntilExplicitlyStopped" class="Revolt\EventLoop\Driver\EvDriverTest" classname="Revolt.EventLoop.Driver.EvDriverTest" file="/workspace/test/Driver/EvDriverTest.php" line="1006" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testLoopAllowsExceptionToBubbleUpDuringStart" class="Revolt\EventLoop\Driver\EvDriverTest" classname="Revolt.EventLoop.Driver.EvDriverTest" file="/workspace/test/Driver/EvDriverTest.php" line="1020" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testLoopAllowsExceptionToBubbleUpFromRepeatingAlarmDuringStart" class="Revolt\EventLoop\Driver\EvDriverTest" classname="Revolt.EventLoop.Driver.EvDriverTest" file="/workspace/test/Driver/EvDriverTest.php" line="1036" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testErrorHandlerCapturesUncaughtException" class="Revolt\EventLoop\Driver\EvDriverTest" classname="Revolt.EventLoop.Driver.EvDriverTest" file="/workspace/test/Driver/EvDriverTest.php" line="1052" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testOnErrorFailure" class="Revolt\EventLoop\Driver\EvDriverTest" classname="Revolt.EventLoop.Driver.EvDriverTest" file="/workspace/test/Driver/EvDriverTest.php" line="1070" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testLoopException" class="Revolt\EventLoop\Driver\EvDriverTest" classname="Revolt.EventLoop.Driver.EvDriverTest" file="/workspace/test/Driver/EvDriverTest.php" line="1090" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testUncaughtThrowableInstanceIsRethrownAsIs" class="Revolt\EventLoop\Driver\EvDriverTest" classname="Revolt.EventLoop.Driver.EvDriverTest" file="/workspace/test/Driver/EvDriverTest.php" line="1114" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testUncaughtThrowableInstanceIsRethrownAsIsFromErrorHandler" class="Revolt\EventLoop\Driver\EvDriverTest" classname="Revolt.EventLoop.Driver.EvDriverTest" file="/workspace/test/Driver/EvDriverTest.php" line="1125" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testOnSignalCallback" class="Revolt\EventLoop\Driver\EvDriverTest" classname="Revolt.EventLoop.Driver.EvDriverTest" file="/workspace/test/Driver/EvDriverTest.php" line="1137" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testInitiallyDisabledOnSignalCallback" class="Revolt\EventLoop\Driver\EvDriverTest" classname="Revolt.EventLoop.Driver.EvDriverTest" file="/workspace/test/Driver/EvDriverTest.php" line="1154" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testCancelRemovesCallback" class="Revolt\EventLoop\Driver\EvDriverTest" classname="Revolt.EventLoop.Driver.EvDriverTest" file="/workspace/test/Driver/EvDriverTest.php" line="1180" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testOnWritable" class="Revolt\EventLoop\Driver\EvDriverTest" classname="Revolt.EventLoop.Driver.EvDriverTest" file="/workspace/test/Driver/EvDriverTest.php" line="1200" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testInitiallyDisabledWrite" class="Revolt\EventLoop\Driver\EvDriverTest" classname="Revolt.EventLoop.Driver.EvDriverTest" file="/workspace/test/Driver/EvDriverTest.php" line="1213" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testInitiallyDisabledWriteIsTriggeredOnceEnabled" class="Revolt\EventLoop\Driver\EvDriverTest" classname="Revolt.EventLoop.Driver.EvDriverTest" file="/workspace/test/Driver/EvDriverTest.php" line="1226" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testStreamDoesntSwallowExceptions" class="Revolt\EventLoop\Driver\EvDriverTest" classname="Revolt.EventLoop.Driver.EvDriverTest" file="/workspace/test/Driver/EvDriverTest.php" line="1242" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testReactorRunsUntilNoCallbacksRemain" class="Revolt\EventLoop\Driver\EvDriverTest" classname="Revolt.EventLoop.Driver.EvDriverTest" file="/workspace/test/Driver/EvDriverTest.php" line="1258" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testReactorRunsUntilNoCallbacksRemainWhenStartedDeferred" class="Revolt\EventLoop\Driver\EvDriverTest" classname="Revolt.EventLoop.Driver.EvDriverTest" file="/workspace/test/Driver/EvDriverTest.php" line="1278" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testOptionalCallbackDataPassedOnInvocation" class="Revolt\EventLoop\Driver\EvDriverTest" classname="Revolt.EventLoop.Driver.EvDriverTest" file="/workspace/test/Driver/EvDriverTest.php" line="1300" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testLoopStopPreventsTimerExecution" class="Revolt\EventLoop\Driver\EvDriverTest" classname="Revolt.EventLoop.Driver.EvDriverTest" file="/workspace/test/Driver/EvDriverTest.php" line="1327" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testDeferEnabledInNextTick" class="Revolt\EventLoop\Driver\EvDriverTest" classname="Revolt.EventLoop.Driver.EvDriverTest" file="/workspace/test/Driver/EvDriverTest.php" line="1341" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testMicrotaskExecutedImmediatelyAfterCallback" class="Revolt\EventLoop\Driver\EvDriverTest" classname="Revolt.EventLoop.Driver.EvDriverTest" file="/workspace/test/Driver/EvDriverTest.php" line="1365" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testMicrotaskExecutionDoesNotKeepReferenceToArgs" class="Revolt\EventLoop\Driver\EvDriverTest" classname="Revolt.EventLoop.Driver.EvDriverTest" file="/workspace/test/Driver/EvDriverTest.php" line="1404" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testMicrotaskThrowingStillExecutesNextMicrotask" class="Revolt\EventLoop\Driver\EvDriverTest" classname="Revolt.EventLoop.Driver.EvDriverTest" file="/workspace/test/Driver/EvDriverTest.php" line="1422" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testRethrowsFromCallbacks" class="Revolt\EventLoop\Driver\EvDriverTest" classname="Revolt.EventLoop.Driver.EvDriverTest" file="/workspace/test/Driver/EvDriverTest.php" line="1446" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testMultipleCallbacksOnSameDescriptor" class="Revolt\EventLoop\Driver\EvDriverTest" classname="Revolt.EventLoop.Driver.EvDriverTest" file="/workspace/test/Driver/EvDriverTest.php" line="1503" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testStreamWritableIfConnectFails" class="Revolt\EventLoop\Driver\EvDriverTest" classname="Revolt.EventLoop.Driver.EvDriverTest" file="/workspace/test/Driver/EvDriverTest.php" line="1554" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testTimerIntervalCountedWhenNotRunning" class="Revolt\EventLoop\Driver\EvDriverTest" classname="Revolt.EventLoop.Driver.EvDriverTest" file="/workspace/test/Driver/EvDriverTest.php" line="1591" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testShortTimerDoesNotBlockOtherTimers" class="Revolt\EventLoop\Driver\EvDriverTest" classname="Revolt.EventLoop.Driver.EvDriverTest" file="/workspace/test/Driver/EvDriverTest.php" line="1602" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testTwoShortRepeatTimersWorkAsExpected" class="Revolt\EventLoop\Driver\EvDriverTest" classname="Revolt.EventLoop.Driver.EvDriverTest" file="/workspace/test/Driver/EvDriverTest.php" line="1622" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testLargeDelayTimer" class="Revolt\EventLoop\Driver\EvDriverTest" classname="Revolt.EventLoop.Driver.EvDriverTest" file="/workspace/test/Driver/EvDriverTest.php" line="1644" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testLargeRepeatTimer" class="Revolt\EventLoop\Driver\EvDriverTest" classname="Revolt.EventLoop.Driver.EvDriverTest" file="/workspace/test/Driver/EvDriverTest.php" line="1661" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+      </testsuite>
+      <testsuite name="Revolt\EventLoop\Driver\EventDriverTest" file="/workspace/test/Driver/EventDriverTest.php" tests="67" assertions="0" errors="0" warnings="0" failures="0" skipped="67" time="0.000000">
+        <testcase name="testHandle" class="Revolt\EventLoop\Driver\EventDriverTest" classname="Revolt.EventLoop.Driver.EventDriverTest" file="/workspace/test/Driver/EventDriverTest.php" line="19" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testSupported" class="Revolt\EventLoop\Driver\EventDriverTest" classname="Revolt.EventLoop.Driver.EventDriverTest" file="/workspace/test/Driver/EventDriverTest.php" line="24" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testCorrectTimeoutIfBlockingBeforeActivate" class="Revolt\EventLoop\Driver\EventDriverTest" classname="Revolt.EventLoop.Driver.EventDriverTest" file="/workspace/test/Driver/EventDriverTest.php" line="46" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testCorrectTimeoutIfBlockingBeforeDelay" class="Revolt\EventLoop\Driver\EventDriverTest" classname="Revolt.EventLoop.Driver.EventDriverTest" file="/workspace/test/Driver/EventDriverTest.php" line="70" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testLoopTerminatesWithOnlyUnreferencedCallbacks" class="Revolt\EventLoop\Driver\EventDriverTest" classname="Revolt.EventLoop.Driver.EventDriverTest" file="/workspace/test/Driver/EventDriverTest.php" line="92" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testCallbackUnrefRerefRunResult" class="Revolt\EventLoop\Driver\EventDriverTest" classname="Revolt.EventLoop.Driver.EventDriverTest" file="/workspace/test/Driver/EventDriverTest.php" line="123" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testDeferCallbackUnrefRunResult" class="Revolt\EventLoop\Driver\EventDriverTest" classname="Revolt.EventLoop.Driver.EventDriverTest" file="/workspace/test/Driver/EventDriverTest.php" line="137" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testDelayCallbackUnrefRunResult" class="Revolt\EventLoop\Driver\EventDriverTest" classname="Revolt.EventLoop.Driver.EventDriverTest" file="/workspace/test/Driver/EventDriverTest.php" line="149" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testRepeatCallbackUnrefRunResult" class="Revolt\EventLoop\Driver\EventDriverTest" classname="Revolt.EventLoop.Driver.EventDriverTest" file="/workspace/test/Driver/EventDriverTest.php" line="162" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testOnReadableCallbackUnrefRunResult" class="Revolt\EventLoop\Driver\EventDriverTest" classname="Revolt.EventLoop.Driver.EventDriverTest" file="/workspace/test/Driver/EventDriverTest.php" line="174" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testOnWritableCallbackKeepAliveRunResult" class="Revolt\EventLoop\Driver\EventDriverTest" classname="Revolt.EventLoop.Driver.EventDriverTest" file="/workspace/test/Driver/EventDriverTest.php" line="186" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testOnSignalCallbackKeepAliveRunResult" class="Revolt\EventLoop\Driver\EventDriverTest" classname="Revolt.EventLoop.Driver.EventDriverTest" file="/workspace/test/Driver/EventDriverTest.php" line="198" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testUnreferencedDeferredCallbackStillExecutes" class="Revolt\EventLoop\Driver\EventDriverTest" classname="Revolt.EventLoop.Driver.EventDriverTest" file="/workspace/test/Driver/EventDriverTest.php" line="220" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testLoopDoesNotBlockOnNegativeTimerExpiration" class="Revolt\EventLoop\Driver\EventDriverTest" classname="Revolt.EventLoop.Driver.EventDriverTest" file="/workspace/test/Driver/EventDriverTest.php" line="235" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testDisabledDeferReenableInSubsequentTick" class="Revolt\EventLoop\Driver\EventDriverTest" classname="Revolt.EventLoop.Driver.EventDriverTest" file="/workspace/test/Driver/EventDriverTest.php" line="248" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="Revolt\EventLoop\Driver\EventDriverTest::testDisableWithConsecutiveCancel" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="Revolt\EventLoop\Driver\EventDriverTest::testCallbackReferenceInfo" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="Revolt\EventLoop\Driver\EventDriverTest::testCallbackRegistrationAndCancellationInfo" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="Revolt\EventLoop\Driver\EventDriverTest::testNoMemoryLeak" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testExecutionOrderGuarantees" class="Revolt\EventLoop\Driver\EventDriverTest" classname="Revolt.EventLoop.Driver.EventDriverTest" file="/workspace/test/Driver/EventDriverTest.php" line="625" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testSignalExecutionOrder" class="Revolt\EventLoop\Driver\EventDriverTest" classname="Revolt.EventLoop.Driver.EventDriverTest" file="/workspace/test/Driver/EventDriverTest.php" line="723" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testExceptionOnEnableNonexistentCallback" class="Revolt\EventLoop\Driver\EventDriverTest" classname="Revolt.EventLoop.Driver.EventDriverTest" file="/workspace/test/Driver/EventDriverTest.php" line="765" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testSuccessOnDisableNonexistentCallback" class="Revolt\EventLoop\Driver\EventDriverTest" classname="Revolt.EventLoop.Driver.EventDriverTest" file="/workspace/test/Driver/EventDriverTest.php" line="777" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testSuccessOnCancelNonexistentCallback" class="Revolt\EventLoop\Driver\EventDriverTest" classname="Revolt.EventLoop.Driver.EventDriverTest" file="/workspace/test/Driver/EventDriverTest.php" line="785" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testExceptionOnReferenceNonexistentCallback" class="Revolt\EventLoop\Driver\EventDriverTest" classname="Revolt.EventLoop.Driver.EventDriverTest" file="/workspace/test/Driver/EventDriverTest.php" line="793" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testSuccessOnUnreferenceNonexistentCallback" class="Revolt\EventLoop\Driver\EventDriverTest" classname="Revolt.EventLoop.Driver.EventDriverTest" file="/workspace/test/Driver/EventDriverTest.php" line="805" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testInvalidityOnDefer" class="Revolt\EventLoop\Driver\EventDriverTest" classname="Revolt.EventLoop.Driver.EventDriverTest" file="/workspace/test/Driver/EventDriverTest.php" line="813" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testInvalidityOnDelay" class="Revolt\EventLoop\Driver\EventDriverTest" classname="Revolt.EventLoop.Driver.EventDriverTest" file="/workspace/test/Driver/EventDriverTest.php" line="828" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testEventsNotExecutedInSameTickAsEnabled" class="Revolt\EventLoop\Driver\EventDriverTest" classname="Revolt.EventLoop.Driver.EventDriverTest" file="/workspace/test/Driver/EventDriverTest.php" line="843" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testEnablingAllowsSubsequentInvocation" class="Revolt\EventLoop\Driver\EventDriverTest" classname="Revolt.EventLoop.Driver.EventDriverTest" file="/workspace/test/Driver/EventDriverTest.php" line="888" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testUnresolvedEventsAreReenabledOnRunFollowingPreviousStop" class="Revolt\EventLoop\Driver\EventDriverTest" classname="Revolt.EventLoop.Driver.EventDriverTest" file="/workspace/test/Driver/EventDriverTest.php" line="904" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testTimerParameterOrder" class="Revolt\EventLoop\Driver\EventDriverTest" classname="Revolt.EventLoop.Driver.EventDriverTest" file="/workspace/test/Driver/EventDriverTest.php" line="924" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testStreamParameterOrder" class="Revolt\EventLoop\Driver\EventDriverTest" classname="Revolt.EventLoop.Driver.EventDriverTest" file="/workspace/test/Driver/EventDriverTest.php" line="950" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testDisablingPreventsSubsequentInvocation" class="Revolt\EventLoop\Driver\EventDriverTest" classname="Revolt.EventLoop.Driver.EventDriverTest" file="/workspace/test/Driver/EventDriverTest.php" line="964" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testImmediateExecution" class="Revolt\EventLoop\Driver\EventDriverTest" classname="Revolt.EventLoop.Driver.EventDriverTest" file="/workspace/test/Driver/EventDriverTest.php" line="979" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testImmediatelyCallbacksDoNotRecurseInSameTick" class="Revolt\EventLoop\Driver\EventDriverTest" classname="Revolt.EventLoop.Driver.EventDriverTest" file="/workspace/test/Driver/EventDriverTest.php" line="991" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testRunExecutesEventsUntilExplicitlyStopped" class="Revolt\EventLoop\Driver\EventDriverTest" classname="Revolt.EventLoop.Driver.EventDriverTest" file="/workspace/test/Driver/EventDriverTest.php" line="1006" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testLoopAllowsExceptionToBubbleUpDuringStart" class="Revolt\EventLoop\Driver\EventDriverTest" classname="Revolt.EventLoop.Driver.EventDriverTest" file="/workspace/test/Driver/EventDriverTest.php" line="1020" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testLoopAllowsExceptionToBubbleUpFromRepeatingAlarmDuringStart" class="Revolt\EventLoop\Driver\EventDriverTest" classname="Revolt.EventLoop.Driver.EventDriverTest" file="/workspace/test/Driver/EventDriverTest.php" line="1036" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testErrorHandlerCapturesUncaughtException" class="Revolt\EventLoop\Driver\EventDriverTest" classname="Revolt.EventLoop.Driver.EventDriverTest" file="/workspace/test/Driver/EventDriverTest.php" line="1052" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testOnErrorFailure" class="Revolt\EventLoop\Driver\EventDriverTest" classname="Revolt.EventLoop.Driver.EventDriverTest" file="/workspace/test/Driver/EventDriverTest.php" line="1070" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testLoopException" class="Revolt\EventLoop\Driver\EventDriverTest" classname="Revolt.EventLoop.Driver.EventDriverTest" file="/workspace/test/Driver/EventDriverTest.php" line="1090" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testUncaughtThrowableInstanceIsRethrownAsIs" class="Revolt\EventLoop\Driver\EventDriverTest" classname="Revolt.EventLoop.Driver.EventDriverTest" file="/workspace/test/Driver/EventDriverTest.php" line="1114" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testUncaughtThrowableInstanceIsRethrownAsIsFromErrorHandler" class="Revolt\EventLoop\Driver\EventDriverTest" classname="Revolt.EventLoop.Driver.EventDriverTest" file="/workspace/test/Driver/EventDriverTest.php" line="1125" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testOnSignalCallback" class="Revolt\EventLoop\Driver\EventDriverTest" classname="Revolt.EventLoop.Driver.EventDriverTest" file="/workspace/test/Driver/EventDriverTest.php" line="1137" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testInitiallyDisabledOnSignalCallback" class="Revolt\EventLoop\Driver\EventDriverTest" classname="Revolt.EventLoop.Driver.EventDriverTest" file="/workspace/test/Driver/EventDriverTest.php" line="1154" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testCancelRemovesCallback" class="Revolt\EventLoop\Driver\EventDriverTest" classname="Revolt.EventLoop.Driver.EventDriverTest" file="/workspace/test/Driver/EventDriverTest.php" line="1180" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testOnWritable" class="Revolt\EventLoop\Driver\EventDriverTest" classname="Revolt.EventLoop.Driver.EventDriverTest" file="/workspace/test/Driver/EventDriverTest.php" line="1200" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testInitiallyDisabledWrite" class="Revolt\EventLoop\Driver\EventDriverTest" classname="Revolt.EventLoop.Driver.EventDriverTest" file="/workspace/test/Driver/EventDriverTest.php" line="1213" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testInitiallyDisabledWriteIsTriggeredOnceEnabled" class="Revolt\EventLoop\Driver\EventDriverTest" classname="Revolt.EventLoop.Driver.EventDriverTest" file="/workspace/test/Driver/EventDriverTest.php" line="1226" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testStreamDoesntSwallowExceptions" class="Revolt\EventLoop\Driver\EventDriverTest" classname="Revolt.EventLoop.Driver.EventDriverTest" file="/workspace/test/Driver/EventDriverTest.php" line="1242" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testReactorRunsUntilNoCallbacksRemain" class="Revolt\EventLoop\Driver\EventDriverTest" classname="Revolt.EventLoop.Driver.EventDriverTest" file="/workspace/test/Driver/EventDriverTest.php" line="1258" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testReactorRunsUntilNoCallbacksRemainWhenStartedDeferred" class="Revolt\EventLoop\Driver\EventDriverTest" classname="Revolt.EventLoop.Driver.EventDriverTest" file="/workspace/test/Driver/EventDriverTest.php" line="1278" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testOptionalCallbackDataPassedOnInvocation" class="Revolt\EventLoop\Driver\EventDriverTest" classname="Revolt.EventLoop.Driver.EventDriverTest" file="/workspace/test/Driver/EventDriverTest.php" line="1300" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testLoopStopPreventsTimerExecution" class="Revolt\EventLoop\Driver\EventDriverTest" classname="Revolt.EventLoop.Driver.EventDriverTest" file="/workspace/test/Driver/EventDriverTest.php" line="1327" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testDeferEnabledInNextTick" class="Revolt\EventLoop\Driver\EventDriverTest" classname="Revolt.EventLoop.Driver.EventDriverTest" file="/workspace/test/Driver/EventDriverTest.php" line="1341" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testMicrotaskExecutedImmediatelyAfterCallback" class="Revolt\EventLoop\Driver\EventDriverTest" classname="Revolt.EventLoop.Driver.EventDriverTest" file="/workspace/test/Driver/EventDriverTest.php" line="1365" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testMicrotaskExecutionDoesNotKeepReferenceToArgs" class="Revolt\EventLoop\Driver\EventDriverTest" classname="Revolt.EventLoop.Driver.EventDriverTest" file="/workspace/test/Driver/EventDriverTest.php" line="1404" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testMicrotaskThrowingStillExecutesNextMicrotask" class="Revolt\EventLoop\Driver\EventDriverTest" classname="Revolt.EventLoop.Driver.EventDriverTest" file="/workspace/test/Driver/EventDriverTest.php" line="1422" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testRethrowsFromCallbacks" class="Revolt\EventLoop\Driver\EventDriverTest" classname="Revolt.EventLoop.Driver.EventDriverTest" file="/workspace/test/Driver/EventDriverTest.php" line="1446" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testMultipleCallbacksOnSameDescriptor" class="Revolt\EventLoop\Driver\EventDriverTest" classname="Revolt.EventLoop.Driver.EventDriverTest" file="/workspace/test/Driver/EventDriverTest.php" line="1503" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testStreamWritableIfConnectFails" class="Revolt\EventLoop\Driver\EventDriverTest" classname="Revolt.EventLoop.Driver.EventDriverTest" file="/workspace/test/Driver/EventDriverTest.php" line="1554" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testTimerIntervalCountedWhenNotRunning" class="Revolt\EventLoop\Driver\EventDriverTest" classname="Revolt.EventLoop.Driver.EventDriverTest" file="/workspace/test/Driver/EventDriverTest.php" line="1591" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testShortTimerDoesNotBlockOtherTimers" class="Revolt\EventLoop\Driver\EventDriverTest" classname="Revolt.EventLoop.Driver.EventDriverTest" file="/workspace/test/Driver/EventDriverTest.php" line="1602" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testTwoShortRepeatTimersWorkAsExpected" class="Revolt\EventLoop\Driver\EventDriverTest" classname="Revolt.EventLoop.Driver.EventDriverTest" file="/workspace/test/Driver/EventDriverTest.php" line="1622" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testLargeDelayTimer" class="Revolt\EventLoop\Driver\EventDriverTest" classname="Revolt.EventLoop.Driver.EventDriverTest" file="/workspace/test/Driver/EventDriverTest.php" line="1644" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testLargeRepeatTimer" class="Revolt\EventLoop\Driver\EventDriverTest" classname="Revolt.EventLoop.Driver.EventDriverTest" file="/workspace/test/Driver/EventDriverTest.php" line="1661" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+      </testsuite>
+      <testsuite name="Revolt\EventLoop\Driver\StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" tests="89" assertions="263" errors="0" warnings="0" failures="0" skipped="0" time="6.467785">
+        <testcase name="testHandle" class="Revolt\EventLoop\Driver\StreamSelectDriverTest" classname="Revolt.EventLoop.Driver.StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" line="18" assertions="1" time="0.002218"/>
+        <testcase name="testAsyncSignals" class="Revolt\EventLoop\Driver\StreamSelectDriverTest" classname="Revolt.EventLoop.Driver.StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" line="26" assertions="1" time="0.000548"/>
+        <testcase name="testTooLargeFileDescriptorSet" class="Revolt\EventLoop\Driver\StreamSelectDriverTest" classname="Revolt.EventLoop.Driver.StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" line="67" assertions="2" time="0.008810"/>
+        <testcase name="testSignalDuringStreamSelectIgnored" class="Revolt\EventLoop\Driver\StreamSelectDriverTest" classname="Revolt.EventLoop.Driver.StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" line="110" assertions="1" time="1.103854"/>
+        <testcase name="testCorrectTimeoutIfBlockingBeforeActivate" class="Revolt\EventLoop\Driver\StreamSelectDriverTest" classname="Revolt.EventLoop.Driver.StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" line="46" assertions="5" time="1.001408"/>
+        <testcase name="testCorrectTimeoutIfBlockingBeforeDelay" class="Revolt\EventLoop\Driver\StreamSelectDriverTest" classname="Revolt.EventLoop.Driver.StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" line="70" assertions="5" time="1.500861"/>
+        <testcase name="testLoopTerminatesWithOnlyUnreferencedCallbacks" class="Revolt\EventLoop\Driver\StreamSelectDriverTest" classname="Revolt.EventLoop.Driver.StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" line="92" assertions="1" time="0.000283"/>
+        <testcase name="testCallbackUnrefRerefRunResult" class="Revolt\EventLoop\Driver\StreamSelectDriverTest" classname="Revolt.EventLoop.Driver.StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" line="123" assertions="1" time="0.000140"/>
+        <testcase name="testDeferCallbackUnrefRunResult" class="Revolt\EventLoop\Driver\StreamSelectDriverTest" classname="Revolt.EventLoop.Driver.StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" line="137" assertions="1" time="0.000235"/>
+        <testcase name="testDelayCallbackUnrefRunResult" class="Revolt\EventLoop\Driver\StreamSelectDriverTest" classname="Revolt.EventLoop.Driver.StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" line="149" assertions="1" time="0.000128"/>
+        <testcase name="testRepeatCallbackUnrefRunResult" class="Revolt\EventLoop\Driver\StreamSelectDriverTest" classname="Revolt.EventLoop.Driver.StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" line="162" assertions="1" time="0.000107"/>
+        <testcase name="testOnReadableCallbackUnrefRunResult" class="Revolt\EventLoop\Driver\StreamSelectDriverTest" classname="Revolt.EventLoop.Driver.StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" line="174" assertions="1" time="0.000088"/>
+        <testcase name="testOnWritableCallbackKeepAliveRunResult" class="Revolt\EventLoop\Driver\StreamSelectDriverTest" classname="Revolt.EventLoop.Driver.StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" line="186" assertions="1" time="0.000156"/>
+        <testcase name="testOnSignalCallbackKeepAliveRunResult" class="Revolt\EventLoop\Driver\StreamSelectDriverTest" classname="Revolt.EventLoop.Driver.StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" line="198" assertions="1" time="0.010276"/>
+        <testcase name="testUnreferencedDeferredCallbackStillExecutes" class="Revolt\EventLoop\Driver\StreamSelectDriverTest" classname="Revolt.EventLoop.Driver.StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" line="220" assertions="1" time="0.000170"/>
+        <testcase name="testLoopDoesNotBlockOnNegativeTimerExpiration" class="Revolt\EventLoop\Driver\StreamSelectDriverTest" classname="Revolt.EventLoop.Driver.StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" line="235" assertions="1" time="0.010291"/>
+        <testcase name="testDisabledDeferReenableInSubsequentTick" class="Revolt\EventLoop\Driver\StreamSelectDriverTest" classname="Revolt.EventLoop.Driver.StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" line="248" assertions="1" time="0.000180"/>
+        <testsuite name="Revolt\EventLoop\Driver\StreamSelectDriverTest::testDisableWithConsecutiveCancel" tests="6" assertions="12" errors="0" warnings="0" failures="0" skipped="0" time="0.000726">
+          <testcase name="testDisableWithConsecutiveCancel with data set &quot;defer&quot;" class="Revolt\EventLoop\Driver\StreamSelectDriverTest" classname="Revolt.EventLoop.Driver.StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" line="321" assertions="2" time="0.000153"/>
+          <testcase name="testDisableWithConsecutiveCancel with data set &quot;delay&quot;" class="Revolt\EventLoop\Driver\StreamSelectDriverTest" classname="Revolt.EventLoop.Driver.StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" line="321" assertions="2" time="0.000145"/>
+          <testcase name="testDisableWithConsecutiveCancel with data set &quot;repeat&quot;" class="Revolt\EventLoop\Driver\StreamSelectDriverTest" classname="Revolt.EventLoop.Driver.StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" line="321" assertions="2" time="0.000108"/>
+          <testcase name="testDisableWithConsecutiveCancel with data set &quot;onWritable&quot;" class="Revolt\EventLoop\Driver\StreamSelectDriverTest" classname="Revolt.EventLoop.Driver.StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" line="321" assertions="2" time="0.000104"/>
+          <testcase name="testDisableWithConsecutiveCancel with data set &quot;onReadable&quot;" class="Revolt\EventLoop\Driver\StreamSelectDriverTest" classname="Revolt.EventLoop.Driver.StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" line="321" assertions="2" time="0.000103"/>
+          <testcase name="testDisableWithConsecutiveCancel with data set &quot;onSignal&quot;" class="Revolt\EventLoop\Driver\StreamSelectDriverTest" classname="Revolt.EventLoop.Driver.StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" line="321" assertions="2" time="0.000113"/>
+        </testsuite>
+        <testsuite name="Revolt\EventLoop\Driver\StreamSelectDriverTest::testCallbackReferenceInfo" tests="6" assertions="120" errors="0" warnings="0" failures="0" skipped="0" time="0.000646">
+          <testcase name="testCallbackReferenceInfo with data set &quot;defer&quot;" class="Revolt\EventLoop\Driver\StreamSelectDriverTest" classname="Revolt.EventLoop.Driver.StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" line="342" assertions="20" time="0.000286"/>
+          <testcase name="testCallbackReferenceInfo with data set &quot;delay&quot;" class="Revolt\EventLoop\Driver\StreamSelectDriverTest" classname="Revolt.EventLoop.Driver.StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" line="342" assertions="20" time="0.000082"/>
+          <testcase name="testCallbackReferenceInfo with data set &quot;repeat&quot;" class="Revolt\EventLoop\Driver\StreamSelectDriverTest" classname="Revolt.EventLoop.Driver.StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" line="342" assertions="20" time="0.000065"/>
+          <testcase name="testCallbackReferenceInfo with data set &quot;onWritable&quot;" class="Revolt\EventLoop\Driver\StreamSelectDriverTest" classname="Revolt.EventLoop.Driver.StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" line="342" assertions="20" time="0.000068"/>
+          <testcase name="testCallbackReferenceInfo with data set &quot;onReadable&quot;" class="Revolt\EventLoop\Driver\StreamSelectDriverTest" classname="Revolt.EventLoop.Driver.StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" line="342" assertions="20" time="0.000085"/>
+          <testcase name="testCallbackReferenceInfo with data set &quot;onSignal&quot;" class="Revolt\EventLoop\Driver\StreamSelectDriverTest" classname="Revolt.EventLoop.Driver.StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" line="342" assertions="20" time="0.000059"/>
+        </testsuite>
+        <testsuite name="Revolt\EventLoop\Driver\StreamSelectDriverTest::testCallbackRegistrationAndCancellationInfo" tests="6" assertions="24" errors="0" warnings="0" failures="0" skipped="0" time="0.000584">
+          <testcase name="testCallbackRegistrationAndCancellationInfo with data set &quot;defer&quot;" class="Revolt\EventLoop\Driver\StreamSelectDriverTest" classname="Revolt.EventLoop.Driver.StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" line="425" assertions="4" time="0.000287"/>
+          <testcase name="testCallbackRegistrationAndCancellationInfo with data set &quot;delay&quot;" class="Revolt\EventLoop\Driver\StreamSelectDriverTest" classname="Revolt.EventLoop.Driver.StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" line="425" assertions="4" time="0.000079"/>
+          <testcase name="testCallbackRegistrationAndCancellationInfo with data set &quot;repeat&quot;" class="Revolt\EventLoop\Driver\StreamSelectDriverTest" classname="Revolt.EventLoop.Driver.StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" line="425" assertions="4" time="0.000060"/>
+          <testcase name="testCallbackRegistrationAndCancellationInfo with data set &quot;onWritable&quot;" class="Revolt\EventLoop\Driver\StreamSelectDriverTest" classname="Revolt.EventLoop.Driver.StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" line="425" assertions="4" time="0.000054"/>
+          <testcase name="testCallbackRegistrationAndCancellationInfo with data set &quot;onReadable&quot;" class="Revolt\EventLoop\Driver\StreamSelectDriverTest" classname="Revolt.EventLoop.Driver.StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" line="425" assertions="4" time="0.000050"/>
+          <testcase name="testCallbackRegistrationAndCancellationInfo with data set &quot;onSignal&quot;" class="Revolt\EventLoop\Driver\StreamSelectDriverTest" classname="Revolt.EventLoop.Driver.StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" line="425" assertions="4" time="0.000053"/>
+        </testsuite>
+        <testsuite name="Revolt\EventLoop\Driver\StreamSelectDriverTest::testNoMemoryLeak" tests="6" assertions="6" errors="0" warnings="0" failures="0" skipped="0" time="0.189577">
+          <testcase name="testNoMemoryLeak with data set &quot;defer&quot;" class="Revolt\EventLoop\Driver\StreamSelectDriverTest" classname="Revolt.EventLoop.Driver.StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" line="465" assertions="1" time="0.008997"/>
+          <testcase name="testNoMemoryLeak with data set &quot;delay&quot;" class="Revolt\EventLoop\Driver\StreamSelectDriverTest" classname="Revolt.EventLoop.Driver.StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" line="465" assertions="1" time="0.027989"/>
+          <testcase name="testNoMemoryLeak with data set &quot;repeat&quot;" class="Revolt\EventLoop\Driver\StreamSelectDriverTest" classname="Revolt.EventLoop.Driver.StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" line="465" assertions="1" time="0.035682"/>
+          <testcase name="testNoMemoryLeak with data set &quot;onWritable&quot;" class="Revolt\EventLoop\Driver\StreamSelectDriverTest" classname="Revolt.EventLoop.Driver.StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" line="465" assertions="1" time="0.041293"/>
+          <testcase name="testNoMemoryLeak with data set &quot;onReadable&quot;" class="Revolt\EventLoop\Driver\StreamSelectDriverTest" classname="Revolt.EventLoop.Driver.StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" line="465" assertions="1" time="0.040269"/>
+          <testcase name="testNoMemoryLeak with data set &quot;onSignal&quot;" class="Revolt\EventLoop\Driver\StreamSelectDriverTest" classname="Revolt.EventLoop.Driver.StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" line="465" assertions="1" time="0.035347"/>
+        </testsuite>
+        <testcase name="testExecutionOrderGuarantees" class="Revolt\EventLoop\Driver\StreamSelectDriverTest" classname="Revolt.EventLoop.Driver.StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" line="625" assertions="1" time="1.000538"/>
+        <testcase name="testSignalExecutionOrder" class="Revolt\EventLoop\Driver\StreamSelectDriverTest" classname="Revolt.EventLoop.Driver.StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" line="723" assertions="1" time="0.002616"/>
+        <testcase name="testExceptionOnEnableNonexistentCallback" class="Revolt\EventLoop\Driver\StreamSelectDriverTest" classname="Revolt.EventLoop.Driver.StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" line="765" assertions="2" time="0.000142"/>
+        <testcase name="testSuccessOnDisableNonexistentCallback" class="Revolt\EventLoop\Driver\StreamSelectDriverTest" classname="Revolt.EventLoop.Driver.StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" line="777" assertions="1" time="0.000067"/>
+        <testcase name="testSuccessOnCancelNonexistentCallback" class="Revolt\EventLoop\Driver\StreamSelectDriverTest" classname="Revolt.EventLoop.Driver.StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" line="785" assertions="1" time="0.000053"/>
+        <testcase name="testExceptionOnReferenceNonexistentCallback" class="Revolt\EventLoop\Driver\StreamSelectDriverTest" classname="Revolt.EventLoop.Driver.StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" line="793" assertions="2" time="0.000057"/>
+        <testcase name="testSuccessOnUnreferenceNonexistentCallback" class="Revolt\EventLoop\Driver\StreamSelectDriverTest" classname="Revolt.EventLoop.Driver.StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" line="805" assertions="1" time="0.000048"/>
+        <testcase name="testInvalidityOnDefer" class="Revolt\EventLoop\Driver\StreamSelectDriverTest" classname="Revolt.EventLoop.Driver.StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" line="813" assertions="1" time="0.000338"/>
+        <testcase name="testInvalidityOnDelay" class="Revolt\EventLoop\Driver\StreamSelectDriverTest" classname="Revolt.EventLoop.Driver.StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" line="828" assertions="1" time="0.000136"/>
+        <testcase name="testEventsNotExecutedInSameTickAsEnabled" class="Revolt\EventLoop\Driver\StreamSelectDriverTest" classname="Revolt.EventLoop.Driver.StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" line="843" assertions="1" time="0.000187"/>
+        <testcase name="testEnablingAllowsSubsequentInvocation" class="Revolt\EventLoop\Driver\StreamSelectDriverTest" classname="Revolt.EventLoop.Driver.StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" line="888" assertions="2" time="0.010496"/>
+        <testcase name="testUnresolvedEventsAreReenabledOnRunFollowingPreviousStop" class="Revolt\EventLoop\Driver\StreamSelectDriverTest" classname="Revolt.EventLoop.Driver.StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" line="904" assertions="2" time="0.105516"/>
+        <testcase name="testTimerParameterOrder" class="Revolt\EventLoop\Driver\StreamSelectDriverTest" classname="Revolt.EventLoop.Driver.StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" line="924" assertions="3" time="0.005286"/>
+        <testcase name="testStreamParameterOrder" class="Revolt\EventLoop\Driver\StreamSelectDriverTest" classname="Revolt.EventLoop.Driver.StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" line="950" assertions="3" time="0.000187"/>
+        <testcase name="testDisablingPreventsSubsequentInvocation" class="Revolt\EventLoop\Driver\StreamSelectDriverTest" classname="Revolt.EventLoop.Driver.StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" line="964" assertions="1" time="0.005379"/>
+        <testcase name="testImmediateExecution" class="Revolt\EventLoop\Driver\StreamSelectDriverTest" classname="Revolt.EventLoop.Driver.StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" line="979" assertions="1" time="0.000181"/>
+        <testcase name="testImmediatelyCallbacksDoNotRecurseInSameTick" class="Revolt\EventLoop\Driver\StreamSelectDriverTest" classname="Revolt.EventLoop.Driver.StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" line="991" assertions="1" time="0.000124"/>
+        <testcase name="testRunExecutesEventsUntilExplicitlyStopped" class="Revolt\EventLoop\Driver\StreamSelectDriverTest" classname="Revolt.EventLoop.Driver.StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" line="1006" assertions="1" time="0.051875"/>
+        <testcase name="testLoopAllowsExceptionToBubbleUpDuringStart" class="Revolt\EventLoop\Driver\StreamSelectDriverTest" classname="Revolt.EventLoop.Driver.StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" line="1020" assertions="2" time="0.000166"/>
+        <testcase name="testLoopAllowsExceptionToBubbleUpFromRepeatingAlarmDuringStart" class="Revolt\EventLoop\Driver\StreamSelectDriverTest" classname="Revolt.EventLoop.Driver.StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" line="1036" assertions="2" time="0.001182"/>
+        <testcase name="testErrorHandlerCapturesUncaughtException" class="Revolt\EventLoop\Driver\StreamSelectDriverTest" classname="Revolt.EventLoop.Driver.StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" line="1052" assertions="2" time="0.000162"/>
+        <testcase name="testOnErrorFailure" class="Revolt\EventLoop\Driver\StreamSelectDriverTest" classname="Revolt.EventLoop.Driver.StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" line="1070" assertions="2" time="0.005283"/>
+        <testcase name="testLoopException" class="Revolt\EventLoop\Driver\StreamSelectDriverTest" classname="Revolt.EventLoop.Driver.StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" line="1090" assertions="3" time="0.000335"/>
+        <testcase name="testUncaughtThrowableInstanceIsRethrownAsIs" class="Revolt\EventLoop\Driver\StreamSelectDriverTest" classname="Revolt.EventLoop.Driver.StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" line="1114" assertions="1" time="0.000373"/>
+        <testcase name="testUncaughtThrowableInstanceIsRethrownAsIsFromErrorHandler" class="Revolt\EventLoop\Driver\StreamSelectDriverTest" classname="Revolt.EventLoop.Driver.StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" line="1125" assertions="1" time="0.000156"/>
+        <testcase name="testOnSignalCallback" class="Revolt\EventLoop\Driver\StreamSelectDriverTest" classname="Revolt.EventLoop.Driver.StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" line="1137" assertions="1" time="0.001225"/>
+        <testcase name="testInitiallyDisabledOnSignalCallback" class="Revolt\EventLoop\Driver\StreamSelectDriverTest" classname="Revolt.EventLoop.Driver.StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" line="1154" assertions="1" time="0.002266"/>
+        <testcase name="testCancelRemovesCallback" class="Revolt\EventLoop\Driver\StreamSelectDriverTest" classname="Revolt.EventLoop.Driver.StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" line="1180" assertions="1" time="0.005401"/>
+        <testcase name="testOnWritable" class="Revolt\EventLoop\Driver\StreamSelectDriverTest" classname="Revolt.EventLoop.Driver.StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" line="1200" assertions="1" time="0.000203"/>
+        <testcase name="testInitiallyDisabledWrite" class="Revolt\EventLoop\Driver\StreamSelectDriverTest" classname="Revolt.EventLoop.Driver.StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" line="1213" assertions="1" time="0.005311"/>
+        <testcase name="testInitiallyDisabledWriteIsTriggeredOnceEnabled" class="Revolt\EventLoop\Driver\StreamSelectDriverTest" classname="Revolt.EventLoop.Driver.StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" line="1226" assertions="1" time="0.000185"/>
+        <testcase name="testStreamDoesntSwallowExceptions" class="Revolt\EventLoop\Driver\StreamSelectDriverTest" classname="Revolt.EventLoop.Driver.StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" line="1242" assertions="1" time="0.000112"/>
+        <testcase name="testReactorRunsUntilNoCallbacksRemain" class="Revolt\EventLoop\Driver\StreamSelectDriverTest" classname="Revolt.EventLoop.Driver.StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" line="1258" assertions="2" time="0.003411"/>
+        <testcase name="testReactorRunsUntilNoCallbacksRemainWhenStartedDeferred" class="Revolt\EventLoop\Driver\StreamSelectDriverTest" classname="Revolt.EventLoop.Driver.StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" line="1278" assertions="2" time="0.003610"/>
+        <testcase name="testOptionalCallbackDataPassedOnInvocation" class="Revolt\EventLoop\Driver\StreamSelectDriverTest" classname="Revolt.EventLoop.Driver.StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" line="1300" assertions="4" time="0.001370"/>
+        <testcase name="testLoopStopPreventsTimerExecution" class="Revolt\EventLoop\Driver\StreamSelectDriverTest" classname="Revolt.EventLoop.Driver.StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" line="1327" assertions="1" time="0.000180"/>
+        <testcase name="testDeferEnabledInNextTick" class="Revolt\EventLoop\Driver\StreamSelectDriverTest" classname="Revolt.EventLoop.Driver.StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" line="1341" assertions="1" time="0.000248"/>
+        <testcase name="testMicrotaskExecutedImmediatelyAfterCallback" class="Revolt\EventLoop\Driver\StreamSelectDriverTest" classname="Revolt.EventLoop.Driver.StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" line="1365" assertions="1" time="0.000121"/>
+        <testcase name="testMicrotaskExecutionDoesNotKeepReferenceToArgs" class="Revolt\EventLoop\Driver\StreamSelectDriverTest" classname="Revolt.EventLoop.Driver.StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" line="1404" assertions="1" time="0.000102"/>
+        <testcase name="testMicrotaskThrowingStillExecutesNextMicrotask" class="Revolt\EventLoop\Driver\StreamSelectDriverTest" classname="Revolt.EventLoop.Driver.StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" line="1422" assertions="2" time="0.000123"/>
+        <testcase name="testRethrowsFromCallbacks" class="Revolt\EventLoop\Driver\StreamSelectDriverTest" classname="Revolt.EventLoop.Driver.StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" line="1446" assertions="6" time="0.110641"/>
+        <testcase name="testMultipleCallbacksOnSameDescriptor" class="Revolt\EventLoop\Driver\StreamSelectDriverTest" classname="Revolt.EventLoop.Driver.StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" line="1503" assertions="2" time="0.300734"/>
+        <testcase name="testStreamWritableIfConnectFails" class="Revolt\EventLoop\Driver\StreamSelectDriverTest" classname="Revolt.EventLoop.Driver.StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" line="1554" assertions="1" time="0.000562"/>
+        <testcase name="testTimerIntervalCountedWhenNotRunning" class="Revolt\EventLoop\Driver\StreamSelectDriverTest" classname="Revolt.EventLoop.Driver.StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" line="1591" assertions="1" time="1.000526"/>
+        <testcase name="testShortTimerDoesNotBlockOtherTimers" class="Revolt\EventLoop\Driver\StreamSelectDriverTest" classname="Revolt.EventLoop.Driver.StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" line="1602" assertions="1" time="0.004483"/>
+        <testcase name="testTwoShortRepeatTimersWorkAsExpected" class="Revolt\EventLoop\Driver\StreamSelectDriverTest" classname="Revolt.EventLoop.Driver.StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" line="1622" assertions="2" time="0.000207"/>
+        <testcase name="testLargeDelayTimer" class="Revolt\EventLoop\Driver\StreamSelectDriverTest" classname="Revolt.EventLoop.Driver.StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" line="1644" assertions="1" time="0.002272"/>
+        <testcase name="testLargeRepeatTimer" class="Revolt\EventLoop\Driver\StreamSelectDriverTest" classname="Revolt.EventLoop.Driver.StreamSelectDriverTest" file="/workspace/test/Driver/StreamSelectDriverTest.php" line="1661" assertions="1" time="0.002320"/>
+      </testsuite>
+      <testsuite name="Revolt\EventLoop\Driver\TimerQueueTest" file="/workspace/test/Driver/TimerQueueTest.php" tests="1" assertions="1" errors="0" warnings="0" failures="0" skipped="0" time="0.000085">
+        <testcase name="testHeapOrder" class="Revolt\EventLoop\Driver\TimerQueueTest" classname="Revolt.EventLoop.Driver.TimerQueueTest" file="/workspace/test/Driver/TimerQueueTest.php" line="13" assertions="1" time="0.000085"/>
+      </testsuite>
+      <testsuite name="Revolt\EventLoop\Driver\TracingDriverTest" file="/workspace/test/Driver/TracingDriverTest.php" tests="85" assertions="258" errors="0" warnings="0" failures="0" skipped="0" time="5.165452">
+        <testsuite name="Revolt\EventLoop\Driver\TracingDriverTest::testNoMemoryLeak" tests="6" assertions="6" errors="0" warnings="0" failures="0" skipped="0" time="0.000802">
+          <testcase name="testNoMemoryLeak with data set &quot;defer&quot;" class="Revolt\EventLoop\Driver\TracingDriverTest" classname="Revolt.EventLoop.Driver.TracingDriverTest" file="/workspace/test/Driver/TracingDriverTest.php" line="20" assertions="1" time="0.000527"/>
+          <testcase name="testNoMemoryLeak with data set &quot;delay&quot;" class="Revolt\EventLoop\Driver\TracingDriverTest" classname="Revolt.EventLoop.Driver.TracingDriverTest" file="/workspace/test/Driver/TracingDriverTest.php" line="20" assertions="1" time="0.000070"/>
+          <testcase name="testNoMemoryLeak with data set &quot;repeat&quot;" class="Revolt\EventLoop\Driver\TracingDriverTest" classname="Revolt.EventLoop.Driver.TracingDriverTest" file="/workspace/test/Driver/TracingDriverTest.php" line="20" assertions="1" time="0.000055"/>
+          <testcase name="testNoMemoryLeak with data set &quot;onWritable&quot;" class="Revolt\EventLoop\Driver\TracingDriverTest" classname="Revolt.EventLoop.Driver.TracingDriverTest" file="/workspace/test/Driver/TracingDriverTest.php" line="20" assertions="1" time="0.000050"/>
+          <testcase name="testNoMemoryLeak with data set &quot;onReadable&quot;" class="Revolt\EventLoop\Driver\TracingDriverTest" classname="Revolt.EventLoop.Driver.TracingDriverTest" file="/workspace/test/Driver/TracingDriverTest.php" line="20" assertions="1" time="0.000052"/>
+          <testcase name="testNoMemoryLeak with data set &quot;onSignal&quot;" class="Revolt\EventLoop\Driver\TracingDriverTest" classname="Revolt.EventLoop.Driver.TracingDriverTest" file="/workspace/test/Driver/TracingDriverTest.php" line="20" assertions="1" time="0.000048"/>
+        </testsuite>
+        <testcase name="testCorrectTimeoutIfBlockingBeforeActivate" class="Revolt\EventLoop\Driver\TracingDriverTest" classname="Revolt.EventLoop.Driver.TracingDriverTest" file="/workspace/test/Driver/TracingDriverTest.php" line="46" assertions="5" time="1.000729"/>
+        <testcase name="testCorrectTimeoutIfBlockingBeforeDelay" class="Revolt\EventLoop\Driver\TracingDriverTest" classname="Revolt.EventLoop.Driver.TracingDriverTest" file="/workspace/test/Driver/TracingDriverTest.php" line="70" assertions="5" time="1.500997"/>
+        <testcase name="testLoopTerminatesWithOnlyUnreferencedCallbacks" class="Revolt\EventLoop\Driver\TracingDriverTest" classname="Revolt.EventLoop.Driver.TracingDriverTest" file="/workspace/test/Driver/TracingDriverTest.php" line="92" assertions="1" time="0.000323"/>
+        <testcase name="testCallbackUnrefRerefRunResult" class="Revolt\EventLoop\Driver\TracingDriverTest" classname="Revolt.EventLoop.Driver.TracingDriverTest" file="/workspace/test/Driver/TracingDriverTest.php" line="123" assertions="1" time="0.000148"/>
+        <testcase name="testDeferCallbackUnrefRunResult" class="Revolt\EventLoop\Driver\TracingDriverTest" classname="Revolt.EventLoop.Driver.TracingDriverTest" file="/workspace/test/Driver/TracingDriverTest.php" line="137" assertions="1" time="0.000114"/>
+        <testcase name="testDelayCallbackUnrefRunResult" class="Revolt\EventLoop\Driver\TracingDriverTest" classname="Revolt.EventLoop.Driver.TracingDriverTest" file="/workspace/test/Driver/TracingDriverTest.php" line="149" assertions="1" time="0.000106"/>
+        <testcase name="testRepeatCallbackUnrefRunResult" class="Revolt\EventLoop\Driver\TracingDriverTest" classname="Revolt.EventLoop.Driver.TracingDriverTest" file="/workspace/test/Driver/TracingDriverTest.php" line="162" assertions="1" time="0.000104"/>
+        <testcase name="testOnReadableCallbackUnrefRunResult" class="Revolt\EventLoop\Driver\TracingDriverTest" classname="Revolt.EventLoop.Driver.TracingDriverTest" file="/workspace/test/Driver/TracingDriverTest.php" line="174" assertions="1" time="0.000101"/>
+        <testcase name="testOnWritableCallbackKeepAliveRunResult" class="Revolt\EventLoop\Driver\TracingDriverTest" classname="Revolt.EventLoop.Driver.TracingDriverTest" file="/workspace/test/Driver/TracingDriverTest.php" line="186" assertions="1" time="0.000097"/>
+        <testcase name="testOnSignalCallbackKeepAliveRunResult" class="Revolt\EventLoop\Driver\TracingDriverTest" classname="Revolt.EventLoop.Driver.TracingDriverTest" file="/workspace/test/Driver/TracingDriverTest.php" line="198" assertions="1" time="0.010309"/>
+        <testcase name="testUnreferencedDeferredCallbackStillExecutes" class="Revolt\EventLoop\Driver\TracingDriverTest" classname="Revolt.EventLoop.Driver.TracingDriverTest" file="/workspace/test/Driver/TracingDriverTest.php" line="220" assertions="1" time="0.000202"/>
+        <testcase name="testLoopDoesNotBlockOnNegativeTimerExpiration" class="Revolt\EventLoop\Driver\TracingDriverTest" classname="Revolt.EventLoop.Driver.TracingDriverTest" file="/workspace/test/Driver/TracingDriverTest.php" line="235" assertions="1" time="0.010388"/>
+        <testcase name="testDisabledDeferReenableInSubsequentTick" class="Revolt\EventLoop\Driver\TracingDriverTest" classname="Revolt.EventLoop.Driver.TracingDriverTest" file="/workspace/test/Driver/TracingDriverTest.php" line="248" assertions="1" time="0.000205"/>
+        <testsuite name="Revolt\EventLoop\Driver\TracingDriverTest::testDisableWithConsecutiveCancel" tests="6" assertions="12" errors="0" warnings="0" failures="0" skipped="0" time="0.000905">
+          <testcase name="testDisableWithConsecutiveCancel with data set &quot;defer&quot;" class="Revolt\EventLoop\Driver\TracingDriverTest" classname="Revolt.EventLoop.Driver.TracingDriverTest" file="/workspace/test/Driver/TracingDriverTest.php" line="321" assertions="2" time="0.000217"/>
+          <testcase name="testDisableWithConsecutiveCancel with data set &quot;delay&quot;" class="Revolt\EventLoop\Driver\TracingDriverTest" classname="Revolt.EventLoop.Driver.TracingDriverTest" file="/workspace/test/Driver/TracingDriverTest.php" line="321" assertions="2" time="0.000147"/>
+          <testcase name="testDisableWithConsecutiveCancel with data set &quot;repeat&quot;" class="Revolt\EventLoop\Driver\TracingDriverTest" classname="Revolt.EventLoop.Driver.TracingDriverTest" file="/workspace/test/Driver/TracingDriverTest.php" line="321" assertions="2" time="0.000138"/>
+          <testcase name="testDisableWithConsecutiveCancel with data set &quot;onWritable&quot;" class="Revolt\EventLoop\Driver\TracingDriverTest" classname="Revolt.EventLoop.Driver.TracingDriverTest" file="/workspace/test/Driver/TracingDriverTest.php" line="321" assertions="2" time="0.000134"/>
+          <testcase name="testDisableWithConsecutiveCancel with data set &quot;onReadable&quot;" class="Revolt\EventLoop\Driver\TracingDriverTest" classname="Revolt.EventLoop.Driver.TracingDriverTest" file="/workspace/test/Driver/TracingDriverTest.php" line="321" assertions="2" time="0.000130"/>
+          <testcase name="testDisableWithConsecutiveCancel with data set &quot;onSignal&quot;" class="Revolt\EventLoop\Driver\TracingDriverTest" classname="Revolt.EventLoop.Driver.TracingDriverTest" file="/workspace/test/Driver/TracingDriverTest.php" line="321" assertions="2" time="0.000140"/>
+        </testsuite>
+        <testsuite name="Revolt\EventLoop\Driver\TracingDriverTest::testCallbackReferenceInfo" tests="6" assertions="120" errors="0" warnings="0" failures="0" skipped="0" time="0.000674">
+          <testcase name="testCallbackReferenceInfo with data set &quot;defer&quot;" class="Revolt\EventLoop\Driver\TracingDriverTest" classname="Revolt.EventLoop.Driver.TracingDriverTest" file="/workspace/test/Driver/TracingDriverTest.php" line="342" assertions="20" time="0.000143"/>
+          <testcase name="testCallbackReferenceInfo with data set &quot;delay&quot;" class="Revolt\EventLoop\Driver\TracingDriverTest" classname="Revolt.EventLoop.Driver.TracingDriverTest" file="/workspace/test/Driver/TracingDriverTest.php" line="342" assertions="20" time="0.000111"/>
+          <testcase name="testCallbackReferenceInfo with data set &quot;repeat&quot;" class="Revolt\EventLoop\Driver\TracingDriverTest" classname="Revolt.EventLoop.Driver.TracingDriverTest" file="/workspace/test/Driver/TracingDriverTest.php" line="342" assertions="20" time="0.000099"/>
+          <testcase name="testCallbackReferenceInfo with data set &quot;onWritable&quot;" class="Revolt\EventLoop\Driver\TracingDriverTest" classname="Revolt.EventLoop.Driver.TracingDriverTest" file="/workspace/test/Driver/TracingDriverTest.php" line="342" assertions="20" time="0.000116"/>
+          <testcase name="testCallbackReferenceInfo with data set &quot;onReadable&quot;" class="Revolt\EventLoop\Driver\TracingDriverTest" classname="Revolt.EventLoop.Driver.TracingDriverTest" file="/workspace/test/Driver/TracingDriverTest.php" line="342" assertions="20" time="0.000097"/>
+          <testcase name="testCallbackReferenceInfo with data set &quot;onSignal&quot;" class="Revolt\EventLoop\Driver\TracingDriverTest" classname="Revolt.EventLoop.Driver.TracingDriverTest" file="/workspace/test/Driver/TracingDriverTest.php" line="342" assertions="20" time="0.000108"/>
+        </testsuite>
+        <testsuite name="Revolt\EventLoop\Driver\TracingDriverTest::testCallbackRegistrationAndCancellationInfo" tests="6" assertions="24" errors="0" warnings="0" failures="0" skipped="0" time="0.000517">
+          <testcase name="testCallbackRegistrationAndCancellationInfo with data set &quot;defer&quot;" class="Revolt\EventLoop\Driver\TracingDriverTest" classname="Revolt.EventLoop.Driver.TracingDriverTest" file="/workspace/test/Driver/TracingDriverTest.php" line="425" assertions="4" time="0.000104"/>
+          <testcase name="testCallbackRegistrationAndCancellationInfo with data set &quot;delay&quot;" class="Revolt\EventLoop\Driver\TracingDriverTest" classname="Revolt.EventLoop.Driver.TracingDriverTest" file="/workspace/test/Driver/TracingDriverTest.php" line="425" assertions="4" time="0.000082"/>
+          <testcase name="testCallbackRegistrationAndCancellationInfo with data set &quot;repeat&quot;" class="Revolt\EventLoop\Driver\TracingDriverTest" classname="Revolt.EventLoop.Driver.TracingDriverTest" file="/workspace/test/Driver/TracingDriverTest.php" line="425" assertions="4" time="0.000078"/>
+          <testcase name="testCallbackRegistrationAndCancellationInfo with data set &quot;onWritable&quot;" class="Revolt\EventLoop\Driver\TracingDriverTest" classname="Revolt.EventLoop.Driver.TracingDriverTest" file="/workspace/test/Driver/TracingDriverTest.php" line="425" assertions="4" time="0.000078"/>
+          <testcase name="testCallbackRegistrationAndCancellationInfo with data set &quot;onReadable&quot;" class="Revolt\EventLoop\Driver\TracingDriverTest" classname="Revolt.EventLoop.Driver.TracingDriverTest" file="/workspace/test/Driver/TracingDriverTest.php" line="425" assertions="4" time="0.000078"/>
+          <testcase name="testCallbackRegistrationAndCancellationInfo with data set &quot;onSignal&quot;" class="Revolt\EventLoop\Driver\TracingDriverTest" classname="Revolt.EventLoop.Driver.TracingDriverTest" file="/workspace/test/Driver/TracingDriverTest.php" line="425" assertions="4" time="0.000096"/>
+        </testsuite>
+        <testcase name="testExecutionOrderGuarantees" class="Revolt\EventLoop\Driver\TracingDriverTest" classname="Revolt.EventLoop.Driver.TracingDriverTest" file="/workspace/test/Driver/TracingDriverTest.php" line="625" assertions="1" time="1.000829"/>
+        <testcase name="testSignalExecutionOrder" class="Revolt\EventLoop\Driver\TracingDriverTest" classname="Revolt.EventLoop.Driver.TracingDriverTest" file="/workspace/test/Driver/TracingDriverTest.php" line="723" assertions="1" time="0.002920"/>
+        <testcase name="testExceptionOnEnableNonexistentCallback" class="Revolt\EventLoop\Driver\TracingDriverTest" classname="Revolt.EventLoop.Driver.TracingDriverTest" file="/workspace/test/Driver/TracingDriverTest.php" line="765" assertions="2" time="0.000138"/>
+        <testcase name="testSuccessOnDisableNonexistentCallback" class="Revolt\EventLoop\Driver\TracingDriverTest" classname="Revolt.EventLoop.Driver.TracingDriverTest" file="/workspace/test/Driver/TracingDriverTest.php" line="777" assertions="1" time="0.000078"/>
+        <testcase name="testSuccessOnCancelNonexistentCallback" class="Revolt\EventLoop\Driver\TracingDriverTest" classname="Revolt.EventLoop.Driver.TracingDriverTest" file="/workspace/test/Driver/TracingDriverTest.php" line="785" assertions="1" time="0.000067"/>
+        <testcase name="testExceptionOnReferenceNonexistentCallback" class="Revolt\EventLoop\Driver\TracingDriverTest" classname="Revolt.EventLoop.Driver.TracingDriverTest" file="/workspace/test/Driver/TracingDriverTest.php" line="793" assertions="2" time="0.000062"/>
+        <testcase name="testSuccessOnUnreferenceNonexistentCallback" class="Revolt\EventLoop\Driver\TracingDriverTest" classname="Revolt.EventLoop.Driver.TracingDriverTest" file="/workspace/test/Driver/TracingDriverTest.php" line="805" assertions="1" time="0.000050"/>
+        <testcase name="testInvalidityOnDefer" class="Revolt\EventLoop\Driver\TracingDriverTest" classname="Revolt.EventLoop.Driver.TracingDriverTest" file="/workspace/test/Driver/TracingDriverTest.php" line="813" assertions="1" time="0.000122"/>
+        <testcase name="testInvalidityOnDelay" class="Revolt\EventLoop\Driver\TracingDriverTest" classname="Revolt.EventLoop.Driver.TracingDriverTest" file="/workspace/test/Driver/TracingDriverTest.php" line="828" assertions="1" time="0.000138"/>
+        <testcase name="testEventsNotExecutedInSameTickAsEnabled" class="Revolt\EventLoop\Driver\TracingDriverTest" classname="Revolt.EventLoop.Driver.TracingDriverTest" file="/workspace/test/Driver/TracingDriverTest.php" line="843" assertions="1" time="0.000400"/>
+        <testcase name="testEnablingAllowsSubsequentInvocation" class="Revolt\EventLoop\Driver\TracingDriverTest" classname="Revolt.EventLoop.Driver.TracingDriverTest" file="/workspace/test/Driver/TracingDriverTest.php" line="888" assertions="2" time="0.010669"/>
+        <testcase name="testUnresolvedEventsAreReenabledOnRunFollowingPreviousStop" class="Revolt\EventLoop\Driver\TracingDriverTest" classname="Revolt.EventLoop.Driver.TracingDriverTest" file="/workspace/test/Driver/TracingDriverTest.php" line="904" assertions="2" time="0.105721"/>
+        <testcase name="testTimerParameterOrder" class="Revolt\EventLoop\Driver\TracingDriverTest" classname="Revolt.EventLoop.Driver.TracingDriverTest" file="/workspace/test/Driver/TracingDriverTest.php" line="924" assertions="3" time="0.005396"/>
+        <testcase name="testStreamParameterOrder" class="Revolt\EventLoop\Driver\TracingDriverTest" classname="Revolt.EventLoop.Driver.TracingDriverTest" file="/workspace/test/Driver/TracingDriverTest.php" line="950" assertions="3" time="0.000209"/>
+        <testcase name="testDisablingPreventsSubsequentInvocation" class="Revolt\EventLoop\Driver\TracingDriverTest" classname="Revolt.EventLoop.Driver.TracingDriverTest" file="/workspace/test/Driver/TracingDriverTest.php" line="964" assertions="1" time="0.005388"/>
+        <testcase name="testImmediateExecution" class="Revolt\EventLoop\Driver\TracingDriverTest" classname="Revolt.EventLoop.Driver.TracingDriverTest" file="/workspace/test/Driver/TracingDriverTest.php" line="979" assertions="1" time="0.000209"/>
+        <testcase name="testImmediatelyCallbacksDoNotRecurseInSameTick" class="Revolt\EventLoop\Driver\TracingDriverTest" classname="Revolt.EventLoop.Driver.TracingDriverTest" file="/workspace/test/Driver/TracingDriverTest.php" line="991" assertions="1" time="0.000162"/>
+        <testcase name="testRunExecutesEventsUntilExplicitlyStopped" class="Revolt\EventLoop\Driver\TracingDriverTest" classname="Revolt.EventLoop.Driver.TracingDriverTest" file="/workspace/test/Driver/TracingDriverTest.php" line="1006" assertions="1" time="0.051389"/>
+        <testcase name="testLoopAllowsExceptionToBubbleUpDuringStart" class="Revolt\EventLoop\Driver\TracingDriverTest" classname="Revolt.EventLoop.Driver.TracingDriverTest" file="/workspace/test/Driver/TracingDriverTest.php" line="1020" assertions="2" time="0.000204"/>
+        <testcase name="testLoopAllowsExceptionToBubbleUpFromRepeatingAlarmDuringStart" class="Revolt\EventLoop\Driver\TracingDriverTest" classname="Revolt.EventLoop.Driver.TracingDriverTest" file="/workspace/test/Driver/TracingDriverTest.php" line="1036" assertions="2" time="0.001170"/>
+        <testcase name="testErrorHandlerCapturesUncaughtException" class="Revolt\EventLoop\Driver\TracingDriverTest" classname="Revolt.EventLoop.Driver.TracingDriverTest" file="/workspace/test/Driver/TracingDriverTest.php" line="1052" assertions="2" time="0.000189"/>
+        <testcase name="testOnErrorFailure" class="Revolt\EventLoop\Driver\TracingDriverTest" classname="Revolt.EventLoop.Driver.TracingDriverTest" file="/workspace/test/Driver/TracingDriverTest.php" line="1070" assertions="2" time="0.005430"/>
+        <testcase name="testLoopException" class="Revolt\EventLoop\Driver\TracingDriverTest" classname="Revolt.EventLoop.Driver.TracingDriverTest" file="/workspace/test/Driver/TracingDriverTest.php" line="1090" assertions="3" time="0.000219"/>
+        <testcase name="testUncaughtThrowableInstanceIsRethrownAsIs" class="Revolt\EventLoop\Driver\TracingDriverTest" classname="Revolt.EventLoop.Driver.TracingDriverTest" file="/workspace/test/Driver/TracingDriverTest.php" line="1114" assertions="1" time="0.000111"/>
+        <testcase name="testUncaughtThrowableInstanceIsRethrownAsIsFromErrorHandler" class="Revolt\EventLoop\Driver\TracingDriverTest" classname="Revolt.EventLoop.Driver.TracingDriverTest" file="/workspace/test/Driver/TracingDriverTest.php" line="1125" assertions="1" time="0.000125"/>
+        <testcase name="testOnSignalCallback" class="Revolt\EventLoop\Driver\TracingDriverTest" classname="Revolt.EventLoop.Driver.TracingDriverTest" file="/workspace/test/Driver/TracingDriverTest.php" line="1137" assertions="1" time="0.001256"/>
+        <testcase name="testInitiallyDisabledOnSignalCallback" class="Revolt\EventLoop\Driver\TracingDriverTest" classname="Revolt.EventLoop.Driver.TracingDriverTest" file="/workspace/test/Driver/TracingDriverTest.php" line="1154" assertions="1" time="0.002515"/>
+        <testcase name="testCancelRemovesCallback" class="Revolt\EventLoop\Driver\TracingDriverTest" classname="Revolt.EventLoop.Driver.TracingDriverTest" file="/workspace/test/Driver/TracingDriverTest.php" line="1180" assertions="1" time="0.005322"/>
+        <testcase name="testOnWritable" class="Revolt\EventLoop\Driver\TracingDriverTest" classname="Revolt.EventLoop.Driver.TracingDriverTest" file="/workspace/test/Driver/TracingDriverTest.php" line="1200" assertions="1" time="0.000218"/>
+        <testcase name="testInitiallyDisabledWrite" class="Revolt\EventLoop\Driver\TracingDriverTest" classname="Revolt.EventLoop.Driver.TracingDriverTest" file="/workspace/test/Driver/TracingDriverTest.php" line="1213" assertions="1" time="0.005390"/>
+        <testcase name="testInitiallyDisabledWriteIsTriggeredOnceEnabled" class="Revolt\EventLoop\Driver\TracingDriverTest" classname="Revolt.EventLoop.Driver.TracingDriverTest" file="/workspace/test/Driver/TracingDriverTest.php" line="1226" assertions="1" time="0.000212"/>
+        <testcase name="testStreamDoesntSwallowExceptions" class="Revolt\EventLoop\Driver\TracingDriverTest" classname="Revolt.EventLoop.Driver.TracingDriverTest" file="/workspace/test/Driver/TracingDriverTest.php" line="1242" assertions="1" time="0.000127"/>
+        <testcase name="testReactorRunsUntilNoCallbacksRemain" class="Revolt\EventLoop\Driver\TracingDriverTest" classname="Revolt.EventLoop.Driver.TracingDriverTest" file="/workspace/test/Driver/TracingDriverTest.php" line="1258" assertions="2" time="0.003423"/>
+        <testcase name="testReactorRunsUntilNoCallbacksRemainWhenStartedDeferred" class="Revolt\EventLoop\Driver\TracingDriverTest" classname="Revolt.EventLoop.Driver.TracingDriverTest" file="/workspace/test/Driver/TracingDriverTest.php" line="1278" assertions="2" time="0.003798"/>
+        <testcase name="testOptionalCallbackDataPassedOnInvocation" class="Revolt\EventLoop\Driver\TracingDriverTest" classname="Revolt.EventLoop.Driver.TracingDriverTest" file="/workspace/test/Driver/TracingDriverTest.php" line="1300" assertions="4" time="0.001380"/>
+        <testcase name="testLoopStopPreventsTimerExecution" class="Revolt\EventLoop\Driver\TracingDriverTest" classname="Revolt.EventLoop.Driver.TracingDriverTest" file="/workspace/test/Driver/TracingDriverTest.php" line="1327" assertions="1" time="0.000224"/>
+        <testcase name="testDeferEnabledInNextTick" class="Revolt\EventLoop\Driver\TracingDriverTest" classname="Revolt.EventLoop.Driver.TracingDriverTest" file="/workspace/test/Driver/TracingDriverTest.php" line="1341" assertions="1" time="0.000341"/>
+        <testcase name="testMicrotaskExecutedImmediatelyAfterCallback" class="Revolt\EventLoop\Driver\TracingDriverTest" classname="Revolt.EventLoop.Driver.TracingDriverTest" file="/workspace/test/Driver/TracingDriverTest.php" line="1365" assertions="1" time="0.000199"/>
+        <testcase name="testMicrotaskExecutionDoesNotKeepReferenceToArgs" class="Revolt\EventLoop\Driver\TracingDriverTest" classname="Revolt.EventLoop.Driver.TracingDriverTest" file="/workspace/test/Driver/TracingDriverTest.php" line="1404" assertions="1" time="0.000111"/>
+        <testcase name="testMicrotaskThrowingStillExecutesNextMicrotask" class="Revolt\EventLoop\Driver\TracingDriverTest" classname="Revolt.EventLoop.Driver.TracingDriverTest" file="/workspace/test/Driver/TracingDriverTest.php" line="1422" assertions="2" time="0.000127"/>
+        <testcase name="testRethrowsFromCallbacks" class="Revolt\EventLoop\Driver\TracingDriverTest" classname="Revolt.EventLoop.Driver.TracingDriverTest" file="/workspace/test/Driver/TracingDriverTest.php" line="1446" assertions="6" time="0.110766"/>
+        <testcase name="testMultipleCallbacksOnSameDescriptor" class="Revolt\EventLoop\Driver\TracingDriverTest" classname="Revolt.EventLoop.Driver.TracingDriverTest" file="/workspace/test/Driver/TracingDriverTest.php" line="1503" assertions="2" time="0.301262"/>
+        <testcase name="testStreamWritableIfConnectFails" class="Revolt\EventLoop\Driver\TracingDriverTest" classname="Revolt.EventLoop.Driver.TracingDriverTest" file="/workspace/test/Driver/TracingDriverTest.php" line="1554" assertions="1" time="0.000557"/>
+        <testcase name="testTimerIntervalCountedWhenNotRunning" class="Revolt\EventLoop\Driver\TracingDriverTest" classname="Revolt.EventLoop.Driver.TracingDriverTest" file="/workspace/test/Driver/TracingDriverTest.php" line="1591" assertions="1" time="1.000524"/>
+        <testcase name="testShortTimerDoesNotBlockOtherTimers" class="Revolt\EventLoop\Driver\TracingDriverTest" classname="Revolt.EventLoop.Driver.TracingDriverTest" file="/workspace/test/Driver/TracingDriverTest.php" line="1602" assertions="1" time="0.004546"/>
+        <testcase name="testTwoShortRepeatTimersWorkAsExpected" class="Revolt\EventLoop\Driver\TracingDriverTest" classname="Revolt.EventLoop.Driver.TracingDriverTest" file="/workspace/test/Driver/TracingDriverTest.php" line="1622" assertions="2" time="0.000234"/>
+        <testcase name="testLargeDelayTimer" class="Revolt\EventLoop\Driver\TracingDriverTest" classname="Revolt.EventLoop.Driver.TracingDriverTest" file="/workspace/test/Driver/TracingDriverTest.php" line="1644" assertions="1" time="0.002464"/>
+        <testcase name="testLargeRepeatTimer" class="Revolt\EventLoop\Driver\TracingDriverTest" classname="Revolt.EventLoop.Driver.TracingDriverTest" file="/workspace/test/Driver/TracingDriverTest.php" line="1661" assertions="1" time="0.002342"/>
+      </testsuite>
+      <testsuite name="Revolt\EventLoop\Driver\UvDriverTest" file="/workspace/test/Driver/UvDriverTest.php" tests="67" assertions="0" errors="0" warnings="0" failures="0" skipped="67" time="0.000000">
+        <testcase name="testHandle" class="Revolt\EventLoop\Driver\UvDriverTest" classname="Revolt.EventLoop.Driver.UvDriverTest" file="/workspace/test/Driver/UvDriverTest.php" line="19" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testSupported" class="Revolt\EventLoop\Driver\UvDriverTest" classname="Revolt.EventLoop.Driver.UvDriverTest" file="/workspace/test/Driver/UvDriverTest.php" line="25" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testCorrectTimeoutIfBlockingBeforeActivate" class="Revolt\EventLoop\Driver\UvDriverTest" classname="Revolt.EventLoop.Driver.UvDriverTest" file="/workspace/test/Driver/UvDriverTest.php" line="46" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testCorrectTimeoutIfBlockingBeforeDelay" class="Revolt\EventLoop\Driver\UvDriverTest" classname="Revolt.EventLoop.Driver.UvDriverTest" file="/workspace/test/Driver/UvDriverTest.php" line="70" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testLoopTerminatesWithOnlyUnreferencedCallbacks" class="Revolt\EventLoop\Driver\UvDriverTest" classname="Revolt.EventLoop.Driver.UvDriverTest" file="/workspace/test/Driver/UvDriverTest.php" line="92" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testCallbackUnrefRerefRunResult" class="Revolt\EventLoop\Driver\UvDriverTest" classname="Revolt.EventLoop.Driver.UvDriverTest" file="/workspace/test/Driver/UvDriverTest.php" line="123" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testDeferCallbackUnrefRunResult" class="Revolt\EventLoop\Driver\UvDriverTest" classname="Revolt.EventLoop.Driver.UvDriverTest" file="/workspace/test/Driver/UvDriverTest.php" line="137" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testDelayCallbackUnrefRunResult" class="Revolt\EventLoop\Driver\UvDriverTest" classname="Revolt.EventLoop.Driver.UvDriverTest" file="/workspace/test/Driver/UvDriverTest.php" line="149" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testRepeatCallbackUnrefRunResult" class="Revolt\EventLoop\Driver\UvDriverTest" classname="Revolt.EventLoop.Driver.UvDriverTest" file="/workspace/test/Driver/UvDriverTest.php" line="162" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testOnReadableCallbackUnrefRunResult" class="Revolt\EventLoop\Driver\UvDriverTest" classname="Revolt.EventLoop.Driver.UvDriverTest" file="/workspace/test/Driver/UvDriverTest.php" line="174" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testOnWritableCallbackKeepAliveRunResult" class="Revolt\EventLoop\Driver\UvDriverTest" classname="Revolt.EventLoop.Driver.UvDriverTest" file="/workspace/test/Driver/UvDriverTest.php" line="186" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testOnSignalCallbackKeepAliveRunResult" class="Revolt\EventLoop\Driver\UvDriverTest" classname="Revolt.EventLoop.Driver.UvDriverTest" file="/workspace/test/Driver/UvDriverTest.php" line="198" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testUnreferencedDeferredCallbackStillExecutes" class="Revolt\EventLoop\Driver\UvDriverTest" classname="Revolt.EventLoop.Driver.UvDriverTest" file="/workspace/test/Driver/UvDriverTest.php" line="220" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testLoopDoesNotBlockOnNegativeTimerExpiration" class="Revolt\EventLoop\Driver\UvDriverTest" classname="Revolt.EventLoop.Driver.UvDriverTest" file="/workspace/test/Driver/UvDriverTest.php" line="235" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testDisabledDeferReenableInSubsequentTick" class="Revolt\EventLoop\Driver\UvDriverTest" classname="Revolt.EventLoop.Driver.UvDriverTest" file="/workspace/test/Driver/UvDriverTest.php" line="248" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="Revolt\EventLoop\Driver\UvDriverTest::testDisableWithConsecutiveCancel" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="Revolt\EventLoop\Driver\UvDriverTest::testCallbackReferenceInfo" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="Revolt\EventLoop\Driver\UvDriverTest::testCallbackRegistrationAndCancellationInfo" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="Revolt\EventLoop\Driver\UvDriverTest::testNoMemoryLeak" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testExecutionOrderGuarantees" class="Revolt\EventLoop\Driver\UvDriverTest" classname="Revolt.EventLoop.Driver.UvDriverTest" file="/workspace/test/Driver/UvDriverTest.php" line="625" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testSignalExecutionOrder" class="Revolt\EventLoop\Driver\UvDriverTest" classname="Revolt.EventLoop.Driver.UvDriverTest" file="/workspace/test/Driver/UvDriverTest.php" line="723" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testExceptionOnEnableNonexistentCallback" class="Revolt\EventLoop\Driver\UvDriverTest" classname="Revolt.EventLoop.Driver.UvDriverTest" file="/workspace/test/Driver/UvDriverTest.php" line="765" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testSuccessOnDisableNonexistentCallback" class="Revolt\EventLoop\Driver\UvDriverTest" classname="Revolt.EventLoop.Driver.UvDriverTest" file="/workspace/test/Driver/UvDriverTest.php" line="777" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testSuccessOnCancelNonexistentCallback" class="Revolt\EventLoop\Driver\UvDriverTest" classname="Revolt.EventLoop.Driver.UvDriverTest" file="/workspace/test/Driver/UvDriverTest.php" line="785" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testExceptionOnReferenceNonexistentCallback" class="Revolt\EventLoop\Driver\UvDriverTest" classname="Revolt.EventLoop.Driver.UvDriverTest" file="/workspace/test/Driver/UvDriverTest.php" line="793" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testSuccessOnUnreferenceNonexistentCallback" class="Revolt\EventLoop\Driver\UvDriverTest" classname="Revolt.EventLoop.Driver.UvDriverTest" file="/workspace/test/Driver/UvDriverTest.php" line="805" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testInvalidityOnDefer" class="Revolt\EventLoop\Driver\UvDriverTest" classname="Revolt.EventLoop.Driver.UvDriverTest" file="/workspace/test/Driver/UvDriverTest.php" line="813" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testInvalidityOnDelay" class="Revolt\EventLoop\Driver\UvDriverTest" classname="Revolt.EventLoop.Driver.UvDriverTest" file="/workspace/test/Driver/UvDriverTest.php" line="828" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testEventsNotExecutedInSameTickAsEnabled" class="Revolt\EventLoop\Driver\UvDriverTest" classname="Revolt.EventLoop.Driver.UvDriverTest" file="/workspace/test/Driver/UvDriverTest.php" line="843" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testEnablingAllowsSubsequentInvocation" class="Revolt\EventLoop\Driver\UvDriverTest" classname="Revolt.EventLoop.Driver.UvDriverTest" file="/workspace/test/Driver/UvDriverTest.php" line="888" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testUnresolvedEventsAreReenabledOnRunFollowingPreviousStop" class="Revolt\EventLoop\Driver\UvDriverTest" classname="Revolt.EventLoop.Driver.UvDriverTest" file="/workspace/test/Driver/UvDriverTest.php" line="904" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testTimerParameterOrder" class="Revolt\EventLoop\Driver\UvDriverTest" classname="Revolt.EventLoop.Driver.UvDriverTest" file="/workspace/test/Driver/UvDriverTest.php" line="924" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testStreamParameterOrder" class="Revolt\EventLoop\Driver\UvDriverTest" classname="Revolt.EventLoop.Driver.UvDriverTest" file="/workspace/test/Driver/UvDriverTest.php" line="950" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testDisablingPreventsSubsequentInvocation" class="Revolt\EventLoop\Driver\UvDriverTest" classname="Revolt.EventLoop.Driver.UvDriverTest" file="/workspace/test/Driver/UvDriverTest.php" line="964" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testImmediateExecution" class="Revolt\EventLoop\Driver\UvDriverTest" classname="Revolt.EventLoop.Driver.UvDriverTest" file="/workspace/test/Driver/UvDriverTest.php" line="979" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testImmediatelyCallbacksDoNotRecurseInSameTick" class="Revolt\EventLoop\Driver\UvDriverTest" classname="Revolt.EventLoop.Driver.UvDriverTest" file="/workspace/test/Driver/UvDriverTest.php" line="991" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testRunExecutesEventsUntilExplicitlyStopped" class="Revolt\EventLoop\Driver\UvDriverTest" classname="Revolt.EventLoop.Driver.UvDriverTest" file="/workspace/test/Driver/UvDriverTest.php" line="1006" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testLoopAllowsExceptionToBubbleUpDuringStart" class="Revolt\EventLoop\Driver\UvDriverTest" classname="Revolt.EventLoop.Driver.UvDriverTest" file="/workspace/test/Driver/UvDriverTest.php" line="1020" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testLoopAllowsExceptionToBubbleUpFromRepeatingAlarmDuringStart" class="Revolt\EventLoop\Driver\UvDriverTest" classname="Revolt.EventLoop.Driver.UvDriverTest" file="/workspace/test/Driver/UvDriverTest.php" line="1036" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testErrorHandlerCapturesUncaughtException" class="Revolt\EventLoop\Driver\UvDriverTest" classname="Revolt.EventLoop.Driver.UvDriverTest" file="/workspace/test/Driver/UvDriverTest.php" line="1052" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testOnErrorFailure" class="Revolt\EventLoop\Driver\UvDriverTest" classname="Revolt.EventLoop.Driver.UvDriverTest" file="/workspace/test/Driver/UvDriverTest.php" line="1070" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testLoopException" class="Revolt\EventLoop\Driver\UvDriverTest" classname="Revolt.EventLoop.Driver.UvDriverTest" file="/workspace/test/Driver/UvDriverTest.php" line="1090" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testUncaughtThrowableInstanceIsRethrownAsIs" class="Revolt\EventLoop\Driver\UvDriverTest" classname="Revolt.EventLoop.Driver.UvDriverTest" file="/workspace/test/Driver/UvDriverTest.php" line="1114" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testUncaughtThrowableInstanceIsRethrownAsIsFromErrorHandler" class="Revolt\EventLoop\Driver\UvDriverTest" classname="Revolt.EventLoop.Driver.UvDriverTest" file="/workspace/test/Driver/UvDriverTest.php" line="1125" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testOnSignalCallback" class="Revolt\EventLoop\Driver\UvDriverTest" classname="Revolt.EventLoop.Driver.UvDriverTest" file="/workspace/test/Driver/UvDriverTest.php" line="1137" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testInitiallyDisabledOnSignalCallback" class="Revolt\EventLoop\Driver\UvDriverTest" classname="Revolt.EventLoop.Driver.UvDriverTest" file="/workspace/test/Driver/UvDriverTest.php" line="1154" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testCancelRemovesCallback" class="Revolt\EventLoop\Driver\UvDriverTest" classname="Revolt.EventLoop.Driver.UvDriverTest" file="/workspace/test/Driver/UvDriverTest.php" line="1180" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testOnWritable" class="Revolt\EventLoop\Driver\UvDriverTest" classname="Revolt.EventLoop.Driver.UvDriverTest" file="/workspace/test/Driver/UvDriverTest.php" line="1200" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testInitiallyDisabledWrite" class="Revolt\EventLoop\Driver\UvDriverTest" classname="Revolt.EventLoop.Driver.UvDriverTest" file="/workspace/test/Driver/UvDriverTest.php" line="1213" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testInitiallyDisabledWriteIsTriggeredOnceEnabled" class="Revolt\EventLoop\Driver\UvDriverTest" classname="Revolt.EventLoop.Driver.UvDriverTest" file="/workspace/test/Driver/UvDriverTest.php" line="1226" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testStreamDoesntSwallowExceptions" class="Revolt\EventLoop\Driver\UvDriverTest" classname="Revolt.EventLoop.Driver.UvDriverTest" file="/workspace/test/Driver/UvDriverTest.php" line="1242" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testReactorRunsUntilNoCallbacksRemain" class="Revolt\EventLoop\Driver\UvDriverTest" classname="Revolt.EventLoop.Driver.UvDriverTest" file="/workspace/test/Driver/UvDriverTest.php" line="1258" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testReactorRunsUntilNoCallbacksRemainWhenStartedDeferred" class="Revolt\EventLoop\Driver\UvDriverTest" classname="Revolt.EventLoop.Driver.UvDriverTest" file="/workspace/test/Driver/UvDriverTest.php" line="1278" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testOptionalCallbackDataPassedOnInvocation" class="Revolt\EventLoop\Driver\UvDriverTest" classname="Revolt.EventLoop.Driver.UvDriverTest" file="/workspace/test/Driver/UvDriverTest.php" line="1300" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testLoopStopPreventsTimerExecution" class="Revolt\EventLoop\Driver\UvDriverTest" classname="Revolt.EventLoop.Driver.UvDriverTest" file="/workspace/test/Driver/UvDriverTest.php" line="1327" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testDeferEnabledInNextTick" class="Revolt\EventLoop\Driver\UvDriverTest" classname="Revolt.EventLoop.Driver.UvDriverTest" file="/workspace/test/Driver/UvDriverTest.php" line="1341" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testMicrotaskExecutedImmediatelyAfterCallback" class="Revolt\EventLoop\Driver\UvDriverTest" classname="Revolt.EventLoop.Driver.UvDriverTest" file="/workspace/test/Driver/UvDriverTest.php" line="1365" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testMicrotaskExecutionDoesNotKeepReferenceToArgs" class="Revolt\EventLoop\Driver\UvDriverTest" classname="Revolt.EventLoop.Driver.UvDriverTest" file="/workspace/test/Driver/UvDriverTest.php" line="1404" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testMicrotaskThrowingStillExecutesNextMicrotask" class="Revolt\EventLoop\Driver\UvDriverTest" classname="Revolt.EventLoop.Driver.UvDriverTest" file="/workspace/test/Driver/UvDriverTest.php" line="1422" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testRethrowsFromCallbacks" class="Revolt\EventLoop\Driver\UvDriverTest" classname="Revolt.EventLoop.Driver.UvDriverTest" file="/workspace/test/Driver/UvDriverTest.php" line="1446" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testMultipleCallbacksOnSameDescriptor" class="Revolt\EventLoop\Driver\UvDriverTest" classname="Revolt.EventLoop.Driver.UvDriverTest" file="/workspace/test/Driver/UvDriverTest.php" line="1503" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testStreamWritableIfConnectFails" class="Revolt\EventLoop\Driver\UvDriverTest" classname="Revolt.EventLoop.Driver.UvDriverTest" file="/workspace/test/Driver/UvDriverTest.php" line="1554" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testTimerIntervalCountedWhenNotRunning" class="Revolt\EventLoop\Driver\UvDriverTest" classname="Revolt.EventLoop.Driver.UvDriverTest" file="/workspace/test/Driver/UvDriverTest.php" line="1591" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testShortTimerDoesNotBlockOtherTimers" class="Revolt\EventLoop\Driver\UvDriverTest" classname="Revolt.EventLoop.Driver.UvDriverTest" file="/workspace/test/Driver/UvDriverTest.php" line="1602" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testTwoShortRepeatTimersWorkAsExpected" class="Revolt\EventLoop\Driver\UvDriverTest" classname="Revolt.EventLoop.Driver.UvDriverTest" file="/workspace/test/Driver/UvDriverTest.php" line="1622" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testLargeDelayTimer" class="Revolt\EventLoop\Driver\UvDriverTest" classname="Revolt.EventLoop.Driver.UvDriverTest" file="/workspace/test/Driver/UvDriverTest.php" line="1644" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+        <testcase name="testLargeRepeatTimer" class="Revolt\EventLoop\Driver\UvDriverTest" classname="Revolt.EventLoop.Driver.UvDriverTest" file="/workspace/test/Driver/UvDriverTest.php" line="1661" assertions="0" time="0.000000">
+          <skipped/>
+        </testcase>
+      </testsuite>
+      <testsuite name="Revolt\EventLoop\EventLoopTest" file="/workspace/test/EventLoopTest.php" tests="24" assertions="85" errors="0" warnings="0" failures="0" skipped="1" time="0.039790">
+        <testcase name="testSuspensionResumptionWithQueueInGarbageCollection" class="Revolt\EventLoop\EventLoopTest" classname="Revolt.EventLoop.EventLoopTest" file="/workspace/test/EventLoopTest.php" line="12" assertions="1" time="0.001063"/>
+        <testcase name="testEventLoopResumptionWithQueueInGarbageCollection" class="Revolt\EventLoop\EventLoopTest" classname="Revolt.EventLoop.EventLoopTest" file="/workspace/test/EventLoopTest.php" line="33" assertions="1" time="0.000125"/>
+        <testcase name="testSuspensionResumptionWithQueueInGarbageCollectionNested" class="Revolt\EventLoop\EventLoopTest" classname="Revolt.EventLoop.EventLoopTest" file="/workspace/test/EventLoopTest.php" line="54" assertions="1" time="0.000111"/>
+        <testcase name="testEventLoopResumptionWithQueueInGarbageCollectionNested" class="Revolt\EventLoop\EventLoopTest" classname="Revolt.EventLoop.EventLoopTest" file="/workspace/test/EventLoopTest.php" line="93" assertions="1" time="0.000103"/>
+        <testcase name="testDelayWithNegativeDelay" class="Revolt\EventLoop\EventLoopTest" classname="Revolt.EventLoop.EventLoopTest" file="/workspace/test/EventLoopTest.php" line="132" assertions="1" time="0.000026"/>
+        <testcase name="testRepeatWithNegativeInterval" class="Revolt\EventLoop\EventLoopTest" classname="Revolt.EventLoop.EventLoopTest" file="/workspace/test/EventLoopTest.php" line="139" assertions="1" time="0.000011"/>
+        <testcase name="testOnReadable" class="Revolt\EventLoop\EventLoopTest" classname="Revolt.EventLoop.EventLoopTest" file="/workspace/test/EventLoopTest.php" line="146" assertions="2" time="0.000066"/>
+        <testcase name="testOnWritable" class="Revolt\EventLoop\EventLoopTest" classname="Revolt.EventLoop.EventLoopTest" file="/workspace/test/EventLoopTest.php" line="171" assertions="2" time="0.000025"/>
+        <testcase name="testGet" class="Revolt\EventLoop\EventLoopTest" classname="Revolt.EventLoop.EventLoopTest" file="/workspace/test/EventLoopTest.php" line="189" assertions="1" time="0.000011"/>
+        <testcase name="testReflection" class="Revolt\EventLoop\EventLoopTest" classname="Revolt.EventLoop.EventLoopTest" file="/workspace/test/EventLoopTest.php" line="194" assertions="14" time="0.000101"/>
+        <testcase name="testRun" class="Revolt\EventLoop\EventLoopTest" classname="Revolt.EventLoop.EventLoopTest" file="/workspace/test/EventLoopTest.php" line="226" assertions="1" time="0.000098"/>
+        <testcase name="testFiberReuse" class="Revolt\EventLoop\EventLoopTest" classname="Revolt.EventLoop.EventLoopTest" file="/workspace/test/EventLoopTest.php" line="238" assertions="3" time="0.000100"/>
+        <testcase name="testRunInFiber" class="Revolt\EventLoop\EventLoopTest" classname="Revolt.EventLoop.EventLoopTest" file="/workspace/test/EventLoopTest.php" line="255" assertions="2" time="0.000046"/>
+        <testcase name="testRunAfterSuspension" class="Revolt\EventLoop\EventLoopTest" classname="Revolt.EventLoop.EventLoopTest" file="/workspace/test/EventLoopTest.php" line="265" assertions="2" time="0.000093"/>
+        <testcase name="testSuspensionAfterRun" class="Revolt\EventLoop\EventLoopTest" classname="Revolt.EventLoop.EventLoopTest" file="/workspace/test/EventLoopTest.php" line="283" assertions="2" time="0.000099"/>
+        <testcase name="testSuspensionWithinFiber" class="Revolt\EventLoop\EventLoopTest" classname="Revolt.EventLoop.EventLoopTest" file="/workspace/test/EventLoopTest.php" line="301" assertions="2" time="0.000108"/>
+        <testcase name="testDoubleResumeWithinFiber" class="Revolt\EventLoop\EventLoopTest" classname="Revolt.EventLoop.EventLoopTest" file="/workspace/test/EventLoopTest.php" line="320" assertions="2" time="0.000036"/>
+        <testcase name="testSuspensionWithinCallback" class="Revolt\EventLoop\EventLoopTest" classname="Revolt.EventLoop.EventLoopTest" file="/workspace/test/EventLoopTest.php" line="335" assertions="1" time="0.000100"/>
+        <testcase name="testSuspensionWithinCallbackGarbageCollection" class="Revolt\EventLoop\EventLoopTest" classname="Revolt.EventLoop.EventLoopTest" file="/workspace/test/EventLoopTest.php" line="350" assertions="38" time="0.036876"/>
+        <testcase name="testSuspensionWithinCallbackGarbageCollectionSuspended" class="Revolt\EventLoop\EventLoopTest" classname="Revolt.EventLoop.EventLoopTest" file="/workspace/test/EventLoopTest.php" line="376" assertions="1" time="0.000156"/>
+        <testcase name="testSuspensionWithinQueue" class="Revolt\EventLoop\EventLoopTest" classname="Revolt.EventLoop.EventLoopTest" file="/workspace/test/EventLoopTest.php" line="395" assertions="1" time="0.000114"/>
+        <testcase name="testSuspensionThrowingErrorViaInterrupt" class="Revolt\EventLoop\EventLoopTest" classname="Revolt.EventLoop.EventLoopTest" file="/workspace/test/EventLoopTest.php" line="410" assertions="2" time="0.000214"/>
+        <testcase name="testSuspensionThrowingErrorViaInterrupt2" class="Revolt\EventLoop\EventLoopTest" classname="Revolt.EventLoop.EventLoopTest" file="/workspace/test/EventLoopTest.php" line="438" assertions="3" time="0.000041"/>
+        <testcase name="testFiberDestroyedWhileSuspended" class="Revolt\EventLoop\EventLoopTest" classname="Revolt.EventLoop.EventLoopTest" file="/workspace/test/EventLoopTest.php" line="467" assertions="0" time="0.000066">
+          <skipped/>
+        </testcase>
+      </testsuite>
+      <testsuite name="Revolt\EventLoop\FiberLocalTest" file="/workspace/test/FiberLocalTest.php" tests="7" assertions="23" errors="0" warnings="0" failures="0" skipped="0" time="0.000197">
+        <testcase name="test" class="Revolt\EventLoop\FiberLocalTest" classname="Revolt.EventLoop.FiberLocalTest" file="/workspace/test/FiberLocalTest.php" line="12" assertions="4" time="0.000038"/>
+        <testcase name="testManualClear" class="Revolt\EventLoop\FiberLocalTest" classname="Revolt.EventLoop.FiberLocalTest" file="/workspace/test/FiberLocalTest.php" line="36" assertions="7" time="0.000053"/>
+        <testcase name="testCallbackFiberClear" class="Revolt\EventLoop\FiberLocalTest" classname="Revolt.EventLoop.FiberLocalTest" file="/workspace/test/FiberLocalTest.php" line="74" assertions="2" time="0.000026"/>
+        <testcase name="testMicrotaskFiberClear" class="Revolt\EventLoop\FiberLocalTest" classname="Revolt.EventLoop.FiberLocalTest" file="/workspace/test/FiberLocalTest.php" line="94" assertions="2" time="0.000014"/>
+        <testcase name="testMicrotaskAfterSuspension" class="Revolt\EventLoop\FiberLocalTest" classname="Revolt.EventLoop.FiberLocalTest" file="/workspace/test/FiberLocalTest.php" line="114" assertions="1" time="0.000031"/>
+        <testcase name="testInitializeWithNull" class="Revolt\EventLoop\FiberLocalTest" classname="Revolt.EventLoop.FiberLocalTest" file="/workspace/test/FiberLocalTest.php" line="133" assertions="3" time="0.000012"/>
+        <testcase name="testInitializeThrow" class="Revolt\EventLoop\FiberLocalTest" classname="Revolt.EventLoop.FiberLocalTest" file="/workspace/test/FiberLocalTest.php" line="146" assertions="4" time="0.000022"/>
+      </testsuite>
+    </testsuite>
+  </testsuite>
+</testsuites>
