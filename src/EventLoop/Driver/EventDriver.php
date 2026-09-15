@@ -38,8 +38,14 @@ final class EventDriver extends AbstractDriver
     {
         parent::__construct();
 
+        $config = new \EventConfig();
+        if (\method_exists($config, 'avoidMethod')) {
+            // epoll on STDIN/TTY fails in some sandboxes (EPERM); poll/select still work.
+            $config->avoidMethod('epoll');
+        }
+
         /** @psalm-suppress TooFewArguments https://github.com/JetBrains/phpstorm-stubs/pull/763 */
-        $this->handle = new \EventBase();
+        $this->handle = new \EventBase($config);
 
         if (self::$activeSignals === null) {
             self::$activeSignals = &$this->signals;

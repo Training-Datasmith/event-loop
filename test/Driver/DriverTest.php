@@ -25,6 +25,9 @@ abstract class DriverTest extends TestCase
 {
     public Driver $loop;
 
+    /** @var array{0: \resource, 1: \resource} */
+    private array $ioStreamPair;
+
     /**
      * The DriverFactory to run this test on.
      *
@@ -36,6 +39,33 @@ abstract class DriverTest extends TestCase
     {
         $this->loop = ($this->getFactory())();
         \gc_collect_cycles();
+    }
+
+    /** @return resource */
+    protected function getReadableStream()
+    {
+        $this->ensureIoStreamPair();
+
+        return $this->ioStreamPair[1];
+    }
+
+    /** @return resource */
+    protected function getWritableStream()
+    {
+        $this->ensureIoStreamPair();
+
+        return $this->ioStreamPair[0];
+    }
+
+    private function ensureIoStreamPair(): void
+    {
+        if (!isset($this->ioStreamPair)) {
+            $this->ioStreamPair = \stream_socket_pair(
+                \DIRECTORY_SEPARATOR === '\\' ? STREAM_PF_INET : STREAM_PF_UNIX,
+                STREAM_SOCK_STREAM,
+                STREAM_IPPROTO_IP
+            );
+        }
     }
 
     public function tearDown(): void
@@ -92,7 +122,7 @@ abstract class DriverTest extends TestCase
     public function testLoopTerminatesWithOnlyUnreferencedCallbacks(): void
     {
         $this->start(function (Driver $loop) use (&$end): void {
-            $loop->unreference($loop->onReadable(STDIN, static function (): void {
+            $loop->unreference($loop->onReadable($this->getReadableStream(), static function (): void {
             }));
             $w = $loop->delay(10, static function (): void {
             });
@@ -175,7 +205,7 @@ abstract class DriverTest extends TestCase
     {
         $invoked = false;
         $this->start(function (Driver $loop) use (&$invoked): void {
-            $callbackId = $loop->onReadable(STDIN, function () use (&$invoked): void {
+            $callbackId = $loop->onReadable($this->getReadableStream(), function () use (&$invoked): void {
                 $invoked = true;
             });
             $loop->unreference($callbackId);
@@ -292,7 +322,7 @@ abstract class DriverTest extends TestCase
         yield 'onWritable' => [
             'onWritable',
             [
-                \STDOUT,
+                $this->getWritableStream(),
                 static function () {
                 },
             ],
@@ -301,7 +331,7 @@ abstract class DriverTest extends TestCase
         yield 'onReadable' => [
             'onReadable',
             [
-                \STDIN,
+                $this->getReadableStream(),
                 static function () {
                 },
             ],
@@ -873,7 +903,7 @@ abstract class DriverTest extends TestCase
                     $callbacks[] = $loop->defer(fn () => $this->fail());
                     $callbacks[] = $loop->delay(0, fn () => $this->fail());
                     $callbacks[] = $loop->repeat(0, fn () => $this->fail());
-                    $callbacks[] = $loop->onWritable(STDIN, fn () => $this->fail());
+                    $callbacks[] = $loop->onWritable($this->getWritableStream(), fn () => $this->fail());
                     return $callbacks;
                 };
                 $callbacks = $f();
