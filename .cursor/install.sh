@@ -20,15 +20,20 @@ ensure_build_deps() {
   ensure_ondrej
   sudo apt-get install -y --no-install-recommends \
     build-essential pkg-config \
-    "php${php_ver}-dev" php-pear \
-    libevent-dev libev-dev libuv-dev libssl-dev
+    "php${php_ver}-dev" "php${php_ver}-sockets" php-pear composer \
+    libevent-dev libev-dev libuv1-dev libssl-dev
 }
 
 enable_extension() {
   local name="$1"
   local ini="/etc/php/${php_ver}/mods-available/${name}.ini"
   if [[ ! -f "${ini}" ]]; then
-    echo "extension=${name}.so" | sudo tee "${ini}" >/dev/null
+    if [[ "${name}" == event ]]; then
+      # event.so must load after sockets (same default priority sorts event before sockets).
+      printf '%s\n' '; priority=30' "extension=${name}.so" | sudo tee "${ini}" >/dev/null
+    else
+      echo "extension=${name}.so" | sudo tee "${ini}" >/dev/null
+    fi
   fi
   sudo phpenmod -v "${php_ver}" "${name}"
 }
@@ -53,7 +58,8 @@ install_extension() {
     return 0
   fi
   # PECL defaults (event OpenSSL/sockets prompts, etc.)
-  yes '' | sudo pecl install -f "${name}"
+  # pecl may close stdin early; SIGPIPE from yes must not fail the script (set -o pipefail).
+  yes '' | sudo pecl install -f "${name}" || [[ "${PIPESTATUS[0]:-0}" -eq 141 ]]
   enable_extension "${name}"
   php -m | grep -q "^${name}$"
 }
